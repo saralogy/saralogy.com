@@ -1,0 +1,132 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => data.status === "published");
+  return projects.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: {
+    slug: string;
+    data: any;
+    render: () => Promise<{ Content: any }>;
+  };
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+---
+
+<Base
+  title={d.seo.title}
+  description={d.seo.description}
+  ogImage={d.seo.ogImage}
+>
+  <header class="border-b border-gray-100">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
+      <div class="flex items-center gap-6 text-sm text-gray-600">
+        <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+        <a href="/career" class="hover:text-gray-900 transition-colors">Career</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
+        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
+        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+          Work with me
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <section class="pt-16 pb-10 border-b border-gray-100">
+      <div class="flex items-center gap-3 mb-4">
+        <span class={`text-xs font-medium px-3 py-1.5 rounded-full ${
+          d.projectStatus === "live" ? "bg-green-100 text-green-700" :
+          d.projectStatus === "beta" ? "bg-amber-100 text-amber-700" :
+          d.projectStatus === "mvp" ? "bg-blue-100 text-blue-700" :
+          d.projectStatus === "concept" ? "bg-purple-100 text-purple-700" :
+          "bg-gray-100 text-gray-700"
+        }`}>
+          {d.projectStatus === "live" ? "Live" :
+           d.projectStatus === "beta" ? "Beta" :
+           d.projectStatus === "mvp" ? "MVP" :
+           d.projectStatus === "concept" ? "Concept" : "Archived"}
+        </span>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">{d.title}</h1>
+      <p class="text-xl text-gray-600 mb-6">{d.tagline}</p>
+
+      <div class="space-y-4">
+        <div>
+          <h2 class="font-semibold text-gray-900 mb-2">Problem</h2>
+          <p class="text-gray-600">{d.problem}</p>
+        </div>
+        <div>
+          <h2 class="font-semibold text-gray-900 mb-2">Audience</h2>
+          <p class="text-gray-600">{d.audience}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 prose prose-sm max-w-none">
+      <Content />
+    </section>
+
+    <section class="py-10 border-t border-gray-100 space-y-4">
+      {d.techStack && d.techStack.length > 0 && (
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">Tech Stack</h3>
+          <div class="flex flex-wrap gap-2">
+            {d.techStack.map((tech: string) => (
+              <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">{tech}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+        {d.liveUrl && (
+          <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors">
+            Visit →
+          </a>
+        )}
+        {d.waitlistUrl && (
+          <a href={d.waitlistUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors">
+            Join waitlist
+          </a>
+        )}
+        {d.githubUrl && (
+          <a href={d.githubUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors">
+            GitHub
+          </a>
+        )}
+      </div>
+    </section>
+
+    <section class="py-8 border-t border-gray-100">
+      <a href="/projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+        ← Back to projects
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100 mt-4">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>
