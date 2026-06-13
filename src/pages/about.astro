@@ -1,0 +1,375 @@
+---
+import Base from "@layouts/Base.astro";
+import "../styles/global.css";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://saralogy.com/#person",
+      "name": "Berk Saraloglu",
+      "givenName": "Berk",
+      "familyName": "Saraloglu",
+      "url": "https://saralogy.com",
+      "image": "https://saralogy.com/og-default.png",
+      "jobTitle": "Senior Marketing Manager & AI Tool Builder",
+      "description": "Turkish-German marketing leader and AI tool builder based in Hamburg. 10+ years leading digital campaigns and product launches for Samsung, BSH Siemens, and VeSync. Building AI-native marketing tools for DACH SMEs. Also an indie songwriter.",
+      "nationality": "Turkish",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hamburg",
+        "addressRegion": "Hamburg",
+        "addressCountry": "DE",
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Istanbul Bilgi University",
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Middle East Technical University",
+        },
+      ],
+      "knowsAbout": [
+        "AI Marketing", "DACH Market", "B2B Marketing", "Digital Marketing",
+        "Brand Strategy", "Product Launch", "Go-to-Market Strategy",
+        "Consumer Electronics Marketing", "AI Tools for SMEs",
+        "TikTok Marketing", "Omnichannel Campaigns", "Songwriting",
+      ],
+      "knowsLanguage": ["English", "Turkish", "German", "French"],
+      "sameAs": [
+        "https://linkedin.com/in/berksaraloglu",
+        "https://github.com/berksaraloglu",
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Marketing Manager",
+        "occupationLocation": { "@type": "Country", "name": "Germany" },
+        "skills": "AI Marketing, Product Launch, B2B Strategy, Digital Campaigns, Brand Communications",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Berk Saraloglu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Berk Saraloglu is a Turkish-German marketing leader and AI tool builder based in Hamburg, Germany. He has 10+ years of experience leading digital marketing campaigns and product launches for global brands including Samsung Electronics, BSH Siemens Home Appliances, and VeSync GmbH. He is also building AI-native marketing tools for DACH SMEs and is an indie songwriter.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What does Berk Saraloglu do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Berk Saraloglu works at the intersection of marketing leadership, AI product development, and creative work. He specialises in go-to-market strategy, multi-channel product launches, and digital campaigns for consumer electronics and lifestyle brands in the DACH market. He is also building AI-native marketing tools for small and medium-sized businesses in Germany and Austria, and writes music as an indie singer-songwriter.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Berk Saraloglu based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Berk Saraloglu is based in Hamburg, Germany. He previously worked in Munich at BSH Siemens Global HQ and in Düsseldorf at VeSync GmbH. Originally from Istanbul, Turkey.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What marketing experience does Berk Saraloglu have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Berk Saraloglu has 10+ years of marketing experience: Senior Brand Communications Manager at BSH Siemens Global in Munich, managing a €2M media budget and generating €1.62M in annual organic media value; Integrated Marketing Manager at VeSync GmbH in Düsseldorf, achieving 117% of a premium airfryer launch target in 53 days across 8 channels; Digital Marketing Specialist at Samsung Electronics Istanbul, winning 3 Kristal Elma Awards. He holds an M.A. in Marketing Communication and a B.Sc. in Industrial Design.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+const career = [
+  {
+    company: "VeSync GmbH",
+    role: "Integrated Marketing Manager, EU & Germany",
+    period: "Nov 2025 – May 2026",
+    location: "Düsseldorf",
+    highlight: "117% of premium launch target in 53 days. €20.5M GMV plan, €2.1M budget across 8 channels.",
+    slug: "vesync",
+  },
+  {
+    company: "BSH Hausgeräte / Siemens Global",
+    role: "Senior Brand Communications Manager",
+    period: "May 2020 – Nov 2024",
+    location: "Munich (transferred from Istanbul)",
+    highlight: "€1.62M annual organic media value. €1.5M production savings. Created Siemens' first global Instagram presence.",
+    slug: "bsh",
+  },
+  {
+    company: "Samsung Electronics",
+    role: "Digital Marketing Specialist",
+    period: "Apr 2016 – May 2020",
+    location: "Istanbul",
+    highlight: "3× Kristal Elma Awards. 100+ campaigns across 4 divisions. YouTube format adopted as EMEA benchmark.",
+    slug: "samsung",
+  },
+  {
+    company: "ORMA Chipwood",
+    role: "B2B Marketing Specialist",
+    period: "Apr 2015 – Apr 2016",
+    location: "Istanbul",
+    highlight: "B2B expansion into architect & designer segment. Full UX/UI redesign of brand website and app.",
+    slug: "orma",
+  },
+];
+---
+
+<Base
+  title="About Berk Saraloglu — Marketing Leader & AI Tool Builder"
+  description="Turkish-German marketing leader in Hamburg. 10+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing tools for DACH SMEs. M.A. Marketing · B.Sc. Industrial Design · 3× Kristal Elma Awards."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </Fragment>
+
+  <!-- Nav -->
+  <header class="border-b border-gray-100">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
+      <div class="flex items-center gap-6 text-sm text-gray-600">
+        <a href="/about" class="text-gray-900 font-medium">About</a>
+        <a href="/career" class="hover:text-gray-900 transition-colors">Career</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
+        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
+        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+          Work with me
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <!-- Hero -->
+    <section class="pt-16 pb-12 border-b border-gray-100">
+      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Hamburg, Germany</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+        Berk Saraloglu
+      </h1>
+      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
+        Marketing leader with 10+ years building campaigns and product launches for
+        Samsung, BSH Siemens, and VeSync. Now building AI-native marketing tools for
+        DACH SMEs — and writing music on the side.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {["Hamburg", "DACH Market", "AI Marketing", "Product Launches", "B2B", "Songwriter"].map((tag) => (
+          <span class="text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- The argument -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">The thesis</h2>
+      <blockquote class="text-xl text-gray-800 leading-relaxed border-l-4 border-gray-900 pl-6">
+        AI-native marketing is the only viable path for DACH SMEs in the next five years —
+        and most of them are years behind. I'm building the proof from two directions
+        simultaneously: from inside, as the marketing leader who has done it at enterprise
+        scale, and from outside, as the product developer building the tools to make it accessible.
+      </blockquote>
+    </section>
+
+    <!-- Career -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Career</h2>
+      <div class="space-y-6">
+        {career.map((t) => (
+          <a href={`/career/${t.slug}`} class="group block p-6 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="font-semibold text-gray-900">{t.company}</span>
+                  <span class="text-xs text-gray-400">{t.location}</span>
+                </div>
+                <div class="text-sm text-gray-500 mb-3">{t.role} · {t.period}</div>
+                <p class="text-sm text-gray-600 leading-relaxed">{t.highlight}</p>
+              </div>
+              <span class="text-gray-400 group-hover:text-gray-900 transition-colors text-xl shrink-0 mt-1">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href="/career" class="inline-block mt-6 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+        Full career detail →
+      </a>
+    </section>
+
+    <!-- Currently building -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Currently building</h2>
+      <p class="text-gray-500 mb-8 text-sm">
+        Both sides of the thesis in parallel — the product and the evidence.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="/projects/vision-intelligence" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">MVP</span>
+          </div>
+          <div class="font-semibold text-gray-900 mb-1">vision-intelligence</div>
+          <div class="text-sm text-gray-500">AI marketing platform built specifically for DACH SMEs. The gap I saw at BSH and VeSync — made into a product.</div>
+        </a>
+        <a href="/projects/resume-matcher" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Live</span>
+          </div>
+          <div class="font-semibold text-gray-900 mb-1">resume-matcher</div>
+          <div class="text-sm text-gray-500">ATS optimisation for job seekers in Germany. Built from personal experience navigating the DACH job market.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Background -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Background</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+
+        <div>
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Education</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="font-medium text-gray-900">M.A. Marketing Communication</div>
+              <div class="text-sm text-gray-500">Istanbul Bilgi University · 2016–2018</div>
+            </div>
+            <div>
+              <div class="font-medium text-gray-900">B.Sc. Industrial Design</div>
+              <div class="text-sm text-gray-500">Middle East Technical University · 2009–2014</div>
+              <div class="text-xs text-gray-400 mt-0.5">Exchange: Politecnico di Torino</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Languages</h3>
+          <div class="space-y-2">
+            {[
+              { lang: "Turkish", level: "Native" },
+              { lang: "English", level: "C1" },
+              { lang: "French", level: "B2" },
+              { lang: "German", level: "A2 — learning" },
+            ].map(({ lang, level }) => (
+              <div class="flex items-center justify-between">
+                <span class="text-gray-900 font-medium">{lang}</span>
+                <span class="text-sm text-gray-500">{level}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Core skills</h3>
+          <div class="flex flex-wrap gap-2">
+            {[
+              "Go-to-Market Strategy", "Product Launch", "P&L Management",
+              "Digital Campaigns", "Brand Communications", "Social Media",
+              "TikTok Strategy", "Omnichannel Marketing", "B2B Marketing",
+              "Cross-functional Leadership", "Agile Marketing", "Jobs-to-Be-Done",
+              "AI Tools", "Market Research", "Content Strategy",
+            ].map((skill) => (
+              <span class="text-sm border border-gray-200 text-gray-700 px-3 py-1 rounded-full">{skill}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Also: music</h2>
+      <p class="text-gray-600 leading-relaxed max-w-2xl mb-4">
+        Outside of work, I write and record music. Singer-songwriter, mostly introspective
+        indie pop. The creative process feeds back into how I think about marketing —
+        there's more overlap between crafting a song and crafting a campaign than most
+        people expect.
+      </p>
+      <a href="/music" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+        Songs and process →
+      </a>
+    </section>
+
+    <!-- FAQ (AEO — visible to humans too) -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Common questions</h2>
+      <div class="space-y-6">
+        {[
+          {
+            q: "Are you available for work?",
+            a: "Yes — I'm actively looking for a Senior Marketing Manager role in Hamburg or the DACH region. See the work page for what I'm looking for and how to reach me.",
+            link: "/work",
+            linkText: "Work with me →",
+          },
+          {
+            q: "What makes your background unusual?",
+            a: "The combination is rare: Industrial Design training from METU and Politecnico di Torino, 10+ years in consumer electronics marketing across Istanbul, Munich, and Düsseldorf, now building AI products on the side while writing music. Most marketers haven't built software. Most software builders haven't run €2M media budgets. I've done both.",
+          },
+          {
+            q: "What is the DACH AI marketing opportunity you keep referencing?",
+            a: "DACH SMEs are significantly behind US and UK counterparts on AI adoption in marketing. The tools that exist are built for English-language, US-centric markets. There's a real gap for AI marketing tooling that understands German-speaking markets, DACH buying behaviour, and local compliance requirements. That's what I'm building.",
+            link: "/ai-marketing-dach",
+            linkText: "Read the full argument →",
+          },
+        ].map(({ q, a, link, linkText }) => (
+          <div class="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+            <h3 class="font-semibold text-gray-900 mb-2">{q}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{a}</p>
+            {link && (
+              <a href={link} class="inline-block mt-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {linkText}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12">
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <h2 class="text-xl font-bold text-gray-900 mb-2">Get in touch</h2>
+        <p class="text-gray-600 mb-6 text-sm">
+          Recruiting for a senior marketing role, building something in the DACH AI space,
+          or want to talk music — I'm reachable on LinkedIn.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/work"
+            class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors"
+          >
+            Hire me
+          </a>
+          <a
+            href="https://linkedin.com/in/berksaraloglu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium text-sm hover:border-gray-900 transition-colors"
+          >
+            LinkedIn →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100 mt-4">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>
