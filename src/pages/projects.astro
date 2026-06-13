@@ -92,6 +92,15 @@ function projectStatusBadge(status: string) {
                   </div>
                 )}
 
+                {entry.slug === "vision-intelligence" && (
+                  <p class="text-xs text-gray-500 mb-4">
+                    Built from gaps observed at{" "}
+                    <a href="/career/bsh" class="underline hover:text-gray-900 transition-colors">BSH</a>
+                    {" "}and{" "}
+                    <a href="/career/vesync" class="underline hover:text-gray-900 transition-colors">VeSync</a>.
+                  </p>
+                )}
+
                 <div class="flex flex-wrap gap-2">
                   {d.liveUrl && (
                     <a
@@ -140,14 +149,17 @@ function projectStatusBadge(status: string) {
       <p class="text-gray-600 leading-relaxed mb-4">
         Every project here solves a real gap Berk encountered at scale. Vision-intelligence came from seeing the exact same content infrastructure problem repeat at BSH and VeSync. Other projects address the gaps between what exists and what builders actually need.
       </p>
-      <p class="text-gray-600 leading-relaxed">
+      <p class="text-gray-600 leading-relaxed mb-4">
         The pattern: work in the product space, observe the structural gap, build the tool, validate it, then decide if it's a business or a service. Some projects stay exploration. Some become the next venture.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        <a href="/career" class="underline hover:text-gray-900 transition-colors">See the pattern across career tenures</a> that led to each project.
       </p>
     </section>
 
     <section class="py-8 border-t border-gray-100">
       <a href="/work" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
-        Interested in collaborating? →
+        See how these tools would help you build →
       </a>
     </section>
 

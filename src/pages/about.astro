@@ -218,6 +218,7 @@ const career = [
                 <p class="text-sm text-gray-600 leading-relaxed mb-3">{t.problem}</p>
                 <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">Result</p>
                 <p class="text-sm text-gray-700 leading-relaxed font-medium">{t.outcome}</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors">Full case study at /career/{t.slug} →</span>
               </div>
               <span class="text-gray-400 group-hover:text-gray-900 transition-colors text-xl shrink-0 mt-1">→</span>
             </div>
@@ -275,6 +276,9 @@ const career = [
           <div class="mt-4 p-3 bg-gray-50 rounded-lg">
             <p class="text-xs text-gray-500 leading-relaxed">Industrial Design trains you to start from user needs, prototype fast, and kill ideas that don't work. That's a rare instinct in marketing, and it's how I approach every campaign and every product I build.</p>
           </div>
+          <a href="/career" class="inline-block mt-3 text-xs font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            See how Industrial Design thinking applies to marketing at /career →
+          </a>
         </div>
 
         <div>
@@ -322,6 +326,9 @@ const career = [
               </div>
             </div>
           </div>
+          <p class="mt-6 text-xs text-gray-500 leading-relaxed">
+            See these skills in action across <a href="/career" class="font-medium text-gray-700 hover:text-gray-900 transition-colors">/career tenures</a>, <a href="/music" class="font-medium text-gray-700 hover:text-gray-900 transition-colors">/music production</a>, and <a href="/projects" class="font-medium text-gray-700 hover:text-gray-900 transition-colors">/projects built</a>.
+          </p>
         </div>
       </div>
     </section>
@@ -357,7 +364,7 @@ const career = [
           },
           {
             q: "What are you actually building?",
-            a: "My main project is vision-intelligence: an AI marketing platform built specifically for DACH SMEs. The gap I kept seeing at BSH and VeSync was that existing AI marketing tools are built for English-language, US-centric markets. DACH businesses need tools that understand German buying behaviour, local compliance, and the specific channels that move product here. I'm also building resume-matcher, an ATS optimisation tool for job seekers navigating the German job market.",
+            a: <>My main project is <a href="/projects" class="font-medium text-gray-800 underline hover:text-gray-900 transition-colors">vision-intelligence</a>: an AI marketing platform built specifically for DACH SMEs. The gap I kept seeing at BSH and VeSync was that existing AI marketing tools are built for English-language, US-centric markets. DACH businesses need tools that understand German buying behaviour, local compliance, and the specific channels that move product here. I'm also building resume-matcher, an ATS optimisation tool for job seekers navigating the German job market.</>,
             link: "/projects",
             linkText: "See all projects →",
           },

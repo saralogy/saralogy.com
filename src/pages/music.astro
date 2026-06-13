@@ -142,6 +142,11 @@ function releaseStatusBadge(status: string) {
                     )}
                   </div>
                 )}
+                {d.writingProcess && (
+                  <p class="text-xs text-gray-400 mt-3">
+                    <a href="/about" class="hover:text-gray-600 transition-colors underline underline-offset-2">Explore the process behind production →</a>
+                  </p>
+                )}
               </div>
             );
           })}
@@ -160,10 +165,12 @@ function releaseStatusBadge(status: string) {
       </p>
       <p class="text-gray-600 leading-relaxed">
         The process feeds back into how I think about marketing. Both require the same skill: understanding what a person actually feels before they can name it, then building something that captures that feeling exactly.
+        This creative process feeds back into how I think about marketing — explore that at <a href="/about" class="text-gray-900 underline underline-offset-2 hover:text-gray-600 transition-colors">/about</a> and <a href="/career/bsh" class="text-gray-900 underline underline-offset-2 hover:text-gray-600 transition-colors">/career/bsh</a> where I discuss the connection.
       </p>
     </section>
 
     <section class="py-8 border-t border-gray-100">
+      <p class="text-sm text-gray-500 mb-4">Want to know the full context? See <a href="/about" class="text-gray-700 underline underline-offset-2 hover:text-gray-900 transition-colors">/about</a> for how music and marketing intersect.</p>
       <a href="/about" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
         Back to about →
       </a>

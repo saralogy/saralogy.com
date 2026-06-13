@@ -56,7 +56,7 @@ tools:
 departureContext: "4.5-year tenure ended with a planned relocation back to Hamburg for family reunification. Left after receiving a promotion and with strong relationships across the global team."
 currentRelevance:
   date: "2026-06"
-  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The production savings weren't about cutting budgets — they came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralised team to fix it. That's part of what vision-intelligence is built to address."
+  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The production savings weren't about cutting budgets — they came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralised team to fix it. That's part of what [vision-intelligence](/projects/vision-intelligence) is built to address."
 projectsFromHere:
   - title: "vision-intelligence"
     url: "/projects/vision-intelligence"
@@ -115,4 +115,6 @@ The 4.5-year tenure ended with a planned relocation back to Hamburg for family r
 
 The production savings at BSH were not about cutting budgets. They came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign. The underlying problem is structural: brilliant brand teams with no shared infrastructure, no unified content framework, and no reliable signal connecting content decisions to purchase outcomes.
 
-That problem is even worse in the SME market, where there is no centralised team to diagnose it and no budget for the kind of multi-year change management programme I ran at Siemens. That gap is what vision-intelligence is built to close.
+That problem is even worse in the SME market, where there is no centralised team to diagnose it and no budget for the kind of multi-year change management programme I ran at Siemens. That gap is what [vision-intelligence](/projects/vision-intelligence) is built to close.
+
+This experience informs the [AI marketing framework I've documented](/ai-marketing-dach) for DACH SMEs.
