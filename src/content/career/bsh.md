@@ -1,6 +1,6 @@
 ---
-company: "BSH Hausgeräte GmbH"
-companyShort: "BSH / Siemens Global"
+company: "Bosch Siemens Home Appliances (BSH Hausgeräte GmbH)"
+companyShort: "BSH Global"
 location: "Munich, Germany (transferred from Istanbul)"
 period:
   start: "2020-05"
@@ -17,9 +17,9 @@ wins:
   - headline: "Significant annual organic media value across 10+ countries"
     metric: "Top result"
     context: "Generated through a purchase-intent content strategy deployed across 10+ countries. The framework was adopted by the Bosch brand."
-  - headline: "Major annual production savings via centralised playbook"
-    metric: "Significant"
-    context: "Centralised global campaign production with a unified content playbook, eliminating duplicated agency costs across markets."
+  - headline: "Led Turkey market launch strategy during scaling phase"
+    metric: "Full ownership"
+    context: "Managed Turkey market transition from Profilo/startup to Siemens Global strategy. Established playbook foundations later scaled to 10+ countries."
   - headline: "Large-scale media budget across paid, earned and owned channels"
     metric: "Full ownership"
     context: "Managed across paid, earned, and owned channels as Senior Brand Comms Manager. Promoted in 2023 for target outperformance."
@@ -63,8 +63,8 @@ projectsFromHere:
     connection: "The gap between marketing intent and execution I saw at BSH — 12 country teams, 12 agency briefs, zero shared infrastructure — is the product gap vision-intelligence is built to close."
 lastReviewed: "2026-06-13"
 seo:
-  title: "BSH Siemens: Senior Brand Manager Global — Berk Saraloglu"
-  description: "4.5 years at BSH Siemens Global in Munich. Built Siemens' first global Instagram, drove organic media value, centralised production across 10+ countries."
+  title: "BSH Global: Senior Brand Manager — Berk Saraloglu"
+  description: "4.5 years at BSH Global in Munich. Built Siemens' first global Instagram, scaled organic media value across 10+ countries."
 status: "published"
 order: 2
 ---

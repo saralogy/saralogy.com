@@ -12,9 +12,9 @@ roleHistory:
   - title: "Retail Marketing & Store Development Senior Specialist"
     period: "Apr 2016 – Apr 2018"
 wins:
-  - headline: "3 Kristal Elma Awards 2019"
-    metric: "3× awarded"
-    context: "Self-initiated Göbeklitepe cultural storytelling campaign. National advertising awards (the Turkish equivalent of Cannes Lions)."
+  - headline: "150 Samsung brand experience stores launched in 2 years"
+    metric: "150 stores"
+    context: "Directed national rollout of Samsung brand stores across Turkey. Managed concept-to-execution strategy with in-store experience design that lifted sales per square meter by 20%."
   - headline: "+10% YoY online sales across 4 product divisions"
     metric: "+10% YoY"
     context: "TV, appliances, monitors, and memory divisions. 100+ campaigns executed over 2 years."
