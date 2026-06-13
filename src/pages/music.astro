@@ -29,6 +29,11 @@ function releaseStatusBadge(status: string) {
   };
   return badges[status] || badges.demo;
 }
+
+function soundcloudEmbed(url?: string) {
+  if (!url) return "";
+  return `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23111827&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`;
+}
 ---
 
 <Base
@@ -83,6 +88,25 @@ function releaseStatusBadge(status: string) {
                 {d.writingProcess && (
                   <div class="text-sm text-gray-600 mb-4 leading-relaxed">
                     <strong>Process:</strong> {d.writingProcess.substring(0, 200)}{d.writingProcess.length > 200 ? "..." : ""}
+                  </div>
+                )}
+
+                {d.soundcloud && (
+                  <iframe
+                    title={`Listen to ${d.title} on SoundCloud`}
+                    class="w-full h-32 rounded-lg border border-gray-200 mb-4"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src={soundcloudEmbed(d.soundcloud)}
+                  ></iframe>
+                )}
+
+                {!d.soundcloud && hasLinks && (
+                  <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      Streaming preview available through the linked release platforms.
+                    </p>
                   </div>
                 )}
 
@@ -167,10 +191,11 @@ function releaseStatusBadge(status: string) {
   </main>
 
   <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu</span>
+    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
       <div class="flex gap-6">
         <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
         <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
         <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
       </div>

@@ -5,6 +5,7 @@ projectStatus: "mvp"
 problem: "DACH SMEs have the data but not the speed or infrastructure to turn it into marketing action. A centralised production model reduces per-piece content time by 60–70%. A purchase-intent strategy generates organic leads within 6–12 months. But most SMEs either don't have a system at all, or operate at <20% efficiency because the data lives in spreadsheets and tooling lives in silos."
 audience: "Marketing leaders and founders at DACH SMEs (5–50 person companies) running organic or mixed-channel strategies"
 howItWorks: "Three interconnected layers: (1) Content production layer — translates jobs-to-be-done research into a structured brief template, feeds it to LLM assistants, returns drafts for review. (2) Purchase-intent content layer — identifies the 10–20 decision-stage questions a buyer asks in the 30–60 days before purchase, builds content answering each at the right depth, measures what drives qualified leads. (3) Intelligence layer — automated weekly performance summaries across channels, anomaly detection (what's working, what isn't), audience segmentation that sharpens over time."
+proofPoint: "MVP covers content production and purchase-intent planning; intelligence layer is in beta with 3 DACH SME pilots ahead of public beta in July 2026."
 techStack:
   - "Claude API (content generation)"
   - "TypeScript (orchestration)"

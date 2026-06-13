@@ -13,7 +13,7 @@ const personSchema = {
       "givenName": "Berk",
       "familyName": "Saraloglu",
       "url": "https://saralogy.com",
-      "image": "https://saralogy.com/og-default.png",
+      "image": "https://avatars.githubusercontent.com/u/158562959?v=4",
       "jobTitle": "Senior Marketing Manager & AI Tool Builder",
       "description": "Turkish-German marketing leader and AI tool builder based in Hamburg. 10+ years leading digital campaigns and product launches for Samsung, Bosch Siemens Home Appliances (BSH), and VeSync. Building AI-native marketing tools for DACH SMEs. Also an indie songwriter.",
       "nationality": "Turkish",
@@ -83,7 +83,7 @@ const personSchema = {
           "name": "What marketing experience does Berk Saraloglu have?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Berk Saraloglu has 10+ years of marketing experience: Senior Brand Communications Manager at Bosch Siemens Home Appliances (BSH) Global in Munich, managing large-scale media budgets and generating significant organic media value across 10+ countries; Integrated Marketing Manager at VeSync GmbH in Düsseldorf, achieving 117% of a premium airfryer launch target in 53 days across 8 channels; Digital Marketing Specialist at Samsung Electronics Istanbul, winning 3 Kristal Elma Awards. He holds an M.A. in Marketing Communication and a B.Sc. in Industrial Design.",
+            "text": "Berk Saraloglu has 10+ years of marketing experience: Senior Brand Communications Manager at Bosch Siemens Home Appliances (BSH) Global in Munich, building organic media value across 10+ countries and scaling CRM leads by 600%; Integrated Marketing Manager at VeSync GmbH in Düsseldorf, achieving 117% of a premium airfryer launch target in 53 days across 8 channels; Digital Marketing Specialist at Samsung Electronics Istanbul, winning 3 Kristal Elma Awards. He holds an M.A. in Marketing Communication and a B.Sc. in Industrial Design.",
           },
         },
         {
@@ -162,30 +162,56 @@ const career = [
 
     <!-- Hero -->
     <section class="pt-16 pb-12 border-b border-gray-100">
-      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Hamburg, Germany</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
-        Berk Saraloglu
-      </h1>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
-        I've built marketing from zero at three companies. Samsung, Bosch Siemens Home Appliances (BSH), VeSync.
-        Now building AI tools for DACH SMEs, and writing music on the side.
-      </p>
-      <div class="flex flex-wrap gap-2">
-        {["Hamburg", "DACH Market", "AI Marketing", "Product Launches", "B2B", "Songwriter"].map((tag) => (
-          <span class="text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
-        ))}
+      <div class="grid grid-cols-1 sm:grid-cols-[1fr_180px] gap-8 items-start">
+        <div>
+          <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Hamburg, Germany</p>
+          <h1 class="display-heading text-6xl text-gray-950 mb-6 leading-none">
+            Berk Saraloglu
+          </h1>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
+            I started in Industrial Design, moved into marketing, and kept the designer's habit:
+            understand the system before changing the surface. That is how I build campaigns,
+            teams, AI workflows, and songs.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {["Hamburg", "DACH Market", "AI Marketing", "Product Launches", "Industrial Design", "Songwriter"].map((tag) => (
+              <span class="text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </div>
+        <img
+          src="https://avatars.githubusercontent.com/u/158562959?v=4"
+          alt="Berk Saraloglu"
+          class="w-40 h-40 sm:w-44 sm:h-44 rounded-2xl object-cover border border-gray-200 shadow-sm"
+          loading="eager"
+        />
       </div>
     </section>
 
-    <!-- The argument -->
+    <!-- The lens -->
     <section class="py-12 border-b border-gray-100">
-      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">The thesis</h2>
-      <blockquote class="text-xl text-gray-800 leading-relaxed border-l-4 border-gray-900 pl-6">
-        AI-native marketing is the only viable path for DACH SMEs in the next five years,
-        and most of them are years behind. I'm building the proof from two directions
-        simultaneously: from inside, as the marketing leader who has done it at enterprise
-        scale, and from outside, as the product developer building the tools to make it accessible.
-      </blockquote>
+      <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">The lens</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          {
+            title: "Industrial Design",
+            body: "METU and Politecnico di Torino trained me to start from human behaviour, prototype quickly, and treat constraints as design material.",
+          },
+          {
+            title: "Marketing Systems",
+            body: "Samsung, BSH, and VeSync taught me that the visible campaign is only the last layer. The operating system underneath decides whether it scales.",
+          },
+          {
+            title: "Music",
+            body: "Songwriting keeps the emotional muscle alive. It is the same work in another form: tension, timing, memory, and the courage to remove what is unnecessary.",
+          },
+        ].map(({ title, body }) => (
+          <div class="border border-gray-200 rounded-xl p-5">
+            <h3 class="font-semibold text-gray-900 mb-2">{title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
     </section>
 
     <!-- Career -->
@@ -321,6 +347,18 @@ const career = [
       </div>
     </section>
 
+    <!-- Direction -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">What I want to build next</h2>
+      <p class="text-gray-600 leading-relaxed max-w-2xl">
+        By 2027 I want to help build a marketing function that is small, fast, and unusually
+        close to the customer. The team should use AI for production speed, but not hide behind
+        generic output. It should know which customer questions create revenue, which channels
+        are actually compounding, and which stories deserve budget. That is the operating model
+        I am looking for: practical, measurable, and still capable of taste.
+      </p>
+    </section>
+
     <!-- Music -->
     <section class="py-12 border-b border-gray-100">
       <h2 class="text-2xl font-bold text-gray-900 mb-4">Also: music</h2>
@@ -382,12 +420,18 @@ const career = [
         <h2 class="text-xl font-bold text-gray-900 mb-2">Get in touch</h2>
         <p class="text-gray-600 mb-6 text-sm">
           Recruiting for a senior marketing role, building something in the DACH AI space,
-          or want to talk music. I'm reachable on LinkedIn.
+          or want to talk music. Email is the fastest route; LinkedIn works too.
         </p>
         <div class="flex flex-wrap gap-3">
           <a
-            href="/work"
+            href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com"
             class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors"
+          >
+            Email Berk
+          </a>
+          <a
+            href="/work"
+            class="border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium text-sm hover:border-gray-900 transition-colors"
           >
             Hire me
           </a>
@@ -406,10 +450,11 @@ const career = [
   </main>
 
   <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu</span>
+    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
       <div class="flex gap-6">
         <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
         <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
         <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
       </div>

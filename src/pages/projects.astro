@@ -70,6 +70,12 @@ function projectStatusBadge(status: string) {
                   <strong>Audience:</strong> {d.audience}
                 </div>
 
+                {d.proofPoint && (
+                  <div class="mb-4 text-sm text-gray-700 leading-relaxed bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <strong>Current proof:</strong> {d.proofPoint}
+                  </div>
+                )}
+
                 {d.techStack && d.techStack.length > 0 && (
                   <div class="flex flex-wrap gap-1.5 mb-4">
                     {d.techStack.map((tech) => (
@@ -90,12 +96,18 @@ function projectStatusBadge(status: string) {
                 )}
 
                 <div class="flex flex-wrap gap-2">
+                  <a
+                    href={`/projects/${entry.slug}`}
+                    class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors"
+                  >
+                    Details →
+                  </a>
                   {d.liveUrl && (
                     <a
                       href={d.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors"
+                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
                     >
                       Visit →
                     </a>
@@ -154,10 +166,11 @@ function projectStatusBadge(status: string) {
   </main>
 
   <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu</span>
+    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
       <div class="flex gap-6">
         <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
         <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
         <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
       </div>

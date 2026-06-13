@@ -9,19 +9,16 @@ role: "Senior Integrated Marketing Communications Manager (EU & Germany)"
 wins:
   - headline: "117% of ICONIC Single air fryer launch sell-out target in 53 days"
     metric: "117% (1,437 units)"
-    context: "978 units sold in first 53 days across Amazon (73%) and DTC (27%). 4.0% conversion rate vs. 2.5% category benchmark. Q1 Google Ads blended ROAS: 7.07x on $337K spend generating $2.38M conversion value."
-  - headline: "€1.62M annual organic media value generated"
-    metric: "€1.62M"
-    context: "Top-5 SERP rankings for 40+ high-intent keywords across 10+ markets. SEO content strategy adopted by Bosch and Gaggenau brands."
-  - headline: "Established proprietary EU IMC operating system mandated across regions"
+    context: "978 units sold in first 53 days across Amazon (73%) and DTC (27%). 4.0% conversion rate vs. 2.5% category benchmark. Q1 Google Ads blended ROAS: 7.07x — well above the 4–5x category threshold for profitable scaling."
+  - headline: "Built EU IMC operating system adopted as regional standard across Spain and France"
     metric: "22-module IPMS"
     context: "Architecture adopted by Spain and France IMC teams as the regional standard. 60 IMC items tracked simultaneously across DE/ES/FR with P0/P1/P2 classification and cross-country governance."
-  - headline: "€3.785M in GMV risk quantified and presented to C-suite"
-    metric: "€3.785M"
-    context: "Budget gap analysis presented by Marketing Director to CFO demonstrating that the €350K difference between proposed (€1.93M) and approved budgets (€1.58M) would reduce GMV from €14.25M to €9.99M at 7.4x ROAS."
+  - headline: "Quantified revenue impact of budget allocation decisions for C-suite alignment"
+    metric: "GMV impact modeled"
+    context: "Built budget gap analysis connecting media investment levels to projected sell-out outcomes, translating marketing spend into GMV projections at documented ROAS rates. Presented by Marketing Director to CFO and OBLT for budget alignment."
   - headline: "Coordinated 15+ stakeholders across DE, CN, ES, FR without direct authority"
     metric: "15+ cross-functional"
-    context: "Established structured launch cadences, shared governance documentation, and channel-level mentoring. Work presented by Marketing Director to CFO and OBLT for budget alignment."
+    context: "Established structured launch cadences, shared governance documentation, and channel-level mentoring across Germany, China HQ, Spain, and France."
 skills:
   - "Go-to-Market Strategy"
   - "Product Launch"
@@ -75,11 +72,11 @@ The strategy was built around the Jobs-to-Be-Done framework. We ran consumer int
 
 Result: 117% of sell-out target. 4.0% conversion against a 2.5% category benchmark. Seven channels active in parallel, each brief anchored to the same Jobs-to-Be-Done foundation.
 
-### The TikTok tower fan launch
+### The mini tower fan launch
 
-The Levoit tower fan required a different approach: a seasonal product most consumers ignore until a heatwave makes it urgent. I built a TikTok-first launch with weather-triggered media, where ads activated automatically when temperature forecasts crossed a threshold in targeted cities.
+The Levoit mini tower fan required a different approach: a seasonal product most consumers ignore until a heatwave makes it urgent. I built a TikTok-first launch with weather-triggered media, where ads activated automatically when temperature forecasts crossed a threshold in targeted cities.
 
-The campaign included a 7-stage consumer journey mapped from TikTok discovery through to in-store conversion, plus a 3-city retail café activation to create physical presence alongside the digital campaign. Tight coordination across in-house, agency, and retail partners with no formal team reporting to me.
+The campaign included a 7-stage consumer journey mapped from discovering the need to post purchase advocacy, plus a 3-city retail café activation to create physical presence alongside the digital campaign. Tight coordination across in-house, agency, and retail partners with no formal team reporting to me.
 
 ### Solving the Germany-China alignment problem
 
@@ -97,4 +94,4 @@ The intent was explicit: make the next launch faster and better than the previou
 
 The skills that drove the VeSync results transfer directly: structuring a launch around customer insight before channel allocation, managing cross-functional teams without authority, and maintaining commercial discipline across multiple simultaneous workstreams.
 
-If you are hiring a Senior Marketing Manager and want to talk through how this translates to your context, LinkedIn is the fastest way to reach me. I respond within 24 hours.
+If you are hiring a Senior Marketing Manager and want to talk through how this translates to your context, [email me directly](mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com). I respond to specific enquiries within 48 hours.

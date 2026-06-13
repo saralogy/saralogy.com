@@ -14,27 +14,24 @@ roleHistory:
   - title: "Senior Digital Marketing Manager, Profilo"
     period: "May 2020 – Jan 2021"
 wins:
-  - headline: "€1.62M in annual organic media value generated"
-    metric: "€1.62M"
+  - headline: "SEO content project that generated an annual organic media value of millions of Euro globally"
+    metric: "€M+"
     context: "Developed and scaled a purchase-intent SEO content strategy targeting mid-funnel buying guides and product comparisons across 6 product categories in 10+ countries. Top-5 SERP rankings for 40+ high-intent keywords. Framework subsequently adopted by Bosch and Gaggenau."
-  - headline: "€1.5M in annual cost savings through centralization"
-    metric: "€1.5M"
+  - headline: "Saved €M+ in annual marketing costs through content centralization"
+    metric: "€5M+"
     context: "Eliminated redundant content production across 3 continents through a unified global content playbook. Regions reinvested savings in performance marketing and media allocation."
-  - headline: "600% expansion of global CRM marketing qualified leads"
+  - headline: "600% expansion of CRM marketing qualified leads in the Netherlands market"
     metric: "6× MQL growth"
     context: "Grew database through strategic user acquisition and personalized demand generation targeting pre-purchase prospects. Multi-pillar framework adopted by Bosch and Gaggenau brands. Delivered +60% newsletter registrations, +30% email engagement, +13% conversions."
   - headline: "80% purchase consideration lift in Kitchen Planning App pilot"
     metric: "+80%"
     context: "Originated and led development of Siemens' first digital product—a Kitchen Planning App built in collaboration with TU Munich software engineers. Addressed consumer journey gap between inspiration and product selection."
-  - headline: "Created Siemens' first global Instagram presence from scratch"
+  - headline: "Created Siemens' first global Instagram account presence from scratch"
     metric: "First global account"
-    context: "Authored global social media governance framework and influencer playbook later adopted across 20+ countries."
-  - headline: "€2M digital budget orchestration across paid, earned, owned channels"
-    metric: "€2M annual"
-    context: "Managed integrated marketing budget across 20+ countries with 85% regional adoption rate for marketing best practices and >80% stakeholder approval rating on strategic plans."
-  - headline: "20% global customer engagement increase"
-    metric: "+20%"
-    context: "Delivered across digital touchpoints spanning 20+ countries through Agile marketing framework with 96% on-time project delivery tracked via Jira."
+    context: "Authored global social media governance framework and influencer playbook."
+  - headline: "Pioneered customer journey driven marketing through Sprint methodology"
+    metric: "First Time in BSH"
+    context: "Delivered customer experience journey focused initiatives across digital touchpoints spanning 20+ countries through Agile marketing framework with 96% on-time project delivery tracked via Jira."
 skills:
   - "Brand Communications"
   - "Global Campaign Management"
@@ -53,10 +50,10 @@ tools:
   - "Meta Ads"
   - "Google Ads"
   - "Sprinklr"
-departureContext: "4.5-year tenure ended with a planned relocation back to Hamburg for family reunification. Left after receiving a promotion and with strong relationships across the global team."
+departureContext: "4.5-year tenure ended with a company-wide restructuring and the position has been removed. Left after receiving a promotion in 2023 with strong relationships across the global team."
 currentRelevance:
   date: "2026-06"
-  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The production savings weren't about cutting budgets — they came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralised team to fix it. That's part of what [vision-intelligence](/projects/vision-intelligence) is built to address."
+  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The production savings weren't about cutting budgets — they came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralized team to fix it. That's part of what [vision-intelligence](/projects/vision-intelligence) is built to address."
 projectsFromHere:
   - title: "vision-intelligence"
     url: "/projects/vision-intelligence"
@@ -64,7 +61,7 @@ projectsFromHere:
 lastReviewed: "2026-06-13"
 seo:
   title: "BSH Global: Senior Brand Manager — Berk Saraloglu"
-  description: "4.5 years at BSH Global in Munich. Built Siemens' first global Instagram, scaled organic media value across 10+ countries."
+  description: "4.5 years at BSH Global in Munich. Built Siemens' first global Instagram account, scaled organic media value across 10+ countries."
 status: "published"
 order: 2
 ---
@@ -75,41 +72,35 @@ order: 2
 
 That was the default state of global brand communications at BSH when I arrived at Siemens Global HQ in Munich. Each country team briefed its own agency, each agency produced its own interpretation, and the global brand paid for the same campaign to be reinvented twelve times. No playbook. No unified measurement. No way to know which content was actually moving purchase intent and which was burning budget on awareness that never converted.
 
-I spent 4.5 years building the infrastructure that was missing.
 
 ## The company
 
-BSH Hausgeräte is the world's second-largest home appliances manufacturer, the group behind Bosch, Siemens, Gaggenau, and Neff. I joined initially as Senior Digital Marketing Manager for Profilo, the Turkish market brand, based in Istanbul. Nine months later, a +400% YoY e-commerce turnaround at Profilo led to a promotion and transfer to Siemens Global brand communications in Munich.
+BSH Hausgeräte is the world's second-largest home appliances manufacturer, the group behind Bosch, Siemens, Gaggenau, and Neff. I joined initially as Senior Digital Marketing Specialist for Profilo, the Turkish market brand, based in Istanbul. Nine months later, a +400% YoY e-commerce turnaround at Profilo led to a promotion and transfer to Siemens Global brand communications in Munich.
 
-Over the following three years I moved through two more roles, eventually owning Siemens' global brand communications across paid, earned, and owned channels: 10+ countries, agency networks across Europe, internal country teams in Munich, Istanbul, and multiple European markets, all without direct line authority over the people who needed to execute.
+Over the following three years I moved through two more roles, eventually owning Siemens' global brand communications across paid, earned, and owned channels: 10+ countries across Europe, Middle East, and China, agency networks across Europe, regional and country teams in their markets, all without direct line authority over the people who needed to execute.
 
 ## What I built
 
 ### Siemens' first global Instagram presence
 
-When I joined the Siemens global team, the brand had no Instagram presence. Not a small one. None. I built the account, the content strategy, the influencer playbook, and the measurement framework from scratch. Then documented the whole approach as a repeatable playbook that country teams could adapt without losing brand coherence.
+When I joined the Siemens global team, the brand had only local Instagram accounts with 80% of it inefficiently operated with almost near zero performance. To educate countries and elevate their local capabilities were an extreme cost over the overall BSH Group; my team & regional stakeholders took the decision to split content creation operations in between global/regional/country level responsibility. I built the global account, the content strategy, the influencer playbook, and the measurement framework from scratch with a well known German social media agency. Then documented the whole approach as a repeatable playbook that country teams could adapt without losing brand coherence.
 
-The playbook was adopted across Siemens markets and later used as a template by the Bosch brand. Getting 10+ country teams to align on a shared format required as much change management as it did creative work. Both mattered equally.
+The playbook was adopted across Siemens markets. Getting 10+ country teams to align on a shared strategy and operational understanding required as much change management as it did creative work. Both mattered equally.
 
 ### A content strategy built around purchase intent
 
-The bigger structural problem was that content was being produced for brand awareness with no clear connection to purchase intent. I redesigned the strategy around a single question: what does someone consume in the 30 days before they buy a home appliance?
+The bigger structural problem was that content was being produced for brand awareness with no clear connection to purchase intent. I redesigned the strategy around the consumers' real pain points and questions: what does someone consume in the 30 days before they buy a home appliance?
 
-The answer was a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries. The result was significant organic media value: content that earned attention rather than paid for it. The Bosch brand adopted the framework.
+The answer was a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries. The result was +€M recurring savings in annual organic media value: content that earned attention rather than paid for it. The Bosch brand adopted the framework.
 
-### A centralised production model
-
-I replaced per-country agency briefs with a single global production model. One brief, one agency producing the core assets, country teams adapting rather than recreating. The result was major production savings and significantly faster time-to-market.
-
-The harder part was the internal sell. Country teams interpreted adaptation as dilution. It took months of structured collaboration to demonstrate that shared infrastructure makes local work stronger, not weaker. That lesson repeated itself everywhere I looked.
 
 ### A product innovation: the Kitchen Planning App
 
-I originated a Kitchen Planning App in collaboration with TU Munich. The insight was that purchase consideration for integrated kitchen appliances dropped sharply at the planning stage because customers could not visualise the finished result. The app solved that. In pilot markets, purchase consideration increased by 80%.
+I ideated and originated a Kitchen Planning App in collaboration with TU Munich. The insight was that purchase consideration for integrated kitchen appliances dropped sharply at the planning stage because customers are either dependent on kitchen resellers or individually handling more than 15 different stages by themselves with no guarantee of making no mistake. The app solved the kitchen planning process for the users by providing inspirational content, product selection assistance, step by step kitchen planning tracker. In pilot markets, purchase consideration increased by 80% in the tested Spanish and Turkish markets over online consumer surveys.
 
 ## Why I left
 
-The 4.5-year tenure ended with a planned relocation back to Hamburg for family reunification. I left after receiving a promotion, with strong relationships across the global team, and with the playbooks and frameworks I had built still in active use. It was a logistics decision, not a performance one.
+The 4.5-year tenure ended with a company-wide restructuring impacting global & regional marketing functions deeply. I had to leave the company 1 year after receiving a promotion, with strong relationships across the global team, and with the playbooks and frameworks I had built still in active use. 
 
 ## The connection to vision-intelligence
 

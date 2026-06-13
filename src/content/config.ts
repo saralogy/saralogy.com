@@ -80,6 +80,7 @@ const projectsCollection = defineCollection({
       problem: z.string(),
       audience: z.string(),
       howItWorks: z.string(),
+      proofPoint: z.string().optional(),
       techStack: z.array(z.string()).optional(),
       githubUrl: z.string().url().optional(),
       liveUrl: z.string().url().optional(),

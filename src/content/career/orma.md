@@ -59,7 +59,7 @@ I started with research: which firms were specifying competing products, what th
 
 From there I built the segment development infrastructure. New product positioning that led with finish quality and aesthetic range rather than industrial specifications. Partner showroom agreements where architects could see and touch the materials in context. Product line extensions designed for the segment rather than adapted from existing contractor SKUs.
 
-The output was a functioning new channel that hadn't existed when I arrived.
+The output was a better functioning channel with credible marketing efforts that grew up the company order quantity year over year.
 
 ### Trade fair execution
 
@@ -71,15 +71,15 @@ Both fairs generated measurable increases in qualified B2B leads. More important
 
 ### Website and app redesign
 
-The digital presence was built for specification engineers. It led with product codes and technical sheets. That was the wrong first impression for an architect browsing for inspiration.
+The digital presence was built as a corporate must-have, ticking the box. It led with low value content, without much offering to the customers. That was the wrong first impression for a customer from other industries or designers browsing for inspiration.
 
-I led a full UX/UI redesign from agency brief through to launch in four months. The constraint was useful: it forced clear prioritisation. The result led with finished application photography showing materials installed in real projects, and a mobile app that let architects browse the range in context rather than through a parts catalogue.
+I led a full UX/UI redesign from agency brief through to launch in four months. The constraint was useful: it forced clear prioritisation. The result led with finished application photography showing materials installed in real projects, and a mobile app that let architects browse the range in context rather than through a parts catalogue. Also an interactive kitchen designing page still in use in 2026.
 
 Managing the project across design, development, marketing, and business stakeholders in four months gave me early experience in what digital transformation actually requires: clear decision rights and a willingness to cut scope rather than delay launch.
 
 ## What this teaches about SME buyers
 
-B2B marketing at ORMA taught me something I've seen confirmed in every role since. SME buyers, whether they are architects, contractors, or business owners, do not respond to feature lists. They respond to confidence.
+B2B marketing at ORMA taught me something I've seen confirmed in every role since. SME buyers, whether they are architects, contractors, or business owners, do not respond to feature lists. They respond to confidence, the customer value and credibility.
 
 Confidence comes from understanding. Before a buyer will change a material specification or a vendor relationship, they need to believe that the alternative fits their world. That belief is built through education and demonstration, not through discounts or sales calls.
 
