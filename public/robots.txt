@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /draft/
 
-Sitemap: https://saralogy.com/sitemap-index.xml
+Sitemap: https://saralogy.com/sitemap.xml

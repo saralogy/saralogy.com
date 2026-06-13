@@ -23,7 +23,7 @@ export default defineConfig({
       applyBaseStyles: true,
     }),
 
-    // sitemap — add back with @astrojs/sitemap@^2 (v3 requires Astro 5)
+    // sitemap generated as static file in public/sitemap.xml
   ],
 
   // ── Image Optimization ───────────────────────────────────────────────────
