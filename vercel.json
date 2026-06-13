@@ -11,11 +11,6 @@
 
   "redirects": [
     {
-      "source": "https://www.saralogy.com/(.*)",
-      "destination": "https://saralogy.com/$1",
-      "permanent": true
-    },
-    {
       "source": "/home",
       "destination": "/",
       "permanent": true
