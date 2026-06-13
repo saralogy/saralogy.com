@@ -14,14 +14,14 @@ roleHistory:
   - title: "Senior Digital Marketing Manager, Profilo"
     period: "May 2020 – Jan 2021"
 wins:
-  - headline: "€1.62M annual organic media value"
-    metric: "€1.62M"
+  - headline: "Significant annual organic media value across 10+ countries"
+    metric: "Top result"
     context: "Generated through a purchase-intent content strategy deployed across 10+ countries. The framework was adopted by the Bosch brand."
-  - headline: "€1.5M annual production savings"
-    metric: "€1.5M"
+  - headline: "Major annual production savings via centralised playbook"
+    metric: "Significant"
     context: "Centralised global campaign production with a unified content playbook, eliminating duplicated agency costs across markets."
-  - headline: "€2M annual media budget owned"
-    metric: "€2M"
+  - headline: "Large-scale media budget across paid, earned and owned channels"
+    metric: "Full ownership"
     context: "Managed across paid, earned, and owned channels as Senior Brand Comms Manager. Promoted in 2023 for target outperformance."
   - headline: "Siemens' first global Instagram presence"
     metric: "First"
@@ -56,7 +56,7 @@ tools:
 departureContext: "4.5-year tenure ended with a planned relocation back to Hamburg for family reunification. Left after receiving a promotion and with strong relationships across the global team."
 currentRelevance:
   date: "2026-06"
-  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The €1.5M production saving wasn't about cutting budgets — it was about removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralised team to fix it. That's part of what vision-intelligence is built to address."
+  body: "The core challenge at BSH was the same one I keep seeing everywhere: brilliant brand teams with no infrastructure for scaling content across markets, and no way to measure what's actually driving purchase intent. The production savings weren't about cutting budgets — they came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign brief. That problem is structural, and it's even worse in the SME market where there's no centralised team to fix it. That's part of what vision-intelligence is built to address."
 projectsFromHere:
   - title: "vision-intelligence"
     url: "/projects/vision-intelligence"
@@ -64,7 +64,7 @@ projectsFromHere:
 lastReviewed: "2026-06-13"
 seo:
   title: "BSH Siemens: Senior Brand Manager Global — Berk Saraloglu"
-  description: "4.5 years at BSH / Siemens Global in Munich. €1.62M organic media value, €1.5M production savings, €2M media budget. Siemens' first global Instagram presence."
+  description: "4.5 years at BSH / Siemens Global in Munich. Significant organic media value across 10+ countries, major production savings via centralised playbook. Created Siemens' first global Instagram presence."
 status: "published"
 order: 2
 ---
@@ -87,13 +87,13 @@ This sounds simple in retrospect. It wasn't. Getting 10+ country teams to align 
 
 The bigger structural problem at BSH was that content was being produced for brand awareness without a clear line to purchase intent. I redesigned the content strategy around the question: what content does someone consume in the 30 days before they buy a home appliance?
 
-The answer involved a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries and generated €1.62M in annual organic media value — content that earned attention rather than paid for it. The Bosch brand adopted the framework.
+The answer involved a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries and generated significant organic media value — content that earned attention rather than paid for it. The Bosch brand adopted the framework.
 
 ### The production cost problem
 
 Running global campaigns through per-country agency briefs is expensive by design. Each country team briefs its own agency, each agency produces its own interpretation, and the global brand ends up with 12 versions of the same campaign at 12× the cost.
 
-I built a centralised production model: one global brief, one agency producing the core assets, country teams adapting rather than recreating. The result was €1.5M in annual production savings and significantly faster time-to-market. The harder part was convincing country teams that adaptation is not the same as dilution.
+I built a centralised production model: one global brief, one agency producing the core assets, country teams adapting rather than recreating. The result was major production savings and significantly faster time-to-market. The harder part was convincing country teams that adaptation is not the same as dilution.
 
 ### The TU Munich app
 
