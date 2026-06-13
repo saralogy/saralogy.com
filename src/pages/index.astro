@@ -38,37 +38,39 @@ const personSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </Fragment>
 
-  <Header />
+  <Header dark={true} />
 
   <main>
     <!-- Hero -->
-    <section class="max-w-4xl mx-auto px-6 pt-24 pb-20">
-      <div class="max-w-2xl">
-        <p class="text-sm font-medium text-brand-600 mb-4 tracking-wide uppercase">Hamburg, Germany</p>
-        <h1 class="display-heading text-6xl sm:text-7xl text-gray-950 mb-6 leading-none">
-          Where Turkish hustle<br />meets German precision<br />and AI changes the math.
-        </h1>
-        <p class="text-xl text-gray-600 leading-relaxed mb-10">
-          I'm Berk: 11+ years of integrated marketing across Samsung, BSH, VeSync, and Beiersdorf. Built €1.62M in annual organic media value. Scaled CRM databases by 600% and e-commerce revenue by 400%. Now building AI-native marketing infrastructure for DACH SMEs through vision-intelligence.
-        </p>
+    <section class="bg-[#546E7A] pt-24 pb-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-2xl">
+          <p class="text-sm font-medium text-white/60 mb-4 tracking-wide uppercase">Hamburg, Germany</p>
+          <h1 class="display-heading text-6xl sm:text-7xl text-white mb-6 leading-none">
+            Where Turkish hustle<br />meets German precision<br />and AI changes the math.
+          </h1>
+          <p class="text-xl text-white/80 leading-relaxed mb-10">
+            I'm Berk: 11+ years of integrated marketing across Samsung, BSH, VeSync, and Beiersdorf. Built €1.62M in annual organic media value. Scaled CRM databases by 600% and e-commerce revenue by 400%. Now building AI-native marketing infrastructure for DACH SMEs through vision-intelligence.
+          </p>
 
-        <!-- Intent Router: 3 audience paths -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <a href="/work" class="group p-5 border-2 border-gray-900 rounded-xl bg-gray-950 text-white shadow-lg hover:-translate-y-0.5 transition">
-            <div class="text-xs font-medium text-gray-300 uppercase tracking-wide mb-2">Hiring?</div>
-            <div class="font-semibold text-white mb-1">Senior Marketing Manager, DACH</div>
-            <div class="text-sm text-gray-300 group-hover:text-white">See what I've shipped and my availability →</div>
-          </a>
-          <a href="/ai-marketing-dach" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Building a DACH startup?</div>
-            <div class="font-semibold text-gray-900 mb-1">AI marketing tools for SMEs</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Tools and thinking for lean growth →</div>
-          </a>
-          <a href="/music" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Here for the music?</div>
-            <div class="font-semibold text-gray-900 mb-1">Indie songwriter</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Songs and the process behind them →</div>
-          </a>
+          <!-- Intent Router: 3 audience paths -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <a href="/work" class="group p-5 border-2 border-white rounded-xl bg-white text-gray-900 shadow-lg hover:-translate-y-0.5 transition">
+              <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Hiring?</div>
+              <div class="font-semibold text-gray-900 mb-1">Senior Marketing Manager, DACH</div>
+              <div class="text-sm text-gray-600 group-hover:text-gray-800">See what I've shipped and my availability →</div>
+            </a>
+            <a href="/ai-marketing-dach" class="group p-5 border border-white/20 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors">
+              <div class="text-xs font-medium text-white/60 uppercase tracking-wide mb-2">Building a DACH startup?</div>
+              <div class="font-semibold text-white mb-1">AI marketing tools for SMEs</div>
+              <div class="text-sm text-white/60 group-hover:text-white/80">Tools and thinking for lean growth →</div>
+            </a>
+            <a href="/music" class="group p-5 border border-white/20 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors">
+              <div class="text-xs font-medium text-white/60 uppercase tracking-wide mb-2">Here for the music?</div>
+              <div class="font-semibold text-white mb-1">Indie songwriter</div>
+              <div class="text-sm text-white/60 group-hover:text-white/80">Songs and the process behind them →</div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
