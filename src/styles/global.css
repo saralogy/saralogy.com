@@ -9,7 +9,9 @@
 
   body {
     font-family: "Inter", system-ui, sans-serif;
-    background: #ffffff;
+    background:
+      radial-gradient(circle at top left, rgba(84, 110, 122, 0.06), transparent 32rem),
+      linear-gradient(180deg, #f8fbfc 0%, #ffffff 18rem);
   }
 
   h1, h2, h3, h4, h5, h6 {
