@@ -21,9 +21,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://saralogy.com/career/vesync</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://saralogy.com/career/bsh</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saralogy.com/career/samsung</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saralogy.com/career/orma</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://saralogy.com/ai-marketing-dach</loc>
