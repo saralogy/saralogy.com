@@ -50,12 +50,23 @@ vision-intelligence is built to solve that same problem at the SME scale where t
 
 **MVP live**: Phase 1 (content production) and Phase 2 (purchase-intent content) fully functional. Phase 3 (intelligence layer) in beta testing with 3 DACH SMEs.
 
-**Next**: Public beta (July 2026). Early access for DACH SMEs building organic strategies.
+**Public beta**: July 2026. Early access for DACH SMEs building organic strategies.
 
-**Hiring**: Not currently hiring. Solo project, managed alongside senior marketing manager search.
+**Solo project**: Built and maintained by Berk Saraloglu alongside an active senior marketing manager search. Not a startup pivot — a proof of the same infrastructure thinking applied at SME scale.
+
+## Apply for a Q3 2026 pilot slot
+
+I am running **2 more pilot engagements** in Q3 2026 alongside the existing three. Pilots are structured 90-day engagements covering all three phases, with weekly check-ins and a documented framework you own at the end.
+
+**Who it is for:**
+- DACH SME (5–100 employees) running an organic or mixed-channel strategy
+- Marketing function owned by a founder or a single generalist
+- Currently producing content manually with no measurement connecting it to revenue
+
+**To apply**, email [berksaraloglu@gmail.com](mailto:berksaraloglu@gmail.com?subject=vision-intelligence%20pilot%20application&body=Company%3A%20%0ATeam%20size%3A%20%0ACurrent%20content%20situation%20(one%20paragraph)%3A%20%0AWhat%20you%20want%20to%20achieve%20in%2090%20days%3A%20) with the subject line "vision-intelligence pilot application" and include: your company, team size, current content situation (one paragraph), and what you want to achieve in 90 days. I respond within 48 hours.
 
 ---
 
-**Built by:** Berk Saraloglu  
-**Inspiration:** 10+ years seeing the same content infrastructure gap at BSH, VeSync, and dozens of DACH SMEs  
-**Why it matters:** Recurring revenue for founder. Repeatability at scale. The only viable way out of project-work dependency.
+**Built by:** Berk Saraloglu · Hamburg, Germany  
+**Inspired by:** 10+ years seeing the same content infrastructure gap at BSH (Siemens global), VeSync (EU), and Samsung  
+**Full background:** [AI Marketing for DACH SMEs](/ai-marketing-dach) — the framework vision-intelligence is built to automate

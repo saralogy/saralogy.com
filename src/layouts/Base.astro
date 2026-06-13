@@ -62,6 +62,11 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
       rel="stylesheet"
     />
 
+    <!-- Plausible: cookieless, GDPR-compliant, no consent required — accurate for DACH visitors -->
+    <!-- ACTION REQUIRED: Sign up at plausible.io and add saralogy.com as a site, then remove the data-domain placeholder -->
+    <script defer data-domain="saralogy.com" src="https://plausible.io/js/script.outbound-links.js" is:inline></script>
+    <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
     <!-- GA4: loaded only after cookie consent -->
     <script is:inline>
       function readConsent() {
@@ -169,6 +174,21 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
 
         // Load GA immediately if already accepted
         if (consent === 'accepted') loadGA();
+
+        // Track contact clicks (fires only when GA is loaded post-consent)
+        document.addEventListener('click', function(e) {
+          var el = e.target.closest('a');
+          if (!el) return;
+          if (!window.gtag) return;
+          var href = el.getAttribute('href') || '';
+          if (href.startsWith('mailto:')) {
+            window.gtag('event', 'contact_initiated', { method: 'email', page: window.location.pathname });
+          } else if (href.includes('linkedin.com')) {
+            window.gtag('event', 'contact_initiated', { method: 'linkedin', page: window.location.pathname });
+          } else if (href.includes('cal.com')) {
+            window.gtag('event', 'contact_initiated', { method: 'calendly', page: window.location.pathname });
+          }
+        });
       })();
     </script>
   </body>

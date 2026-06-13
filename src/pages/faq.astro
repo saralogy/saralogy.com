@@ -1,0 +1,167 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import "../styles/global.css";
+
+const faqs = [
+  {
+    category: "About Berk Saraloglu",
+    items: [
+      {
+        q: "Who is Berk Saraloglu?",
+        a: "Berk Saraloglu is a Senior Marketing Manager based in Hamburg, Germany. He has 11+ years of experience in integrated marketing across consumer electronics, lifestyle, and AI-native marketing. He has worked at Bosch Siemens Home Appliances (BSH) in Munich as Senior Brand Communications Manager for Siemens Global, at VeSync GmbH in Düsseldorf as Integrated Marketing Manager EU, and at Samsung Electronics in Istanbul as Digital Marketing Specialist. He also builds AI marketing tools for DACH SMEs through vision-intelligence and writes music as an indie singer-songwriter.",
+      },
+      {
+        q: "Where is Berk Saraloglu based and what roles is he looking for?",
+        a: "Berk Saraloglu is based in Hamburg, Germany and is actively seeking a Senior Marketing Manager role in Hamburg or the broader DACH region (Germany, Austria, Switzerland). He is available immediately. His target companies are scale-ups to enterprise-level organisations with a team of 5+ in marketing, ideally in consumer electronics, lifestyle, B2B SaaS, or AI/tech. He will not relocate until his wife's nursing certification process in Germany completes at end of 2026.",
+      },
+      {
+        q: "What is Berk Saraloglu's educational background?",
+        a: "Berk Saraloglu holds an M.A. in Marketing Communication from Istanbul Bilgi University and a B.Sc. in Industrial Design from Middle East Technical University (METU) in Ankara, including an exchange semester at Politecnico di Torino in Italy. His Industrial Design background gives him systems thinking and product intuition that most marketing professionals lack — he thinks in user journeys and production workflows, not just campaign outputs.",
+      },
+      {
+        q: "What languages does Berk Saraloglu speak?",
+        a: "Berk Saraloglu speaks English (professional proficiency, primary working language), Turkish (native), German (A2, actively studying toward B1 by end of 2026), and French (intermediate). He has operated in mixed-language environments at BSH Munich and VeSync Düsseldorf, coordinating with German colleagues, agencies, and cross-functional partners in English-led workflows without requiring language accommodation.",
+      },
+    ],
+  },
+  {
+    category: "Career and experience",
+    items: [
+      {
+        q: "What did Berk Saraloglu achieve at Bosch Siemens Home Appliances (BSH)?",
+        a: "At BSH Hausgeräte GmbH (May 2020 – November 2024), Berk Saraloglu served as Senior Brand Communications Manager for Siemens Global in Munich. Key achievements: built Siemens' first global Instagram account from zero, developed a purchase-intent SEO strategy generating €M+ in annual organic media value across 10+ countries, achieved 600% CRM lead growth in the Netherlands, saved millions annually in production costs by centralising a fragmented multi-agency content operation into a unified global playbook adopted by Bosch and Gaggenau, and originated the Siemens Kitchen Planning App (80% purchase consideration lift in pilot markets).",
+      },
+      {
+        q: "What did Berk Saraloglu achieve at VeSync GmbH?",
+        a: "At VeSync GmbH (November 2025 – May 2026), Berk Saraloglu served as Integrated Marketing Manager EU & Germany. Key achievement: delivered 117% of a premium airfryer sell-out target in 53 days across 8 channels simultaneously, with a 4.0% conversion rate versus a 2.5% category benchmark and a 7.07x blended ROAS. He also built a 22-module EU IMC operating system adopted by Spain and France as the regional standard, and coordinated 15+ stakeholders across Germany, China, Spain, and France without direct line authority.",
+      },
+      {
+        q: "What awards did Berk Saraloglu win at Samsung Electronics?",
+        a: "Berk Saraloglu won 3 Kristal Elma Awards in 2019 — Turkey's premier advertising excellence awards. Silver for Creative Engaging Contents, Silver for Best Branded Content, and Bronze for Best Product Placement Content. The winning campaign was the Göbeklitepe UNESCO cultural documentary, shot on a Samsung mobile phone at one of the world's oldest heritage sites. The YouTube product comparison format he developed was adopted as the Samsung EMEA regional benchmark.",
+      },
+    ],
+  },
+  {
+    category: "AI marketing for DACH SMEs",
+    items: [
+      {
+        q: "What is AI-native marketing?",
+        a: "AI-native marketing means building your marketing system around AI from the ground up — not adding AI tools to an existing process. A bolt-on approach uses AI to speed up existing tasks (generating copy faster, auto-scheduling posts). An AI-native approach redesigns the workflow so that AI handles the repetitive, scalable work — first drafts, performance analysis, audience segmentation, distribution scheduling — while the human focuses on strategy, relationships, and creative judgment. The shift frees 60–70% of production time for higher-value work.",
+      },
+      {
+        q: "Why are DACH SMEs behind on AI marketing adoption?",
+        a: "Three structural reasons: First, the dominant AI marketing tools are English-language and US-centric — they do not understand German register (Sie vs du), DACH buying behaviour, or local compliance requirements like GDPR and the UWG. Second, most DACH SMEs do not have a dedicated marketing team; one generalist handles everything, leaving no capacity to evaluate new tools quarterly. Third, the ROI case for AI marketing is usually made with US startup metrics that do not translate to a Mittelstand context.",
+      },
+      {
+        q: "What AI marketing results can a DACH SME realistically achieve?",
+        a: "Based on enterprise-scale implementations: a unified AI content production system reduces production costs by 30–50% while increasing output volume. A purchase-intent content strategy targeting German buyer decision-stage questions generates compounding organic traffic within 90 days and significant organic media value within 6–12 months. The honest caveat: these results come from systematic implementation, not from subscribing to a tool. The tool is 20% of the result; the workflow is 80%.",
+      },
+      {
+        q: "Is AI marketing compliant with GDPR in Germany?",
+        a: "AI marketing is GDPR-compliant when implemented correctly. Key considerations: any AI-driven personalisation using personal data requires explicit user consent; automated decision-making that affects individuals requires disclosure; AI tools should only process the minimum personal data needed for the specific function. Using EU-based AI marketing tools (or tools with EU data processing agreements) reduces compliance overhead significantly. Germany's enforcement environment is stricter than most EU markets — compliance guardrails must be built into the workflow from the start.",
+      },
+      {
+        q: "What is vision-intelligence?",
+        a: "vision-intelligence is an AI marketing platform built specifically for DACH SMEs. It provides: (1) a content production system with German-language brand voice templates that reduces content production time by 60–70%; (2) a purchase-intent content layer that maps and answers the 10–20 questions German buyers ask in the 30–60 days before purchasing; and (3) an intelligence layer that automates weekly performance summaries across channels. Designed for companies with 5–100 employees where the founder or one generalist owns marketing. Currently in beta with DACH SME pilots ahead of a July 2026 public release.",
+      },
+    ],
+  },
+  {
+    category: "Working with Berk",
+    items: [
+      {
+        q: "How do I contact Berk Saraloglu about a marketing role?",
+        a: "Email berksaraloglu@gmail.com with the subject line 'Senior Marketing role via saralogy.com'. Include what you are working on and what the specific gap is. He responds to specific enquiries within 48 hours. You can also book a 20-minute introductory call at cal.com/berksaraloglu/20min or message directly on LinkedIn at linkedin.com/in/berksaraloglu.",
+      },
+      {
+        q: "What consulting services does Berk Saraloglu offer?",
+        a: "Berk Saraloglu offers two consulting engagements: (1) AI marketing transformation — auditing current AI tool usage, identifying the three highest-leverage automations for your specific workflows, and implementing the first one. Relevant for DACH companies that have moved beyond experimenting but have not yet systematised. (2) Product launch strategy — full go-to-market planning for a DACH product launch, from brief and channel mix through sell-out target model and agency briefs. He is currently accepting 2 consulting clients for Q3 2026.",
+      },
+      {
+        q: "Why did Berk Saraloglu leave VeSync and BSH?",
+        a: "VeSync (May 2026): Proactively resigned from a fixed-term contract to relocate back to Hamburg for family reasons. VeSync centralised European operations to Amsterdam. His family base is in Hamburg and his wife's nursing certification is tied to Germany until end of 2026. The role ended on strong terms with 117% of the key launch target delivered. BSH (November 2024): A company-wide restructuring eliminated the global marketing function position 1 year after he received a promotion. He left with strong relationships across the global team and with frameworks and playbooks still in active use.",
+      },
+    ],
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.flatMap(({ items }) =>
+    items.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a },
+    }))
+  ),
+};
+---
+
+<Base
+  title="FAQ — Berk Saraloglu | Senior Marketing Manager Hamburg"
+  description="Frequently asked questions about Berk Saraloglu: his background, career at BSH, VeSync, Samsung, AI marketing for DACH SMEs, and how to work with him."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <section class="pt-16 pb-10 border-b border-gray-100">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Frequently asked questions</h1>
+      <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
+        Common questions about my background, career, AI marketing work, and how to get in touch.
+        Direct answers — no corporate hedging.
+      </p>
+    </section>
+
+    <div class="py-12 space-y-14">
+      {faqs.map(({ category, items }) => (
+        <section>
+          <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-6">{category}</h2>
+          <div class="space-y-6">
+            {items.map(({ q, a }) => (
+              <div class="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                <h3 class="font-semibold text-gray-900 mb-2">{q}</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="py-10 border-t border-gray-100">
+      <p class="text-sm text-gray-500 mb-4">Have a question that is not here? Email directly.</p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="mailto:berksaraloglu@gmail.com?subject=Question%20via%20saralogy.com%2Ffaq"
+          class="bg-gray-900 text-white px-5 py-2 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors"
+        >
+          Email Berk →
+        </a>
+        <a href="/work" class="border border-gray-300 text-gray-700 px-5 py-2 rounded-full font-medium text-sm hover:border-gray-900 transition-colors">
+          See availability →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
+        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>

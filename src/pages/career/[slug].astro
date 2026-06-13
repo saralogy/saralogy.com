@@ -30,6 +30,32 @@ function formatPeriod(start: string, end: string) {
 
 const period = formatPeriod(d.period.start, d.period.end);
 
+// Per-role FAQ pairs for AI citability
+const roleFaqs: Record<string, {q: string; a: string}[]> = {
+  vesync: [
+    { q: "What did Berk Saraloglu achieve at VeSync?", a: "Berk Saraloglu served as Integrated Marketing Manager EU at VeSync GmbH in Düsseldorf from November 2025 to May 2026. He achieved 117% of a premium airfryer sell-out target in 53 days across 8 channels simultaneously, with a 4.0% conversion rate against a 2.5% category benchmark and a 7.07x blended ROAS. He also built a 22-module EU IMC operating system adopted by Spain and France as the regional standard." },
+    { q: "How did the VeSync airfryer launch reach 117% of target in 53 days?", a: "The launch was built around the Jobs-to-Be-Done framework. Consumer interviews identified the real purchase trigger — a specific cooking problem the product solved better than existing workarounds. Those insights shaped the creative brief, keyword strategy, and influencer selection simultaneously. Seven channels ran in parallel, each brief anchored to the same JTBD foundation. The result was 978 units sold at 4.0% conversion against a 2.5% category benchmark." },
+    { q: "What marketing skills did Berk Saraloglu use at VeSync?", a: "At VeSync, Berk Saraloglu applied Jobs-to-Be-Done research methodology, omnichannel campaign management (Amazon, DTC, TikTok, Meta, Google Ads, influencer, retail media), cross-functional leadership without direct authority across Germany and China HQ, and full-funnel IMC governance framework design. He coordinated 15+ stakeholders across Germany, China, Spain, and France simultaneously." },
+  ],
+  bsh: [
+    { q: "What did Berk Saraloglu accomplish at BSH (Bosch Siemens Home Appliances)?", a: "Berk Saraloglu spent 4.5 years at BSH Hausgeräte GmbH as Senior Brand Communications Manager for Siemens Global in Munich. He built Siemens' first global Instagram account, developed a purchase-intent SEO content strategy generating €M+ in annual organic media value across 10+ countries, achieved 600% CRM database growth in the Netherlands, and saved millions annually through content production centralisation across 3 continents." },
+    { q: "What was the Kitchen Planning App that Berk Saraloglu built at BSH?", a: "Berk Saraloglu originated and led development of Siemens' first digital product — a Kitchen Planning App built in collaboration with TU Munich software engineers. The app addressed the consumer journey gap between kitchen inspiration and product selection. In pilot markets (Spain and Turkey), it increased purchase consideration by 80% as measured through online consumer surveys." },
+    { q: "How did Berk Saraloglu scale content across 10+ countries at Siemens?", a: "He redesigned the content strategy around purchase intent rather than brand awareness, deploying comparison guides, how-to videos, and product explainers across 10+ countries. Content was centralised into a unified global playbook, eliminating the pattern of 12 country teams briefing 12 separate agencies on the same campaign. Production costs dropped by roughly 40% while output volume increased. The Bosch and Gaggenau brands subsequently adopted the framework." },
+  ],
+  samsung: [
+    { q: "What awards did Berk Saraloglu win at Samsung Electronics?", a: "Berk Saraloglu won 3 Kristal Elma Awards in 2019 — Turkey's equivalent of the Cannes Lions for advertising excellence. He received Silver for Creative Engaging Contents, Silver for Best Branded Content, and Bronze for Best Product Placement Content. The winning campaign was the Göbeklitepe UNESCO cultural documentary, a 360-degree cinematic production of one of the world's oldest heritage sites shot on a Samsung mobile phone." },
+    { q: "What was the Göbeklitepe campaign and why did it win awards?", a: "The Göbeklitepe campaign was a self-initiated project by Berk Saraloglu at Samsung Turkey in 2019. Rather than executing a standard product demo, he pitched a 360-degree Insta-documentary of Göbeklitepe — one of the oldest UNESCO heritage sites in the world — shot on Samsung's mobile phone. The campaign won three national advertising awards and drove a 13% increase in brand engagement on owned channels. The YouTube product comparison format developed alongside it was adopted as the Samsung EMEA regional benchmark." },
+    { q: "How many stores did Berk Saraloglu launch at Samsung?", a: "Berk Saraloglu directed the national rollout of 150 Samsung brand experience stores across Turkey in two years. The rollout achieved a 40% reduction in project timeline (from 35 to 21 days per store) and a 15–24% reduction in fixture production costs. Post-launch, a systematic redesign of in-store display and merchandising architecture delivered a 20% increase in sales per square meter." },
+  ],
+  orma: [
+    { q: "What did Berk Saraloglu do at ORMA?", a: "Berk Saraloglu worked as B2B Marketing Specialist at ORMA Chipwood in Istanbul from April 2015 to April 2016. He built B2B market expansion into the architect and designer segment from zero and led a full UX/UI redesign of the company's brand website and mobile application." },
+    { q: "What was Berk Saraloglu's first marketing role?", a: "Berk Saraloglu's first professional marketing role was B2B Marketing Specialist at ORMA Chipwood in Istanbul (April 2015 – April 2016). ORMA is a manufacturing company. He developed the company's entry into the architect and designer segment and owned the brand's digital presence redesign." },
+    { q: "How did Berk Saraloglu start in marketing?", a: "Berk Saraloglu started his marketing career at ORMA Chipwood in Istanbul in 2015, transitioning from an Industrial Design background (B.Sc. from Middle East Technical University, exchange at Politecnico di Torino). The ORMA role gave him first-hand experience in B2B demand generation and digital brand building before he moved into consumer electronics at Samsung Electronics in 2016." },
+  ],
+};
+
+const faqItems = roleFaqs[entry.slug] ?? [];
+
 // JSON-LD schema
 const schema = {
   "@context": "https://schema.org",
@@ -52,6 +78,14 @@ const schema = {
       "dateModified": d.lastReviewed,
       "mainEntityOfPage": `https://saralogy.com/career/${entry.slug}`,
     },
+    ...(faqItems.length > 0 ? [{
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a },
+      })),
+    }] : []),
   ],
 };
 ---
@@ -165,6 +199,46 @@ const schema = {
       <p class="text-gray-600 leading-relaxed">{d.departureContext}</p>
     </section>
 
+    <!-- FAQ section (GEO: explicitly extractable Q&A pairs) -->
+    {faqItems.length > 0 && (
+      <section class="py-10 border-b border-gray-100">
+        <h2 class="text-xl font-bold text-gray-900 mb-6">Quick answers</h2>
+        <div class="space-y-5">
+          {faqItems.map(({ q, a }) => (
+            <div class="border-b border-gray-100 pb-5 last:border-0 last:pb-0">
+              <h3 class="font-semibold text-gray-900 mb-2 text-sm">{q}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- CTA at peak persuasion — after the full case study read -->
+    <section class="py-10 border-b border-gray-100">
+      <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+        <h2 class="text-lg font-bold text-gray-900 mb-2">If this matches what you are looking for</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-5">
+          I am currently available for a Senior Marketing Manager role in Hamburg or DACH, and for selective consulting engagements in AI marketing transformation and product launch strategy.
+          Email me with what you are working on. I respond within 48 hours.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com"
+            class="bg-gray-900 text-white px-5 py-2 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors"
+          >
+            Email Berk →
+          </a>
+          <a
+            href="/work"
+            class="border border-gray-300 text-gray-700 px-5 py-2 rounded-full font-medium text-sm hover:border-gray-900 transition-colors"
+          >
+            See full availability →
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Navigation -->
     <section class="py-10">
       <div class="flex items-center justify-between">
@@ -184,6 +258,7 @@ const schema = {
       <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
       <div class="flex gap-6">
         <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
         <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
         <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
         <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>

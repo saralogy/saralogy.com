@@ -27,6 +27,31 @@ import "../styles/global.css";
       </p>
     </section>
 
+    <!-- Quick contact — above fold, before the deep read -->
+    <section class="py-8 border-b border-gray-100">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p class="text-sm text-gray-500 max-w-xl">
+          If the role and timing fit, the fastest path is a direct email. I respond to specific enquiries within 48 hours.
+        </p>
+        <div class="flex flex-wrap gap-3 shrink-0">
+          <a
+            href="mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com"
+            class="bg-gray-900 text-white px-5 py-2 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors"
+          >
+            Email Berk →
+          </a>
+          <a
+            href="https://linkedin.com/in/berksaraloglu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-gray-300 text-gray-700 px-5 py-2 rounded-full font-medium text-sm hover:border-gray-900 transition-colors"
+          >
+            LinkedIn →
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- What I'm looking for -->
     <section class="py-12 border-b border-gray-100">
       <h2 class="text-2xl font-bold text-gray-900 mb-8">What I'm looking for</h2>
@@ -72,7 +97,7 @@ import "../styles/global.css";
           },
           {
             title: "I use AI as infrastructure, not a content shortcut",
-            desc: "I'm building vision-intelligence, an AI marketing platform for DACH SMEs. That means I understand the real implementation gap: most teams can generate content with AI but can't integrate it into their measurement stack or approval workflows. I close that gap. I can audit your current AI usage, identify three high-leverage automations, and have the first one running within the first month.",
+            desc: "I'm building vision-intelligence, an AI marketing platform for DACH SMEs, as a solo project alongside this job search. It is the reason I can show you AI marketing integration from the implementation side, not just the strategic side — it will not compete with a senior marketing role; it makes me significantly better at one. I can audit your current AI usage, identify three high-leverage automations, and have the first one running within the first month.",
           },
         ].map(({ title, desc }) => (
           <div class="border border-gray-200 rounded-xl p-5">
@@ -103,6 +128,10 @@ import "../styles/global.css";
             q: "How long will you stay?",
             a: "I target 3 to 5 years in the right environment. My last two exits were structural, not motivational. I stay when I have scope, trust, and a team worth building with. I leave when the governance breaks down and I can see it will not recover.",
           },
+          {
+            q: "What about your German?",
+            a: "Honest answer: A2 level, actively improving. I am in structured study targeting B1 by end of 2026. At BSH Munich and VeSync Düsseldorf I operated in mixed-language environments — English-led coordination with German colleagues, agencies, and cross-functional partners — and delivered results without requiring the team to work around a language gap. If your role has a mandatory German requirement, I will tell you upfront whether the timeline works. If it does not, I will not apply. I do not waste your time or mine.",
+          },
         ].map(({ q, a }) => (
           <div class="border border-gray-200 rounded-xl p-5">
             <h3 class="font-semibold text-gray-900 mb-2">{q}</h3>
@@ -131,6 +160,23 @@ import "../styles/global.css";
       </div>
     </section>
 
+    <!-- Social proof -->
+    <section class="py-12 border-b border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">What colleagues say</h2>
+      {/* ACTION REQUIRED: Replace the placeholder below with a real LinkedIn recommendation.
+          Request one from your BSH manager or Samsung team lead — takes 72 hours to get,
+          has indefinite shelf life. Email them: "Could you write a brief LinkedIn recommendation
+          that I can also feature on my personal site?" */}
+      <div class="border border-gray-200 rounded-xl p-6">
+        <blockquote class="text-gray-600 leading-relaxed mb-4 italic">
+          "Recommendation pending — if you worked with me at BSH, VeSync, or Samsung and would like
+          to share a few lines, I would be grateful.
+          <a href="mailto:berksaraloglu@gmail.com?subject=LinkedIn%20recommendation" class="text-gray-900 underline underline-offset-2 hover:no-underline">Email me</a>."
+        </blockquote>
+        <div class="text-sm text-gray-400">— Placeholder · awaiting recommendation from a former colleague</div>
+      </div>
+    </section>
+
     <!-- Get in touch -->
     <section class="py-12">
       <div class="bg-gray-900 rounded-2xl p-8 text-white">
@@ -138,7 +184,7 @@ import "../styles/global.css";
         <p class="text-gray-400 mb-6 text-sm leading-relaxed">
           If you are building a marketing function in DACH, launching a product in the German market, or running a team that needs to integrate AI into its actual workflows, I can help. Email me with what you are working on and what the gap is. I respond to specific enquiries within 48 hours.
         </p>
-        <p class="text-gray-400 mb-4 text-sm">Direct email: <a href="mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com" class="text-white underline underline-offset-2 hover:text-gray-200 transition-colors">berksaraloglu@gmail.com</a>. Or explore my full marketing background at <a href="/career" class="text-white underline underline-offset-2 hover:text-gray-200 transition-colors">/career</a> to see the pattern across roles.</p>
+        <p class="text-gray-400 mb-4 text-sm">Direct email: <a href="mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com" class="text-white underline underline-offset-2 hover:text-gray-200 transition-colors">berksaraloglu@gmail.com</a>. Prefer a call? Book a 20-minute slot below. Or explore my full marketing background at <a href="/career" class="text-white underline underline-offset-2 hover:text-gray-200 transition-colors">/career</a> to see the pattern across roles.</p>
         <div class="flex flex-wrap gap-3">
           <a
             href="mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com"
@@ -147,12 +193,27 @@ import "../styles/global.css";
             Email Berk →
           </a>
           <a
+            href="https://cal.com/berksaraloglu/20min"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white text-gray-900 px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"
+          >
+            Book 20 min →
+          </a>
+          <a
             href="https://linkedin.com/in/berksaraloglu"
             target="_blank"
             rel="noopener noreferrer"
             class="border border-gray-700 text-gray-300 px-6 py-2.5 rounded-full font-medium text-sm hover:border-gray-400 transition-colors"
           >
             Message on LinkedIn →
+          </a>
+          <a
+            href="/files/berk-saraloglu-cv.pdf"
+            download
+            class="border border-gray-700 text-gray-300 px-6 py-2.5 rounded-full font-medium text-sm hover:border-gray-400 transition-colors"
+          >
+            Download CV (PDF, June 2026) ↓
           </a>
           <a
             href="/about"
@@ -171,6 +232,7 @@ import "../styles/global.css";
       <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
       <div class="flex gap-6">
         <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
         <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
         <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
         <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
