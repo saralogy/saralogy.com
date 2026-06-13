@@ -64,7 +64,7 @@ projectsFromHere:
 lastReviewed: "2026-06-13"
 seo:
   title: "BSH Siemens: Senior Brand Manager Global — Berk Saraloglu"
-  description: "4.5 years at BSH / Siemens Global in Munich. Significant organic media value across 10+ countries, major production savings via centralised playbook. Created Siemens' first global Instagram presence."
+  description: "4.5 years at BSH Siemens Global in Munich. Built Siemens' first global Instagram, drove organic media value, centralised production across 10+ countries."
 status: "published"
 order: 2
 ---
