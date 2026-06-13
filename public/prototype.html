@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<!--
+  saralogy.com — Cinematic Homepage Prototype
+  Built with Epic Design skill
+
+  TECHNIQUES APPLIED:
+  1. Masked line reveal — headline lines rise from overflow:hidden clip
+  2. Stagger fade-up — location label, body, cards cascade in
+  3. Mouse parallax — gradient background shifts subtly with cursor (desktop only)
+  4. CSS sparkle float — depth-5 accent dots
+  5. SVG noise grain — Braun tactile feel overlay
+  6. Radial gradient depth stack — 6 layers of atmospheric depth
+  7. Scroll fade — hero bleeds into white via bottom gradient fade
+  8. Card hover lift — translateY(-4px) on intent cards
+  9. Glass morphism — backdrop-filter on non-hiring cards
+  10. Reduced-motion support — all animations skipped
+
+  COLOR PALETTE (from user Image #2):
+  Light cool blue-gray:  #B4C4CB  (top/bottom band)
+  Medium steel blue:     #96A8B0  (bottom band)
+  Dark charcoal:         #3D3D3D  (second band)
+  Near-black charcoal:   #2A2A2A  (third row centre)
+  Near-pure black:       #0D0D0D  (third row right)
+  Warm taupe:            #C4B5A5  (third row left)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berk Saraloglu — Prototype</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      color: #0D0D0D;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── REDUCED MOTION ─────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .line-inner { transform: none !important; }
+      [data-animate] { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* ─── DEPTH LAYERS ───────────────────────────────────────── */
+    .layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ─── HERO SCENE ─────────────────────────────────────────── */
+    .scene-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* DEPTH 0 — Radial gradient background */
+    .d0-bg {
+      z-index: 0;
+      background:
+        radial-gradient(
+          ellipse 150% 110% at 28% 52%,
+          #D8E5E9 0%,
+          #CCDADF 15%,
+          #BDD0D6 30%,
+          #AABFC7 48%,
+          #96AEBA 66%,
+          #839AAA 80%,
+          #708398 100%
+        );
+      will-change: transform;
+    }
+
+    /* DEPTH 1 — Atmospheric highlight (top-left luminosity bloom) */
+    .d1-atmo {
+      z-index: 1;
+      background:
+        radial-gradient(
+          ellipse 55% 45% at 14% 28%,
+          rgba(255,255,255,0.30) 0%,
+          rgba(255,255,255,0.10) 45%,
+          transparent 100%
+        ),
+        radial-gradient(
+          circle 300px at 88% 82%,
+          rgba(0,0,0,0.07) 0%,
+          transparent 70%
+        );
+    }
+
+    /* DEPTH 2 — Editorial grid lines */
+    .d2-grid {
+      z-index: 2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 80%, transparent 100%);
+    }
+
+    /* DEPTH 3 — SVG noise grain (Braun tactile surface) */
+    .d3-noise {
+      z-index: 3;
+      opacity: 0.045;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    /* DEPTH 5 — Sparkle dots */
+    .d5-sparkle {
+      z-index: 5;
+    }
+
+    .spark {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.75);
+      animation: spark-drift 7s ease-in-out infinite;
+    }
+    .spark:nth-child(1) { width: 3px; height: 3px; top: 26%; left: 74%; animation-delay: 0s; }
+    .spark:nth-child(2) { width: 2px; height: 2px; top: 54%; left: 82%; animation-delay: -2.5s; }
+    .spark:nth-child(3) { width: 4px; height: 4px; top: 18%; left: 63%; animation-delay: -5s; }
+    .spark:nth-child(4) { width: 2px; height: 2px; top: 40%; left: 90%; animation-delay: -1.2s; }
+
+    @keyframes spark-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+      33%       { transform: translate(6px, -10px) scale(1.5); opacity: 0.85; }
+      66%       { transform: translate(-5px, -4px) scale(0.7); opacity: 0.45; }
+    }
+
+    /* ─── SCROLL BLEED — hero → white ───────────────────────── */
+    .scene-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.12));
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    /* ─── NAVIGATION ──────────────────────────────────────────── */
+    .nav {
+      position: relative;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 28px 48px;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: white;
+      text-decoration: none;
+      opacity: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.60);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,0.95); }
+
+    .nav-cta {
+      font-size: 11px !important;
+      letter-spacing: 0.04em !important;
+      color: #0D0D0D !important;
+      background: white;
+      padding: 9px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .nav-cta:hover { background: rgba(255,255,255,0.85) !important; }
+
+    /* ─── HERO CONTENT ────────────────────────────────────────── */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 52px 48px 88px;
+    }
+
+    .hero-inner { max-width: 740px; }
+
+    /* Location label */
+    .hero-location {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+      margin-bottom: 28px;
+      opacity: 0;
+    }
+
+    /* Headline — masked line reveal */
+    .hero-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(42px, 5.8vw, 74px);
+      line-height: 1.06;
+      color: white;
+      margin-bottom: 32px;
+    }
+
+    .line-wrap {
+      display: block;
+      overflow: hidden;
+    }
+
+    .line-inner {
+      display: block;
+      transform: translateY(108%);
+      will-change: transform;
+    }
+
+    /* Body text */
+    .hero-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.70;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin-bottom: 52px;
+      opacity: 0;
+    }
+
+    /* ─── INTENT CARDS ────────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 600px;
+    }
+
+    .card {
+      padding: 18px 18px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      display: block;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s;
+      will-change: transform, opacity;
+    }
+
+    .card:hover { transform: translateY(-4px) !important; }
+
+    .card-white {
+      background: #ffffff;
+      border: 2px solid rgba(255,255,255,0.95);
+      color: #0D0D0D;
+    }
+
+    .card-glass {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.17);
+      color: white;
+      backdrop-filter: blur(10px) saturate(1.2);
+      -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    }
+    .card-glass:hover { background: rgba(255,255,255,0.15) !important; }
+
+    .card-tag {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .card-white .card-tag  { color: #9CA3AF; }
+    .card-glass .card-tag  { color: rgba(255,255,255,0.45); }
+
+    .card-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .card-white .card-name { color: #111827; }
+    .card-glass .card-name { color: white; }
+
+    .card-desc {
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .card-white .card-desc { color: #9CA3AF; }
+    .card-glass .card-desc { color: rgba(255,255,255,0.44); }
+
+    /* ─── BELOW-FOLD (white) ──────────────────────────────────── */
+    .section-white {
+      background: #ffffff;
+      padding: 80px 48px;
+    }
+    .section-max {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 16px;
+    }
+    .section-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 16px;
+    }
+    .section-body {
+      font-size: 17px;
+      line-height: 1.70;
+      color: #4B5563;
+      max-width: 580px;
+    }
+    .section-link {
+      color: #546E7A;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .section-link:hover { text-decoration: underline; }
+
+    /* Career rows */
+    .career-grid { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
+    .career-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border: 1px solid #E5E7EB;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .career-row:hover { border-color: #111827; }
+    .career-co { font-weight: 600; font-size: 15px; color: #111827; margin-bottom: 3px; }
+    .career-meta { font-size: 12px; color: #9CA3AF; margin-bottom: 4px; }
+    .career-hl { font-size: 13px; color: #4B5563; }
+    .career-arrow { font-size: 20px; color: #D1D5DB; transition: color 0.2s; }
+    .career-row:hover .career-arrow { color: #111827; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .nav { padding: 20px 24px; }
+      .hero-content { padding: 32px 24px 64px; }
+      .card-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .section-white { padding: 56px 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     HERO SCENE
+     ════════════════════════════════════════════════════════════ -->
+<section class="scene-hero" id="hero">
+
+  <!-- D0: Gradient bg — mouse parallax target -->
+  <div class="layer d0-bg" data-depth="0" aria-hidden="true" id="grad-bg"></div>
+
+  <!-- D1: Atmospheric glow bloom -->
+  <div class="layer d1-atmo" data-depth="1" aria-hidden="true"></div>
+
+  <!-- D2: Editorial grid -->
+  <div class="layer d2-grid" data-depth="2" aria-hidden="true"></div>
+
+  <!-- D3: Noise grain (Braun tactile) -->
+  <div class="layer d3-noise" data-depth="3" aria-hidden="true"></div>
+
+  <!-- D5: Sparkles -->
+  <div class="layer d5-sparkle" data-depth="5" aria-hidden="true">
+    <div class="spark"></div>
+    <div class="spark"></div>
+    <div class="spark"></div>
+    <div class="spark"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" id="nav-logo">saralogy.com</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/about">About</a></li>
+      <li><a href="/career">Career</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/work" class="nav-cta">Work with me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <div class="hero-inner">
+
+      <span class="hero-location" id="hero-loc">Hamburg, Germany</span>
+
+      <h1 class="hero-headline" id="hero-h1">
+        <span class="line-wrap"><span class="line-inner">Where Turkish hustle</span></span>
+        <span class="line-wrap"><span class="line-inner">meets German precision</span></span>
+        <span class="line-wrap"><span class="line-inner">and AI changes the math.</span></span>
+      </h1>
+
+      <p class="hero-body" id="hero-body">
+        11+ years of integrated marketing across Samsung, BSH, and VeSync.
+        Organic media at €M+ scale. 117% launch target in 53 days.
+        600% CRM growth. Now building AI-native marketing for DACH SMEs.
+      </p>
+
+      <!-- Intent Router -->
+      <div class="card-grid">
+
+        <a href="/work" class="card card-white" id="c1">
+          <span class="card-tag">Hiring?</span>
+          <div class="card-name">Senior Marketing Manager, DACH</div>
+          <div class="card-desc">See what I've shipped and my availability →</div>
+        </a>
+
+        <a href="/ai-marketing-dach" class="card card-glass" id="c2">
+          <span class="card-tag">Building a DACH startup?</span>
+          <div class="card-name">AI marketing tools for SMEs</div>
+          <div class="card-desc">Tools and thinking for lean growth →</div>
+        </a>
+
+        <a href="/music" class="card card-glass" id="c3">
+          <span class="card-tag">Here for the music?</span>
+          <div class="card-name">Indie songwriter</div>
+          <div class="card-desc">Songs and the process behind them →</div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     BELOW FOLD — White sections (unchanged in tone)
+     ════════════════════════════════════════════════════════════ -->
+
+<section class="section-white">
+  <div class="section-max">
+    <div class="section-label">The thesis</div>
+    <p class="section-body">
+      AI-native marketing is the only viable path for DACH SMEs in the next five years,
+      and most of them are years behind.
+      <a href="/ai-marketing-dach" class="section-link">Read the full analysis →</a>
+      I'm building the proof from two directions simultaneously: from inside, as the
+      marketing leader who has done it at enterprise scale, and from outside, as the
+      product developer building the tools to make it accessible.
+    </p>
+
+    <div class="career-grid">
+      <a href="/career/vesync" class="career-row">
+        <div>
+          <div class="career-co">VeSync GmbH</div>
+          <div class="career-meta">Integrated Marketing Manager EU · 2025–2026</div>
+          <div class="career-hl">117% of sell-out target in 53 days across EU markets</div>
+        </div>
+        <div class="career-arrow">→</div>
+      </a>
+      <a href="/career/bsh" class="career-row">
+        <div>
+          <div class="career-co">BSH / Siemens Global</div>
+          <div class="career-meta">Senior Brand Communications Manager · 2020–2024</div>
+          <div class="career-hl">Siemens' first global Instagram + €M+ annual organic media value</div>
+        </div>
+        <div class="career-arrow">→</div>
+      </a>
+      <a href="/career/samsung" class="career-row">
+        <div>
+          <div class="career-co">Samsung Electronics</div>
+          <div class="career-meta">Digital Marketing Specialist · 2016–2020</div>
+          <div class="career-hl">100+ campaigns · 3 Kristal Elma Awards</div>
+        </div>
+        <div class="career-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     ANIMATIONS + PARALLAX
+     ════════════════════════════════════════════════════════════ -->
+<script>
+  const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ─── ENTRANCE ─────────────────────────────────────────────── */
+  function entrance() {
+    if (noMotion) {
+      // Show everything instantly — skip all transforms
+      document.querySelectorAll('.line-inner').forEach(el => el.style.transform = 'translateY(0)');
+      ['hero-loc','nav-logo','hero-body','c1','c2','c3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+      });
+      return;
+    }
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // Nav logo fades in
+    tl.to('#nav-logo', { opacity: 1, duration: 0.5, delay: 0.1 });
+
+    // Location label
+    tl.to('#hero-loc', { opacity: 1, duration: 0.5 }, '-=0.2');
+
+    // Headline — each line rises from its overflow:hidden clip
+    tl.to('.line-inner', {
+      y: '0%',
+      duration: 0.85,
+      stagger: 0.13,
+      ease: 'power4.out'
+    }, '-=0.2');
+
+    // Body text
+    tl.to('#hero-body', { opacity: 1, duration: 0.65, ease: 'power2.out' }, '-=0.4');
+
+    // Cards cascade
+    tl.to(['#c1','#c2','#c3'], {
+      opacity: 1,
+      y: 0,
+      duration: 0.55,
+      stagger: 0.10,
+      ease: 'power2.out'
+    }, '-=0.3');
+  }
+
+  /* ─── MOUSE PARALLAX ────────────────────────────────────────── */
+  function initParallax() {
+    if (noMotion || coarsePointer) return;
+
+    const bg = document.getElementById('grad-bg');
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    document.addEventListener('mousemove', e => {
+      tx = (e.clientX / window.innerWidth  - 0.5) * -22;
+      ty = (e.clientY / window.innerHeight - 0.5) * -14;
+    });
+
+    (function loop() {
+      cx += (tx - cx) * 0.055;
+      cy += (ty - cy) * 0.055;
+      bg.style.transform = `translate(${cx}px, ${cy}px) scale(1.05)`;
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* ─── INIT ──────────────────────────────────────────────────── */
+  window.addEventListener('DOMContentLoaded', () => {
+    entrance();
+    initParallax();
+  });
+</script>
+
+</body>
+</html>
