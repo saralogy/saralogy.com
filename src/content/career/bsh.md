@@ -69,36 +69,50 @@ status: "published"
 order: 2
 ---
 
-## The role
+## The core problem
 
-BSH Hausgeräte is the world's second-largest home appliances manufacturer — the group behind Bosch, Siemens, Gaggenau, and Neff. I joined as Senior Digital Marketing Manager for Profilo (the Turkish market brand) in Istanbul and was promoted to Siemens Global brand communications in Munich within nine months.
+12 country teams. 12 agency briefs. Zero shared infrastructure.
 
-Over 4.5 years I moved through three roles, eventually owning Siemens' global brand communications across paid, earned, and owned channels. The work touched 10+ countries and required managing agency networks, internal country teams, and stakeholders across Munich, Istanbul, and multiple European markets — often simultaneously, without direct line authority over the people who needed to execute.
+That was the default state of global brand communications at BSH when I arrived at Siemens Global HQ in Munich. Each country team briefed its own agency, each agency produced its own interpretation, and the global brand paid for the same campaign to be reinvented twelve times. No playbook. No unified measurement. No way to know which content was actually moving purchase intent and which was burning budget on awareness that never converted.
 
-## What I actually did
+I spent 4.5 years building the infrastructure that was missing.
 
-### Building from nothing: the Instagram chapter
+## The company
 
-When I joined the Siemens global team, the brand had no Instagram presence. Not a small one — none. I built it from scratch: the account, the content strategy, the influencer playbook, the measurement framework. Then wrote it all up as a repeatable playbook that country teams could adapt. The playbook was adopted across Siemens markets and later used as a template by the Bosch brand.
+BSH Hausgeräte is the world's second-largest home appliances manufacturer, the group behind Bosch, Siemens, Gaggenau, and Neff. I joined initially as Senior Digital Marketing Manager for Profilo, the Turkish market brand, based in Istanbul. Nine months later, a +400% YoY e-commerce turnaround at Profilo led to a promotion and transfer to Siemens Global brand communications in Munich.
 
-This sounds simple in retrospect. It wasn't. Getting 10+ country teams to align on a content format that served their local audiences while maintaining global brand coherence required as much change management as it did creative work.
+Over the following three years I moved through two more roles, eventually owning Siemens' global brand communications across paid, earned, and owned channels: 10+ countries, agency networks across Europe, internal country teams in Munich, Istanbul, and multiple European markets, all without direct line authority over the people who needed to execute.
 
-### The purchase-intent content machine
+## What I built
 
-The bigger structural problem at BSH was that content was being produced for brand awareness without a clear line to purchase intent. I redesigned the content strategy around the question: what content does someone consume in the 30 days before they buy a home appliance?
+### Siemens' first global Instagram presence
 
-The answer involved a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries and generated significant organic media value — content that earned attention rather than paid for it. The Bosch brand adopted the framework.
+When I joined the Siemens global team, the brand had no Instagram presence. Not a small one. None. I built the account, the content strategy, the influencer playbook, and the measurement framework from scratch. Then documented the whole approach as a repeatable playbook that country teams could adapt without losing brand coherence.
 
-### The production cost problem
+The playbook was adopted across Siemens markets and later used as a template by the Bosch brand. Getting 10+ country teams to align on a shared format required as much change management as it did creative work. Both mattered equally.
 
-Running global campaigns through per-country agency briefs is expensive by design. Each country team briefs its own agency, each agency produces its own interpretation, and the global brand ends up with 12 versions of the same campaign at 12× the cost.
+### A content strategy built around purchase intent
 
-I built a centralised production model: one global brief, one agency producing the core assets, country teams adapting rather than recreating. The result was major production savings and significantly faster time-to-market. The harder part was convincing country teams that adaptation is not the same as dilution.
+The bigger structural problem was that content was being produced for brand awareness with no clear connection to purchase intent. I redesigned the strategy around a single question: what does someone consume in the 30 days before they buy a home appliance?
 
-### The TU Munich app
+The answer was a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries. The result was significant organic media value: content that earned attention rather than paid for it. The Bosch brand adopted the framework.
 
-One of the more unusual projects: I originated a Kitchen Planning App in collaboration with TU Munich. The insight was that purchase consideration for integrated kitchen appliances dropped sharply at the planning stage — customers couldn't visualise the finished result. The app let them do exactly that. In pilot markets, purchase consideration increased by 80%.
+### A centralised production model
 
-### Profilo: repositioning a declining brand
+I replaced per-country agency briefs with a single global production model. One brief, one agency producing the core assets, country teams adapting rather than recreating. The result was major production savings and significantly faster time-to-market.
 
-Before the Munich transfer, I spent nine months repositioning Profilo — a legacy Turkish home appliances brand that had been losing market share for years. Three product launches, a full e-commerce channel rebuild, and a brand repositioning programme delivered +400% YoY e-commerce revenue. The speed of the turnaround led directly to the promotion to Siemens Global.
+The harder part was the internal sell. Country teams interpreted adaptation as dilution. It took months of structured collaboration to demonstrate that shared infrastructure makes local work stronger, not weaker. That lesson repeated itself everywhere I looked.
+
+### A product innovation: the Kitchen Planning App
+
+I originated a Kitchen Planning App in collaboration with TU Munich. The insight was that purchase consideration for integrated kitchen appliances dropped sharply at the planning stage because customers could not visualise the finished result. The app solved that. In pilot markets, purchase consideration increased by 80%.
+
+## Why I left
+
+The 4.5-year tenure ended with a planned relocation back to Hamburg for family reunification. I left after receiving a promotion, with strong relationships across the global team, and with the playbooks and frameworks I had built still in active use. It was a logistics decision, not a performance one.
+
+## The connection to vision-intelligence
+
+The production savings at BSH were not about cutting budgets. They came from removing the duplication that happens when 12 country teams each brief separate agencies on the same campaign. The underlying problem is structural: brilliant brand teams with no shared infrastructure, no unified content framework, and no reliable signal connecting content decisions to purchase outcomes.
+
+That problem is even worse in the SME market, where there is no centralised team to diagnose it and no budget for the kind of multi-year change management programme I ran at Siemens. That gap is what vision-intelligence is built to close.

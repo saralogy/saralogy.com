@@ -35,32 +35,54 @@ status: "published"
 order: 4
 ---
 
-## The role
+## The business problem
 
-ORMA is a leading Turkish manufacturer of wood-based panels, particleboards, and melamine-faced boards — an industrial B2B company in a category that most people interact with constantly (furniture, kitchen cabinets, interior fittings) without ever thinking about the material supply chain behind it.
+ORMA manufactured high-quality wood-based panels, particleboards, and melamine-faced boards. The products ended up in furniture, kitchen cabinets, and interior fittings across Turkey. But the company had a positioning gap: architects and interior designers, the people who actually specify materials in premium projects, barely knew ORMA existed as a design-grade option.
 
-I joined straight out of my undergraduate degree in Industrial Design, which turned out to be exactly the right background: ORMA's challenge wasn't manufacturing quality — it was getting architects and interior designers to specify their products. That's a design and communication problem as much as a sales one.
+That gap was the problem I was hired to close.
 
-## What I actually did
+I joined straight out of an Industrial Design undergraduate degree. That background mattered. Architects don't evaluate materials the way procurement teams do. They think in surfaces, finishes, and stories. Convincing them to specify ORMA required speaking their language before making any sales argument.
 
-### Opening the architect and designer segment
+## Why this was hard
 
-ORMA's existing customer base was primarily furniture manufacturers and construction contractors — buyers who cared about price, availability, and specification sheets. The architect and designer segment was different: they cared about aesthetics, finish quality, sustainability credentials, and whether a material had a story worth putting in a project presentation.
+ORMA's existing customers were furniture manufacturers and construction contractors. They bought on price, lead time, and specification sheets. The sales motion was transactional.
 
-I built the segment development strategy from scratch: identifying which firms to target, creating product positioning that spoke their language (not the language of industrial procurement), developing partner showroom partnerships where architects could see and touch the materials in context, and launching product lines designed for the segment rather than adapted from the contractor catalogue.
+The architect and designer segment operated on entirely different logic. They needed to see materials installed in real projects. They needed to trust that a product had an aesthetic identity worth recommending to a client. And they needed a reason to switch their default preferences, which were often set years earlier at architecture school.
 
-This was my first experience of the discipline that later became central to my work — defining a new audience, understanding their world in its own terms, and building the marketing infrastructure to reach them.
+There was no existing playbook for this at ORMA. No segment-specific positioning, no partnerships with design showrooms, no product lines pitched at the design community rather than the contractor catalogue. Everything had to be built from scratch.
 
-### Two national trade fairs
+## What I built
 
-ORMA had trade fair presence before I arrived, but it was passive — a stand, a catalogue, a team waiting to be approached. I redesigned both presences as active lead generation and relationship events: structured meeting programmes with pre-identified targets, demonstration setups that showed the materials in designed contexts rather than as raw product, and a follow-up sequence that turned fair attendance into qualified pipeline.
+### Opening the architect segment
 
-Both fairs resulted in measurable uplift in qualified B2B leads and, more importantly, in the quality of relationships with existing clients — the kind of face-to-face interaction that industrial B2B relationships require but rarely get structured time for.
+I started with research: which firms were specifying competing products, what their project types looked like, and where they went to discover new materials. That shaped the targeting.
+
+From there I built the segment development infrastructure. New product positioning that led with finish quality and aesthetic range rather than industrial specifications. Partner showroom agreements where architects could see and touch the materials in context. Product line extensions designed for the segment rather than adapted from existing contractor SKUs.
+
+The output was a functioning new channel that hadn't existed when I arrived.
+
+### Trade fair execution
+
+ORMA had trade fair presence before I joined. It was passive: a stand, a catalogue, a team waiting to be approached. I redesigned both national presences as active relationship and lead generation events.
+
+That meant structured meeting programmes with pre-identified architect and designer targets, demonstration setups showing materials in finished design contexts, and a follow-up sequence turning fair attendance into qualified pipeline.
+
+Both fairs generated measurable increases in qualified B2B leads. More importantly, they gave existing clients the face-to-face time that industrial B2B relationships require but rarely get built into the calendar.
 
 ### Website and app redesign
 
-The digital presence was the obvious problem: a website built for specification engineers, not for architects looking to be inspired. I led a full UX/UI redesign — from briefing the design and development agency through to launch — in four months.
+The digital presence was built for specification engineers. It led with product codes and technical sheets. That was the wrong first impression for an architect browsing for inspiration.
 
-The constraint was useful: four months is not long for a complete digital redesign. It forced prioritisation. The result was a site that led with finished application photography (what the material looks like installed in a beautiful project) rather than product specifications, and a mobile app that let architects and designers browse the product range in context.
+I led a full UX/UI redesign from agency brief through to launch in four months. The constraint was useful: it forced clear prioritisation. The result led with finished application photography showing materials installed in real projects, and a mobile app that let architects browse the range in context rather than through a parts catalogue.
 
-The exercise gave me early experience of managing a multi-stakeholder digital project — design, development, marketing, and business approval all requiring different things from the same deliverable.
+Managing the project across design, development, marketing, and business stakeholders in four months gave me early experience in what digital transformation actually requires: clear decision rights and a willingness to cut scope rather than delay launch.
+
+## What this teaches about SME buyers
+
+B2B marketing at ORMA taught me something I've seen confirmed in every role since. SME buyers, whether they are architects, contractors, or business owners, do not respond to feature lists. They respond to confidence.
+
+Confidence comes from understanding. Before a buyer will change a material specification or a vendor relationship, they need to believe that the alternative fits their world. That belief is built through education and demonstration, not through discounts or sales calls.
+
+The architect segment at ORMA had no frame of reference for a premium particleboard in a design context. My job was to build that frame before making any commercial ask. Educate the segment first. Convert it second.
+
+That sequence applies directly to how I think about marketing intelligence tools for DACH SMEs today. Small business owners are not waiting for another SaaS dashboard. They are waiting for something that clearly fits their workflow and speaks their operational language. The marketing job is the same: build the frame, then make the ask.

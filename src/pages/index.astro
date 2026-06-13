@@ -10,7 +10,7 @@ const personSchema = {
       "@id": "https://saralogy.com/#website",
       "url": "https://saralogy.com",
       "name": "saralogy.com",
-      "description": "AI-native marketing for DACH SMEs — Berk Saraloglu",
+      "description": "AI-native marketing for DACH SMEs by Berk Saraloglu",
       "publisher": { "@id": "https://saralogy.com/#person" },
     },
     {
@@ -30,8 +30,8 @@ const personSchema = {
 ---
 
 <Base
-  title="Berk Saraloglu — AI Marketing · Music · Hamburg"
-  description="Marketing leader and AI tool builder in Hamburg. 10+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing tools for DACH SMEs. Indie songwriter."
+  title="Berk Saraloglu | AI Marketing · Music · Hamburg"
+  description="Turkish-German marketing leader and AI tool builder in Hamburg. 10+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing tools for DACH SMEs. Indie songwriter."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
@@ -59,29 +59,30 @@ const personSchema = {
       <div class="max-w-2xl">
         <p class="text-sm font-medium text-brand-600 mb-4 tracking-wide uppercase">Hamburg, Germany</p>
         <h1 class="text-5xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-          Marketing leader.<br />AI tool builder.<br />Songwriter.
+          Where Turkish hustle<br />meets German precision<br />and AI changes the math.
         </h1>
         <p class="text-xl text-gray-600 leading-relaxed mb-10">
-          10+ years building campaigns and products at Samsung, BSH Siemens, and VeSync.
-          Now building AI-native marketing tools for DACH SMEs — and writing music on the side.
+          I'm Berk: marketing leader, AI tool builder, indie songwriter. A decade running campaigns at
+          Samsung, BSH Siemens, and VeSync taught me how enterprise marketing actually works.
+          Now I'm building tools to give DACH SMEs the same leverage without the headcount.
         </p>
 
         <!-- Intent Router: 3 audience paths -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <a href="/work" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Recruiter</div>
-            <div class="font-semibold text-gray-900 mb-1">Available for hire</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Senior Marketing Manager, DACH →</div>
+            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Hiring?</div>
+            <div class="font-semibold text-gray-900 mb-1">Senior Marketing Manager, DACH</div>
+            <div class="text-sm text-gray-500 group-hover:text-gray-700">See what I've shipped and my availability →</div>
           </a>
           <a href="/ai-marketing-dach" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">SME Founder</div>
-            <div class="font-semibold text-gray-900 mb-1">AI marketing tools</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">For DACH businesses →</div>
+            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Building a DACH startup?</div>
+            <div class="font-semibold text-gray-900 mb-1">AI marketing tools for SMEs</div>
+            <div class="text-sm text-gray-500 group-hover:text-gray-700">Tools and thinking for lean growth →</div>
           </a>
           <a href="/music" class="group p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Music</div>
+            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Here for the music?</div>
             <div class="font-semibold text-gray-900 mb-1">Indie songwriter</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Songs and process →</div>
+            <div class="text-sm text-gray-500 group-hover:text-gray-700">Songs and the process behind them →</div>
           </a>
         </div>
       </div>
@@ -93,7 +94,7 @@ const personSchema = {
         <div class="max-w-2xl">
           <h2 class="text-2xl font-bold text-gray-900 mb-4">The thesis</h2>
           <p class="text-lg text-gray-600 leading-relaxed">
-            AI-native marketing is the only viable path for DACH SMEs in the next five years —
+            AI-native marketing is the only viable path for DACH SMEs in the next five years,
             and most of them are years behind. I'm building the proof from two directions
             simultaneously: from inside, as the marketing leader who has done it at enterprise
             scale, and from outside, as the product developer building the tools to make it accessible.
@@ -104,18 +105,36 @@ const personSchema = {
 
     <!-- Career highlights -->
     <section class="max-w-4xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-bold text-gray-900 mb-8">Where I've worked</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">What I built at each stop</h2>
       <div class="space-y-4">
         {[
-          { company: "VeSync GmbH", role: "Integrated Marketing Manager EU", period: "2025–2026", slug: "vesync", highlight: "117% of premium launch target in 53 days" },
-          { company: "BSH / Siemens Global", role: "Senior Brand Communications Manager", period: "2020–2024", slug: "bsh", highlight: "Significant organic media value across 10+ countries. Major production savings via centralised playbook." },
-          { company: "Samsung Electronics", role: "Digital Marketing Specialist", period: "2016–2020", slug: "samsung", highlight: "3× Kristal Elma Awards, 100+ campaigns" },
+          {
+            company: "VeSync GmbH",
+            role: "Integrated Marketing Manager EU",
+            period: "2025–2026",
+            slug: "vesync",
+            highlight: "Launched a premium product line to 117% of target in 53 days across EU markets",
+          },
+          {
+            company: "BSH / Siemens Global",
+            role: "Senior Brand Communications Manager",
+            period: "2020–2024",
+            slug: "bsh",
+            highlight: "Built a centralised content playbook that cut production costs significantly and scaled organic reach across 10+ countries",
+          },
+          {
+            company: "Samsung Electronics",
+            role: "Digital Marketing Specialist",
+            period: "2016–2020",
+            slug: "samsung",
+            highlight: "Ran 100+ campaigns and won 3 Kristal Elma Awards for creative effectiveness",
+          },
         ].map((t) => (
           <a href={`/career/${t.slug}`} class="group flex items-center justify-between p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
             <div>
               <div class="font-semibold text-gray-900">{t.company}</div>
               <div class="text-sm text-gray-500">{t.role} · {t.period}</div>
-              <div class="text-sm text-gray-600 mt-1 italic">"{t.highlight}"</div>
+              <div class="text-sm text-gray-600 mt-1">{t.highlight}</div>
             </div>
             <div class="text-gray-400 group-hover:text-gray-900 transition-colors text-xl">→</div>
           </a>

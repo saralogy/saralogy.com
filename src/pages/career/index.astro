@@ -5,6 +5,13 @@ import "../../styles/global.css";
 
 const entries = await getCollection("career", ({ data }) => data.status === "published");
 
+const buildLines: Record<string, string> = {
+  vesync: "Built 3 full-funnel launch playbooks; hit 117% of flagship product sell-out target in 53 days.",
+  bsh: "Built Siemens' first global Instagram presence and the content playbook adopted across 10+ markets.",
+  samsung: "Built 150 brand stores nationally and a YouTube format adopted as the Samsung EMEA benchmark.",
+  orma: "Opened the architect and designer segment from scratch; led full website and app redesign in 4 months.",
+};
+
 // Sort by end date descending (most recent first)
 const sorted = entries.sort((a, b) => {
   const endA = a.data.period.end === "present" ? "9999-99" : a.data.period.end;
@@ -25,7 +32,7 @@ function formatPeriod(start: string, end: string) {
 
 <Base
   title="Career — Berk Saraloglu"
-  description="10+ years in consumer electronics and lifestyle brand marketing. Samsung, BSH Siemens, VeSync. Based in Hamburg, Germany. Full career history with case studies."
+  description="Building marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and solo. Consumer electronics, global brand, full-funnel launches. Based in Hamburg. Full career history with case studies."
 >
   <header class="border-b border-gray-100">
     <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -48,8 +55,8 @@ function formatPeriod(start: string, end: string) {
       <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Hamburg, Germany</p>
       <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Career</h1>
       <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-        10+ years in consumer electronics and lifestyle brand marketing. Each page below is a
-        case study — not a CV line. What the role was, what I actually built, and what it means today.
+        Building marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and solo (vision-intelligence).
+        Each page below is a case study, not a CV line. What the role was, what I actually built, and what it means today.
       </p>
     </section>
 
@@ -70,7 +77,10 @@ function formatPeriod(start: string, end: string) {
                     <span class="font-semibold text-gray-900">{d.company}</span>
                     <span class="text-xs text-gray-400">{d.location}</span>
                   </div>
-                  <div class="text-sm text-gray-500 mb-3">{d.role} · {period}</div>
+                  <div class="text-sm text-gray-500 mb-2">{d.role} · {period}</div>
+                  {buildLines[entry.slug] && (
+                    <p class="text-sm text-gray-600 mb-3">{buildLines[entry.slug]}</p>
+                  )}
                   <div class="flex flex-wrap gap-2">
                     {d.wins.slice(0, 3).map((w) => (
                       <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
@@ -93,11 +103,14 @@ function formatPeriod(start: string, end: string) {
 
     <!-- Education -->
     <section class="py-10 border-t border-gray-100">
-      <h2 class="text-xl font-bold text-gray-900 mb-6">Education</h2>
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Education</h2>
+      <p class="text-sm text-gray-500 mb-6 max-w-2xl">
+        Industrial Design before Marketing Communication. That sequence matters: it means I think in systems and user flows before I think in messages. Most marketers learn the product after the brief. I learned how products are conceived.
+      </p>
       <div class="space-y-4">
         {[
-          { degree: "M.A. Marketing Communication", school: "Istanbul Bilgi University", year: "2016–2018" },
-          { degree: "B.Sc. Industrial Design", school: "Middle East Technical University", year: "2009–2014", note: "Exchange: Politecnico di Torino" },
+          { degree: "M.A. Marketing Communication", school: "Istanbul Bilgi University", year: "2016–2018", note: "Built the strategic layer on top of a design foundation." },
+          { degree: "B.Sc. Industrial Design", school: "Middle East Technical University", year: "2009–2014", note: "Exchange: Politecnico di Torino. Trained to design for human behaviour before designing for attention." },
         ].map(({ degree, school, year, note }) => (
           <div class="flex items-start justify-between p-5 border border-gray-100 rounded-xl bg-gray-50">
             <div>
