@@ -1,0 +1,92 @@
+name: CI / CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  BUN_VERSION: "1.1.x"
+
+jobs:
+  ci:
+    name: Type-check · Build · Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lockb') }}
+          restore-keys: |
+            bun-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: TypeScript type-check
+        run: bunx tsc --noEmit
+
+      - name: Lint (if eslint configured)
+        run: bun run lint --if-present
+
+      - name: Astro build (production)
+        run: bunx astro build
+        env:
+          SITE_URL: https://saralogy.com
+          PUBLIC_SITE_NAME: saralogy.com
+          PUBLIC_SITE_DESCRIPTION: "AI-native marketing for DACH SMEs"
+
+      - name: Check output size (performance budget)
+        run: |
+          DIST_SIZE=$(du -sk dist/ | cut -f1)
+          echo "Total dist size: ${DIST_SIZE}KB"
+          if [ "$DIST_SIZE" -gt 25600 ]; then
+            echo "::error::dist/ exceeds 25MB budget. Investigate before merging."
+            exit 1
+          fi
+          find dist/ -name "*.js" -size +100k | while read f; do
+            SIZE=$(du -sk "$f" | cut -f1)
+            echo "::warning::JS chunk ${SIZE}KB exceeds 100KB budget target"
+          done
+
+  deploy:
+    name: Deploy to Vercel (Production)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: ci
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    environment:
+      name: production
+      url: https://saralogy.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel (production)
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: "--prod"
+          working-directory: ./
