@@ -62,9 +62,89 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
       rel="stylesheet"
     />
 
+    <!-- GA4: loaded only after cookie consent -->
+    <script is:inline>
+      // Restore consent from previous visit
+      if (typeof window !== 'undefined' && localStorage.getItem('cookie_consent') === 'accepted') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 Measurement ID
+      }
+    </script>
+
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-white text-gray-900 antialiased">
     <slot />
+
+    <!-- Cookie consent banner (GDPR opt-in, required for Germany) -->
+    <div
+      id="cookie-banner"
+      class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gray-900 text-white"
+      style="display: none;"
+    >
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p class="text-sm text-gray-300 leading-relaxed">
+          This site uses Google Analytics to understand how visitors use it.
+          No personal data is sold or shared.
+          <a href="/privacy" class="text-white underline hover:no-underline">Privacy policy</a>.
+        </p>
+        <div class="flex gap-3 shrink-0">
+          <button
+            id="cookie-reject"
+            class="text-sm text-gray-400 hover:text-white transition-colors px-4 py-2 rounded-full border border-gray-700 hover:border-gray-400"
+          >
+            Reject
+          </button>
+          <button
+            id="cookie-accept"
+            class="text-sm bg-white text-gray-900 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
+          >
+            Accept analytics
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function() {
+        var banner = document.getElementById('cookie-banner');
+        var consent = localStorage.getItem('cookie_consent');
+
+        // Show banner only if no decision yet
+        if (!consent && banner) {
+          banner.style.display = 'block';
+        }
+
+        function loadGA() {
+          if (document.getElementById('ga-script')) return;
+          var s = document.createElement('script');
+          s.id = 'ga-script';
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // Replace with your GA4 ID
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 ID
+        }
+
+        document.getElementById('cookie-accept')?.addEventListener('click', function() {
+          localStorage.setItem('cookie_consent', 'accepted');
+          banner.style.display = 'none';
+          loadGA();
+        });
+
+        document.getElementById('cookie-reject')?.addEventListener('click', function() {
+          localStorage.setItem('cookie_consent', 'rejected');
+          banner.style.display = 'none';
+        });
+
+        // Load GA immediately if already accepted
+        if (consent === 'accepted') loadGA();
+      })();
+    </script>
   </body>
 </html>
