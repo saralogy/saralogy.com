@@ -1,8 +1,0 @@
-{
-  "rating": 3,
-  "summary": "AI misdiagnosed the root cause, wasted user's time",
-  "detailed_context": "The user is correcting the AI's previous response. The AI confidently diagnosed the problem as 'repo not connected to Vercel' and provided connection instructions. The user executed those steps but reveals the repo was already connected—meaning the AI's entire diagnosis was wrong. The user's terse reply ('it was connected already, but nothing happened') signals frustration with the incorrect troubleshooting direction. Still cooperative, but clearly dissatisfied with the misdirection.",
-  "session_id": "9d82586a-c813-43eb-a095-471d5f597eb2",
-  "captured_at": "2026-06-13T10:54:19.759Z",
-  "transcript_source": "9d82586a-c813-43eb-a095-471d5f597eb2.jsonl"
-}

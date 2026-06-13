@@ -1,8 +1,0 @@
-{
-  "rating": 3,
-  "summary": "Previous instructions didn't match user's actual interface",
-  "detailed_context": "User followed the Vercel guidance but encountered a discrepancy: they found a 'User ID' instead of the 'Team ID' or 'Org ID' the instructions implied they should locate. This indicates the previous step-by-step guidance either was incomplete, outdated (Vercel UI changed), or didn't account for the user's account type. The terse, factual tone suggests mild frustration—not anger, but a clear 'this doesn't match what you said' correction. The instructions need adjustment.",
-  "session_id": "9d82586a-c813-43eb-a095-471d5f597eb2",
-  "captured_at": "2026-06-13T10:46:53.225Z",
-  "transcript_source": "9d82586a-c813-43eb-a095-471d5f597eb2.jsonl"
-}
