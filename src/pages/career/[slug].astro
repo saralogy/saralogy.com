@@ -1,0 +1,205 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("career", ({ data }) => data.status === "published");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = { entry: CollectionEntry<"career"> };
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+
+// Format period for display
+function formatPeriod(start: string, end: string) {
+  const fmt = (s: string) => {
+    if (s === "present") return "Present";
+    const [y, m] = s.split("-");
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${months[parseInt(m) - 1]} ${y}`;
+  };
+  return `${fmt(start)} – ${fmt(end)}`;
+}
+
+const period = formatPeriod(d.period.start, d.period.end);
+
+// JSON-LD schema
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://saralogy.com/#person",
+      "name": "Berk Saraloglu",
+      "url": "https://saralogy.com",
+      "worksFor": {
+        "@type": "Organization",
+        "name": d.company,
+      },
+    },
+    {
+      "@type": "Article",
+      "headline": d.seo.title,
+      "description": d.seo.description,
+      "author": { "@id": "https://saralogy.com/#person" },
+      "dateModified": d.lastReviewed,
+      "mainEntityOfPage": `https://saralogy.com/career/${entry.slug}`,
+    },
+  ],
+};
+---
+
+<Base title={d.seo.title} description={d.seo.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- Nav -->
+  <header class="border-b border-gray-100">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
+      <div class="flex items-center gap-6 text-sm text-gray-600">
+        <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+        <a href="/career" class="text-gray-900 font-medium">Career</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
+        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
+        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+          Work with me
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <!-- Breadcrumb -->
+    <div class="pt-8 pb-4">
+      <a href="/career" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">← Career</a>
+    </div>
+
+    <!-- Header -->
+    <section class="pb-10 border-b border-gray-100">
+      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">{d.location}</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-2 leading-tight">{d.company}</h1>
+      <p class="text-xl text-gray-500 mb-1">{d.role}</p>
+      <p class="text-sm text-gray-400 mb-6">{period}</p>
+
+      <!-- Role history (for multi-role tenures) -->
+      {d.roleHistory && d.roleHistory.length > 1 && (
+        <div class="flex flex-wrap gap-2 mb-6">
+          {d.roleHistory.map((r) => (
+            <div class="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full">
+              <span class="font-medium">{r.title}</span>
+              <span class="text-gray-400 ml-1">· {r.period}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <!-- Key wins grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
+        {d.wins.slice(0, 6).map((w) => (
+          <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+            {w.metric && (
+              <div class="text-2xl font-bold text-gray-900 mb-1">{w.metric}</div>
+            )}
+            <div class="text-sm text-gray-600 leading-snug">{w.headline}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Permanent layer: the story -->
+    <section class="py-10 border-b border-gray-100">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="text-xl font-bold text-gray-900">The story</h2>
+        <span class="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">Permanent record</span>
+      </div>
+      <div class="prose prose-gray max-w-none prose-headings:font-semibold prose-headings:text-gray-900 prose-p:text-gray-600 prose-p:leading-relaxed prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4">
+        <Content />
+      </div>
+    </section>
+
+    <!-- Skills used -->
+    <section class="py-10 border-b border-gray-100">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Skills demonstrated</h2>
+      <div class="flex flex-wrap gap-2">
+        {d.skills.map((s) => (
+          <span class="text-sm border border-gray-200 text-gray-700 px-3 py-1 rounded-full">{s}</span>
+        ))}
+      </div>
+      {d.tools && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {d.tools.map((t) => (
+            <span class="text-xs bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full">{t}</span>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- Living layer: current relevance -->
+    <section class="py-10 border-b border-gray-100">
+      <div class="flex items-center gap-3 mb-6">
+        <h2 class="text-xl font-bold text-gray-900">What this means today</h2>
+        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+          Updated {new Date(d.currentRelevance.date).toLocaleDateString("en-GB", { month: "long", year: "numeric" })}
+        </span>
+      </div>
+      <p class="text-gray-600 leading-relaxed">{d.currentRelevance.body}</p>
+
+      <!-- Projects born from this role -->
+      {d.projectsFromHere && d.projectsFromHere.length > 0 && (
+        <div class="mt-8">
+          <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Projects that started here</h3>
+          <div class="space-y-3">
+            {d.projectsFromHere.map((p) => (
+              <a href={p.url} class="group flex items-start gap-4 p-4 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+                <div class="flex-1">
+                  <div class="font-semibold text-gray-900 mb-1">{p.title}</div>
+                  <div class="text-sm text-gray-500">{p.connection}</div>
+                </div>
+                <span class="text-gray-400 group-hover:text-gray-900 transition-colors text-lg mt-0.5">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Departure context -->
+    <section class="py-10 border-b border-gray-100">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Why I left</h2>
+      <p class="text-gray-600 leading-relaxed">{d.departureContext}</p>
+    </section>
+
+    <!-- Navigation -->
+    <section class="py-10">
+      <div class="flex items-center justify-between">
+        <a href="/career" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+          ← All tenures
+        </a>
+        <a href="/work" class="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
+          Work with me →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>

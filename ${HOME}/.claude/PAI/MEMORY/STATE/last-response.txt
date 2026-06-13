@@ -1,0 +1,17 @@
+Pushed. Vercel is deploying now — `saralogy.com/about` will be live in about a minute.
+
+**What's on the page:**
+- Full `Person` + `FAQPage` JSON-LD — the 4 questions LLMs get asked about you, answered in complete sentences
+- Career timeline linking to each tenure page
+- Your thesis as a blockquote
+- Both projects with status badges
+- Education, languages, skills
+- Music section
+- FAQ section visible to humans (same content as the schema)
+- Hire me CTA
+
+**Two MVP pages left:**
+- `/career/bsh` — next (strongest evidence for your thesis)
+- `/ai-marketing-dach` — the pillar page
+
+Say the word for either one.
