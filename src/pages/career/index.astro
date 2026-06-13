@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
 import "../../styles/global.css";
 
 const entries = await getCollection("career", ({ data }) => data.status === "published");
@@ -34,20 +35,7 @@ function formatPeriod(start: string, end: string) {
   title="Career — Berk Saraloglu"
   description="Building marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and solo. Consumer electronics, global brand, full-funnel launches. Based in Hamburg. Full career history with case studies."
 >
-  <header class="border-b border-gray-100">
-    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
-      <div class="flex items-center gap-6 text-sm text-gray-600">
-        <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
-        <a href="/career" class="text-gray-900 font-medium">Career</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
-        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
-          Work with me
-        </a>
-      </div>
-    </nav>
-  </header>
+  <Header />
 
   <main class="max-w-4xl mx-auto px-6">
 
