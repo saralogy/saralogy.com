@@ -1,0 +1,184 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../styles/global.css";
+
+const entries = await getCollection("music", ({ data }) => data.status === "published");
+
+// Sort by datePublished descending (most recent first)
+const sorted = entries.sort((a, b) => {
+  const dateA = a.data.datePublished || "2000-01";
+  const dateB = b.data.datePublished || "2000-01";
+  return dateB.localeCompare(dateA);
+});
+
+function formatDate(dateString?: string) {
+  if (!dateString) return "Undated";
+  const [year, month] = dateString.split("-");
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${months[parseInt(month) - 1]} ${year}`;
+}
+
+function releaseStatusBadge(status: string) {
+  const badges: Record<string, { bg: string; text: string }> = {
+    released: { bg: "bg-green-100", text: "text-green-700" },
+    demo: { bg: "bg-blue-100", text: "text-blue-700" },
+    writing: { bg: "bg-amber-100", text: "text-amber-700" },
+    archived: { bg: "bg-gray-100", text: "text-gray-700" },
+  };
+  return badges[status] || badges.demo;
+}
+---
+
+<Base
+  title="Music — Berk Saraloglu"
+  description="Indie songwriter writing about movement, building, and the spaces between. Original compositions exploring production, process, and place."
+>
+  <header class="border-b border-gray-100">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
+      <div class="flex items-center gap-6 text-sm text-gray-600">
+        <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+        <a href="/career" class="hover:text-gray-900 transition-colors">Career</a>
+        <a href="/music" class="text-gray-900 font-medium">Music</a>
+        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
+        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+          Work with me
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <section class="pt-16 pb-10 border-b border-gray-100">
+      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Creative Work</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Music</h1>
+      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
+        Indie songwriter exploring production, process, and place. Writing about movement—physical, mental, and creative. Each piece is a deliberate exploration of what it takes to build something that doesn't exist yet.
+      </p>
+    </section>
+
+    {sorted.length > 0 ? (
+      <section class="py-12">
+        <div class="space-y-6">
+          {sorted.map((entry) => {
+            const d = entry.data;
+            const badge = releaseStatusBadge(d.releaseStatus);
+            const hasLinks = d.spotify || d.appleMusic || d.youtube || d.soundcloud;
+
+            return (
+              <div class="border border-gray-200 rounded-xl p-6 hover:border-gray-900 transition-colors group">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <h2 class="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
+                      {d.title}
+                    </h2>
+                    <div class="flex items-center gap-3 mt-1 flex-wrap">
+                      <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${badge.bg} ${badge.text}`}>
+                        {d.releaseStatus === "released" ? "Released" : d.releaseStatus === "demo" ? "Demo" : d.releaseStatus === "writing" ? "Writing" : "Archived"}
+                      </span>
+                      {d.duration && <span class="text-sm text-gray-500">{d.duration.replace("PT", "").replace("M", ":").replace("S", "")}</span>}
+                      {d.datePublished && <span class="text-sm text-gray-500">{formatDate(d.datePublished)}</span>}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  {d.genre.map((g) => (
+                    <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+                      {g}
+                    </span>
+                  ))}
+                </div>
+
+                {d.writingProcess && (
+                  <div class="text-sm text-gray-600 mb-4 leading-relaxed">
+                    <strong>Process:</strong> {d.writingProcess.substring(0, 200)}{d.writingProcess.length > 200 ? "..." : ""}
+                  </div>
+                )}
+
+                {hasLinks && (
+                  <div class="flex flex-wrap gap-2">
+                    {d.spotify && (
+                      <a
+                        href={d.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                      >
+                        Spotify
+                      </a>
+                    )}
+                    {d.appleMusic && (
+                      <a
+                        href={d.appleMusic}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                      >
+                        Apple Music
+                      </a>
+                    )}
+                    {d.youtube && (
+                      <a
+                        href={d.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                      >
+                        YouTube
+                      </a>
+                    )}
+                    {d.soundcloud && (
+                      <a
+                        href={d.soundcloud}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                      >
+                        SoundCloud
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    ) : (
+      <section class="py-20 text-center text-gray-400">
+        <p>Music coming soon.</p>
+      </section>
+    )}
+
+    <section class="py-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Why I write music</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Writing music and building products feed the same need: to create something that didn't exist before. Music is where I work without constraints—no market validation, no product roadmap, just the idea and the time to explore it.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        The process feeds back into how I think about marketing. Both require the same skill: understanding what a person actually feels before they can name it, then building something that captures that feeling exactly.
+      </p>
+    </section>
+
+    <section class="py-8 border-t border-gray-100">
+      <a href="/about" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
+        Back to about →
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100 mt-4">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>

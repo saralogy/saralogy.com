@@ -1,0 +1,166 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../styles/global.css";
+
+const entries = await getCollection("projects", ({ data }) => data.status === "published");
+
+// Sort by featured first, then by order
+const sorted = entries.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  return (a.data.order ?? 999) - (b.data.order ?? 999);
+});
+
+function projectStatusBadge(status: string) {
+  const badges: Record<string, { bg: string; text: string; label: string }> = {
+    concept: { bg: "bg-purple-100", text: "text-purple-700", label: "Concept" },
+    mvp: { bg: "bg-blue-100", text: "text-blue-700", label: "MVP" },
+    beta: { bg: "bg-amber-100", text: "text-amber-700", label: "Beta" },
+    live: { bg: "bg-green-100", text: "text-green-700", label: "Live" },
+    archived: { bg: "bg-gray-100", text: "text-gray-700", label: "Archived" },
+  };
+  return badges[status] || badges.concept;
+}
+---
+
+<Base
+  title="Projects — Berk Saraloglu"
+  description="Building products at the intersection of marketing, AI, and infrastructure. Vision-intelligence for DACH SMEs, tools for career builders, and more."
+>
+  <header class="border-b border-gray-100">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold text-lg tracking-tight">saralogy.com</a>
+      <div class="flex items-center gap-6 text-sm text-gray-600">
+        <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+        <a href="/career" class="hover:text-gray-900 transition-colors">Career</a>
+        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
+        <a href="/projects" class="text-gray-900 font-medium">Projects</a>
+        <a href="/work" class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors">
+          Work with me
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6">
+
+    <section class="pt-16 pb-10 border-b border-gray-100">
+      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Building</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Projects</h1>
+      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
+        Products at the intersection of marketing, AI, and the problems Berk saw at scale. Each project solves something real, proven in practice.
+      </p>
+    </section>
+
+    {sorted.length > 0 ? (
+      <section class="py-12">
+        <div class="space-y-6">
+          {sorted.map((entry) => {
+            const d = entry.data;
+            const badge = projectStatusBadge(d.projectStatus);
+
+            return (
+              <div class="border border-gray-200 rounded-xl p-6 hover:border-gray-900 transition-colors group">
+                <div class="flex items-start justify-between gap-4 mb-2">
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
+                      {d.title}
+                    </h2>
+                    <p class="text-gray-600 mt-1">{d.tagline}</p>
+                  </div>
+                  <span class={`text-xs font-medium px-3 py-1.5 rounded-full ${badge.bg} ${badge.text} shrink-0`}>
+                    {badge.label}
+                  </span>
+                </div>
+
+                <div class="mb-4 text-sm text-gray-600 leading-relaxed">
+                  <strong>Problem:</strong> {d.problem}
+                </div>
+
+                <div class="mb-4 text-sm text-gray-600 leading-relaxed">
+                  <strong>Audience:</strong> {d.audience}
+                </div>
+
+                {d.techStack && d.techStack.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mb-4">
+                    {d.techStack.map((tech) => (
+                      <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div class="flex flex-wrap gap-2">
+                  {d.liveUrl && (
+                    <a
+                      href={d.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors"
+                    >
+                      Visit →
+                    </a>
+                  )}
+                  {d.waitlistUrl && (
+                    <a
+                      href={d.waitlistUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                    >
+                      Join waitlist
+                    </a>
+                  )}
+                  {d.githubUrl && (
+                    <a
+                      href={d.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    ) : (
+      <section class="py-20 text-center text-gray-400">
+        <p>Projects coming soon.</p>
+      </section>
+    )}
+
+    <section class="py-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Why these projects</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Every project here solves a real gap Berk encountered at scale. Vision-intelligence came from seeing the exact same content infrastructure problem repeat at BSH and VeSync. Other projects address the gaps between what exists and what builders actually need.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        The pattern: work in the product space, observe the structural gap, build the tool, validate it, then decide if it's a business or a service. Some projects stay exploration. Some become the next venture.
+      </p>
+    </section>
+
+    <section class="py-8 border-t border-gray-100">
+      <a href="/work" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
+        Interested in collaborating? →
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-gray-100 mt-4">
+    <div class="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-500">
+      <span>© 2026 Berk Saraloglu</span>
+      <div class="flex gap-6">
+        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
+        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Base>
