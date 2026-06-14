@@ -15,6 +15,11 @@ export default defineConfig({
   // switch to output: "hybrid" and add @astrojs/vercel adapter.
   output: "static",
 
+  // ── Trailing Slash ───────────────────────────────────────────────────────
+  // Must match vercel.json's `trailingSlash: false` so canonical URLs,
+  // og:url, and sitemap entries agree with the live (slashless) routes.
+  trailingSlash: "never",
+
   // ── Integrations ─────────────────────────────────────────────────────────
   integrations: [
     tailwind({
