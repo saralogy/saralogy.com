@@ -3,10 +3,10 @@ const experiences = [
     company: "VeSync GmbH",
     period: "2025–2026",
     brands: "Cosori · Levoit",
-    contribution: "Built 3 full-funnel launch playbooks from scratch and hit 117% of flagship product sell-out target in 53 days across 8 channels simultaneously.",
+    contribution: "I was brought into VeSync to build and operationalize their European IMC launch infrastructure; having successfully engineered a standardized 22-module operating system, scaled it across three countries, and proven its value by driving the flagship 2026 launch to a 60% conversion rate improvement.",
   },
   {
-    company: "BSH / Siemens Global",
+    company: "Bosch Siemens Home Appliances",
     period: "2020–2024",
     brands: "Siemens Home",
     contribution: "Built Siemens' first global Instagram presence and a centralised content system adopted across 10+ markets, saving significant annual production costs.",
