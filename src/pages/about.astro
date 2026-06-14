@@ -4,6 +4,7 @@ import "../styles/global.css";
 import { Marquee }    from "@components/Marquee";
 import { NavHeader }  from "@components/NavHeader";
 import { SiteFooter } from "@components/SiteFooter";
+import { AboutHero }  from "@components/AboutHero";
 
 const timeline = [
   { year: "2009",      type: "edu",   label: "Valedictorian",                        sub: "Saint Michel French High School · Istanbul" },
@@ -41,34 +42,7 @@ const timeline = [
             </h1>
           </div>
 
-          <div class="flex flex-col gap-6 pb-2">
-            <!-- Photo -->
-            <img
-              src="/images/berk-profile-2026.png"
-              alt="Berk Saraloglu"
-              class="w-24 h-24 object-cover border border-border shrink-0"
-            />
-
-            <p class="text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
-              I spent 11 years inside three of the world's largest consumer electronics companies
-              building what the marketing function should look like. The same structural gaps
-              kept appearing at every scale. So I started building the infrastructure to fix them.
-            </p>
-
-            <div class="flex flex-wrap gap-x-8 gap-y-2">
-              {[
-                ["English", "C1 · Fluent"],
-                ["Turkish", "Native"],
-                ["French",  "B2 · Conversational"],
-                ["German",  "B1 · Intermediate"],
-              ].map(([lang, level]) => (
-                <div class="flex items-baseline gap-2">
-                  <span class="text-[12px] font-medium text-foreground" style="font-family: var(--font-body)">{lang}</span>
-                  <span class="text-[11px] text-muted-foreground" style="font-family: var(--font-body)">{level}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <AboutHero client:load />
         </div>
       </div>
     </section>
