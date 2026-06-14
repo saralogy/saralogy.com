@@ -9,20 +9,105 @@
 
   body {
     font-family: "Inter", system-ui, sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(84, 110, 122, 0.06), transparent 32rem),
-      linear-gradient(180deg, #f8fbfc 0%, #ffffff 18rem);
+    background-color: #fcfdfe;
+    background-image:
+      radial-gradient(60rem 40rem at 12% -10%, rgba(84, 110, 122, 0.10), transparent 60%),
+      radial-gradient(50rem 36rem at 100% 0%, rgba(200, 145, 31, 0.08), transparent 55%),
+      linear-gradient(180deg, #f7fafb 0%, #ffffff 22rem);
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
   }
+
+  ::selection {
+    background-color: rgba(200, 145, 31, 0.25);
+  }
 }
 
 @layer components {
+  /* ── Editorial display type ──────────────────────────────────── */
   .display-heading {
     font-family: "Instrument Serif", Georgia, serif;
     font-weight: 400;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Section eyebrow label ───────────────────────────────────── */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 2px;
+    border-radius: 1px;
+    background: linear-gradient(90deg, #c8911f, #546E7A);
+  }
+
+  /* ── Surface cards ────────────────────────────────────────────── */
+  .surface-card {
+    @apply bg-white border border-gray-200/80 rounded-2xl shadow-sm transition-all duration-200;
+  }
+  .surface-card-link {
+    @apply bg-white border border-gray-200/80 rounded-2xl shadow-sm transition-all duration-200 hover:border-brand-300 hover:shadow-glow hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  /* ── Buttons ──────────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-gray-950 text-white rounded-full font-medium shadow-lg shadow-gray-900/15 transition-all duration-200 hover:shadow-xl hover:shadow-gray-900/25 hover:-translate-y-0.5 hover:bg-gray-800 cursor-pointer;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 rounded-full font-medium transition-all duration-200 hover:border-brand-500 hover:text-brand-600 hover:-translate-y-0.5 cursor-pointer;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 bg-accent-500 text-white rounded-full font-medium shadow-lg shadow-accent-900/20 transition-all duration-200 hover:bg-accent-600 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer;
+  }
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-full font-medium shadow-lg shadow-black/20 transition-all duration-200 hover:bg-gray-100 hover:-translate-y-0.5 cursor-pointer;
+  }
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 border border-white/15 text-gray-200 rounded-full font-medium transition-all duration-200 hover:border-white/40 hover:text-white hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  /* ── Dark / gradient panels ───────────────────────────────────── */
+  .panel-dark {
+    @apply relative overflow-hidden rounded-3xl text-white;
+    background: radial-gradient(120% 140% at 100% 0%, rgba(200,145,31,0.22), transparent 55%),
+                linear-gradient(135deg, #1e3640 0%, #15252d 55%, #0b1216 100%);
+  }
+  .panel-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+
+  /* ── Pill badges ──────────────────────────────────────────────── */
+  .pill {
+    @apply text-xs font-medium px-3 py-1 rounded-full;
+  }
+
+  /* ── Section rhythm ───────────────────────────────────────────── */
+  .section-tint {
+    @apply bg-gradient-to-b from-brand-50/60 via-white to-white border-y border-gray-100;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(84,110,122,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(84,110,122,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .text-gradient-warm {
+    background: linear-gradient(100deg, #546E7A 0%, #c8911f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

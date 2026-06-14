@@ -46,7 +46,7 @@ function soundcloudEmbed(url?: string) {
 
     <section class="pt-16 pb-10 border-b border-gray-100">
       <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Creative Work</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Music</h1>
+      <h1 class="display-heading text-5xl sm:text-6xl text-gray-950 mb-4 leading-tight">Music</h1>
       <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
         Indie songwriter exploring production, process, and place. Writing about movement—physical, mental, and creative. Each piece is a deliberate exploration of what it takes to build something that doesn't exist yet.
       </p>
@@ -61,7 +61,7 @@ function soundcloudEmbed(url?: string) {
             const hasLinks = d.spotify || d.appleMusic || d.youtube || d.soundcloud;
 
             return (
-              <div class="border border-gray-200 rounded-xl p-6 hover:border-gray-900 transition-colors group">
+              <div class="surface-card-link p-6 group">
                 <div class="flex items-start justify-between gap-4 mb-3">
                   <div>
                     <h2 class="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
@@ -183,7 +183,7 @@ function soundcloudEmbed(url?: string) {
 
     <section class="py-8 border-t border-gray-100">
       <p class="text-sm text-gray-500 mb-4">Want to know the full context? See <a href="/about" class="text-gray-700 underline underline-offset-2 hover:text-gray-900 transition-colors">/about</a> for how music and marketing intersect.</p>
-      <a href="/about" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
+      <a href="/about" class="inline-flex items-center gap-2 btn-primary px-6 py-3 text-sm">
         Back to about →
       </a>
     </section>

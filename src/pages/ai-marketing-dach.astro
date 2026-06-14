@@ -126,7 +126,7 @@ const schema = {
         <span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">DACH Market</span>
         <span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">SME Strategy</span>
       </div>
-      <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+      <h1 class="display-heading text-5xl sm:text-6xl text-gray-950 mb-6 leading-tight">
         AI-Native Marketing for DACH SMEs
       </h1>
       <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mb-8">
@@ -197,7 +197,7 @@ const schema = {
           reliably do, what should a human actually be spending time on?"
         </p>
         <p class="text-gray-600 leading-relaxed mb-4">The answer, for most SMEs, is roughly this:</p>
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-4 my-6">
+        <div class="bg-gray-50 surface-card p-6 space-y-4 my-6">
           <div class="grid grid-cols-2 gap-4 text-sm font-semibold text-gray-500 uppercase tracking-wide pb-2 border-b border-gray-200">
             <span>AI handles</span>
             <span>Human handles</span>
@@ -301,7 +301,7 @@ const schema = {
               desc: "Most SMEs have analytics data they never look at because there is no time to make sense of it. Phase 3 connects your channel data to an AI analysis layer that produces a weekly performance summary: what worked, what did not, what anomaly appeared, what you should do differently next week. This takes 30 minutes of your time to review instead of 4 hours to produce manually. More importantly, it means your marketing decisions are grounded in what is actually happening rather than gut feel or the last campaign you remember.",
             },
           ].map(({ phase, title, duration, desc }) => (
-            <div class="border border-gray-200 rounded-xl p-6">
+            <div class="surface-card p-6">
               <div class="flex items-center gap-3 mb-3">
                 <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">{phase}</span>
                 <span class="text-xs text-gray-400">{duration}</span>
@@ -368,12 +368,12 @@ const schema = {
           what a single-person DACH SME marketing operation faces today, just at a different scale.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="/career/bsh" class="group p-4 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+          <a href="/career/bsh" class="group p-4 surface-card-link">
             <div class="text-xs text-gray-500 mb-1">Evidence</div>
             <div class="font-medium text-gray-900 mb-1">BSH / Siemens Global</div>
             <div class="text-sm text-gray-500 group-hover:text-gray-700">Scaled organic media value across 10+ countries · €M+ in annual production savings · how the framework was built</div>
           </a>
-          <a href="/projects/vision-intelligence" class="group p-4 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
+          <a href="/projects/vision-intelligence" class="group p-4 surface-card-link">
             <div class="text-xs text-gray-500 mb-1">Currently building</div>
             <div class="font-medium text-gray-900 mb-1">vision-intelligence</div>
             <div class="text-sm text-gray-500 group-hover:text-gray-700">AI marketing platform built for DACH SMEs specifically</div>
@@ -473,7 +473,7 @@ const schema = {
 
     <!-- CTA with scarcity signal -->
     <section class="py-10 border-t border-gray-100">
-      <div class="bg-gray-900 rounded-2xl p-8 max-w-2xl text-white">
+      <div class="panel-dark p-8 max-w-2xl text-white">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-xs font-medium bg-amber-400 text-gray-900 px-2.5 py-1 rounded-full">2 consulting slots open in Q3 2026</span>
         </div>
@@ -488,13 +488,13 @@ const schema = {
         <div class="flex flex-wrap gap-3">
           <a
             href="mailto:berksaraloglu@gmail.com?subject=AI%20marketing%20consulting%20%E2%80%94%20Q3%202026&body=Company%20and%20what%20it%20sells%3A%20%0A%0ACurrent%20content%20situation%3A%20%0A%0AWhat%20I%20want%20to%20change%20in%2090%20days%3A%20"
-            class="bg-white text-gray-900 px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"
+            class="btn-light px-6 py-2.5 text-sm"
           >
             Apply for a Q3 slot →
           </a>
           <a
             href="/projects/vision-intelligence"
-            class="border border-gray-700 text-gray-300 px-6 py-2.5 rounded-full font-medium text-sm hover:border-gray-400 transition-colors"
+            class="btn-ghost-dark px-6 py-2.5 text-sm"
           >
             See vision-intelligence →
           </a>

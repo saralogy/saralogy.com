@@ -13,7 +13,10 @@ function isActive(href: string): boolean {
 
 <header class="site-header" data-dark={dark ? "true" : undefined}>
   <nav class="nav-inner">
-    <a href="/" class="nav-logo">saralogy.com</a>
+    <a href="/" class="nav-logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      saralogy.com
+    </a>
 
     <!-- Desktop nav -->
     <ul class="desktop-links" role="list">
@@ -80,6 +83,9 @@ function isActive(href: string): boolean {
 
   /* ── Logo ──────────────────────────────────────────────────── */
   .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -88,6 +94,15 @@ function isActive(href: string): boolean {
     transition: color 0.2s;
   }
   .site-header[data-dark="true"] .nav-logo { color: white; }
+
+  .logo-mark {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #c8911f, #546E7A);
+    box-shadow: 0 0 0 4px rgba(84, 110, 122, 0.08);
+  }
 
   /* ── Desktop links ─────────────────────────────────────────── */
   .desktop-links {
@@ -140,11 +155,12 @@ function isActive(href: string): boolean {
     padding: 8px 18px;
     border-radius: 100px;
     text-decoration: none;
-    transition: background 0.15s;
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
     white-space: nowrap;
+    box-shadow: 0 4px 14px -6px rgba(17, 24, 39, 0.35);
   }
-  .nav-cta:hover    { background: #374151; }
-  .nav-cta.active   { background: #546E7A; }
+  .nav-cta:hover    { background: #374151; transform: translateY(-1px); }
+  .nav-cta.active   { background: linear-gradient(135deg, #546E7A, #2c4450); }
 
   .site-header[data-dark="true"] .nav-cta         { background: white; color: #111827; }
   .site-header[data-dark="true"] .nav-cta:hover   { background: rgba(255,255,255,0.85); }
