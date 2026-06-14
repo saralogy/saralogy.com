@@ -74,18 +74,18 @@ export function MusicPlayer() {
               </div>
             </button>
 
-            {/* Hidden SoundCloud iframe - positioned off-screen but active */}
-            <div className="hidden">
+            {/* SoundCloud iframe - positioned off-screen but active */}
+            <div className="fixed -bottom-96 -right-96 w-96 h-96 pointer-events-none">
               <iframe
                 ref={(el) => {
                   if (el) iframeRefs.current[track.id] = el;
                 }}
                 width="100%"
-                height="166"
+                height="100%"
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay; encrypted-media"
-                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.trackId}&color=%23ffffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false`}
+                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.trackId}&color=%23ffffff&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false`}
               ></iframe>
             </div>
           </div>
