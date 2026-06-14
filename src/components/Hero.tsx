@@ -82,8 +82,9 @@ export function Hero() {
             className="text-muted-foreground text-sm leading-relaxed mb-4"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            I'm Berk — 11+ years of integrated marketing at Samsung, BSH Siemens, and VeSync.
-            Now building AI-native marketing infrastructure for DACH SMEs from Hamburg.
+            I'm Berk, 11+ years of digital & integrated marketing at Bosch-Siemens Home Appliances,
+            Samsung Electronics, and recently at VeSync (Cosori & Levoit). Now building AI-native
+            marketing workflows for SMEs in addition to strategic & operational value for top-tier brands.
           </p>
           <a
             href="/work"

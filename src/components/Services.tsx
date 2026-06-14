@@ -1,28 +1,28 @@
 const services = [
   {
     number: "01",
-    name: "AI-Native Marketing Strategy",
-    desc: "Turning AI from buzzword to operational advantage — content systems, automation pipelines, and intelligence layers built for DACH SMEs.",
+    name: "Brand & Communications",
+    desc: "Global brand management at enterprise scale. Visual identity, tone of voice, content systems, and campaign architecture that make brands unmistakable across every channel.",
   },
   {
     number: "02",
-    name: "Brand & Communications",
-    desc: "Global brand management at enterprise scale. Marks, guidelines, and content systems that make brands unmistakable across every channel.",
+    name: "Performance Marketing",
+    desc: "Data-driven campaigns that compound over time. Organic media at €M+ scale, multi-channel launch execution, CRM growth, and ROAS discipline — from brief to post-mortem.",
   },
   {
     number: "03",
-    name: "Performance Marketing",
-    desc: "Data-driven campaigns that compound over time. Organic media at €M+ scale, CRM database growth from zero to database-grade infrastructure.",
+    name: "Campaign Management",
+    desc: "End-to-end ownership of integrated campaigns: briefing agencies, aligning stakeholders across markets, managing budgets, and delivering measurable results without softening the numbers.",
   },
   {
     number: "04",
-    name: "Product Building",
-    desc: "From market validation to shipped product. AI marketing tools for DACH SMEs — built lean, tested with real users, priced for the mid-market.",
+    name: "AI-Native Marketing Strategy",
+    desc: "Turning AI from buzzword to operational advantage — content automation pipelines, intelligent workflows, and AI-augmented campaign infrastructure for European companies ready to systematise.",
   },
   {
     number: "05",
-    name: "DACH Market Entry",
-    desc: "German market fluency: B2B buyer psychology, localisation that goes beyond translation, and channel mixes that actually work in DE/AT/CH.",
+    name: "Product Building",
+    desc: "From observed gap to shipped product. AI marketing tools built lean, tested with real users, and priced for SMEs across Europe that need enterprise-grade thinking without enterprise-grade cost.",
   },
 ];
 
