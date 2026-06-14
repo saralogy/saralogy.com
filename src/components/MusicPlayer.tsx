@@ -1,62 +1,58 @@
-"use client";
-
 interface Track {
   id: string;
   title: string;
-  soundcloudUrl: string;
+  trackId: string;
 }
 
 const tracks: Track[] = [
-  { id: "1", title: "Urban Wandering", soundcloudUrl: "https://on.soundcloud.com/BrwIJuoaAZuYO8p3vG" },
-  { id: "2", title: "Hamburg Nocturne", soundcloudUrl: "https://on.soundcloud.com/SRXfyPrtRIRvfcMcUU" },
-  { id: "3", title: "Prototype", soundcloudUrl: "https://on.soundcloud.com/VCZbEJfic0XKbGmLOy" },
+  { id: "1", title: "Camda bir leke", trackId: "2264717972" },
+  { id: "2", title: "Son Sözlerin Aklımda", trackId: "2291239535" },
+  { id: "3", title: "Mavi Yollar", trackId: "2005367875" },
 ];
 
 export function MusicPlayer() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       {tracks.map((track) => (
-        <a
-          key={track.id}
-          href={track.soundcloudUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-6 p-6 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-left cursor-pointer border border-white/10 hover:border-white/20"
-        >
-          {/* Vinyl animation */}
-          <div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
-            <div
-              className="w-16 h-16 rounded-full border-2 border-white/30 group-hover:border-white/50 transition-colors duration-200"
-              style={{
-                animation: "spin 3s linear infinite",
-                background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(255,255,255,0))",
-              }}
-            >
-              {/* Center label */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-6 h-6 bg-white/20 rounded-full"></div>
+        <div key={track.id} className="space-y-4">
+          {/* Track header with vinyl */}
+          <div className="flex items-center gap-4">
+            <div className="relative w-12 h-12 shrink-0 flex items-center justify-center">
+              <div
+                className="w-12 h-12 rounded-full border border-white/30"
+                style={{
+                  animation: "spin 4s linear infinite",
+                  background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(255,255,255,0))",
+                }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white/20 rounded-full"></div>
+                </div>
               </div>
             </div>
-
-            {/* Play icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">▶</div>
-            </div>
-          </div>
-
-          {/* Track info */}
-          <div className="flex-1">
             <p
-              className="text-lg font-medium text-white group-hover:text-white/90 transition-colors"
+              className="text-base font-medium text-white"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {track.title}
             </p>
-            <p className="text-[11px] text-white/40 mt-1" style={{ fontFamily: "var(--font-body)" }}>
-              Opens in SoundCloud
-            </p>
           </div>
-        </a>
+
+          {/* SoundCloud player - clean embed */}
+          <div className="pl-16">
+            <iframe
+              width="100%"
+              height="100"
+              scrolling="no"
+              frameBorder="no"
+              allow="autoplay; encrypted-media"
+              src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.trackId}&color=%23ffffff&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false`}
+              style={{
+                borderRadius: "0",
+              }}
+            ></iframe>
+          </div>
+        </div>
       ))}
     </div>
   );
