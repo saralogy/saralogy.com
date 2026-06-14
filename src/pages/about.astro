@@ -6,13 +6,16 @@ import { NavHeader }  from "@components/NavHeader";
 import { SiteFooter } from "@components/SiteFooter";
 
 const timeline = [
-  { year: "2009–2014", type: "edu",    label: "B.Sc. Industrial Design",            sub: "Middle East Technical University · Exchange: Politecnico di Torino" },
-  { year: "2015–2016", type: "work",   label: "B2B Marketing Specialist",           sub: "ORMA Chipwood · Istanbul" },
-  { year: "2016–2018", type: "edu",    label: "M.A. Marketing Communication",       sub: "Istanbul Bilgi University" },
-  { year: "2016–2020", type: "work",   label: "Digital Marketing Specialist",       sub: "Samsung Electronics · Istanbul" },
-  { year: "2020–2024", type: "work",   label: "Senior Brand Communications Manager",sub: "BSH / Siemens Global · Munich" },
-  { year: "2025–2026", type: "work",   label: "Integrated Marketing Manager EU",    sub: "VeSync GmbH · Düsseldorf" },
-  { year: "2026–now",  type: "build",  label: "Building vision-intelligence",       sub: "AI marketing infrastructure for SMEs · Hamburg" },
+  { year: "2009",      type: "edu",   label: "Valedictorian",                        sub: "Saint Michel French High School · Istanbul" },
+  { year: "2009–2014", type: "edu",   label: "B.Sc. Industrial Design",              sub: "Middle East Technical University, Ankara · Exchange: Politecnico di Torino, Italy" },
+  { year: "2015–2016", type: "work",  label: "B2B Marketing Specialist",             sub: "ORMA Chipwood · Istanbul · Mar 2015 – Mar 2016" },
+  { year: "2016–2018", type: "work",  label: "Brand Store Development Manager",      sub: "Samsung Electronics · Istanbul" },
+  { year: "2016–2018", type: "edu",   label: "M.A. Marketing Communications",        sub: "Istanbul Bilgi University · GPA 3.68 · Thesis: IMC in Consumer Electronics" },
+  { year: "2018–2020", type: "work",  label: "Digital Marketing Specialist",         sub: "Samsung Electronics · Istanbul · 3× Kristal Elma 2019" },
+  { year: "2020–2021", type: "work",  label: "Digital Marketing Manager",            sub: "BSH / Profilo · Istanbul → promoted to Munich HQ after 9 months" },
+  { year: "2021–2024", type: "work",  label: "Global Brand Communications Manager",  sub: "BSH / Siemens · Munich · Promoted 2023 · Ended via company restructuring" },
+  { year: "2025–2026", type: "work",  label: "IMC Manager, EU",                      sub: "VeSync GmbH (COSORI · Levoit) · Hamburg · Nov 2025 – May 2026" },
+  { year: "2026–now",  type: "build", label: "Building vision-intelligence",         sub: "AI marketing infrastructure for SMEs · Hamburg" },
 ];
 ---
 
@@ -55,10 +58,10 @@ const timeline = [
 
             <div class="flex flex-wrap gap-x-8 gap-y-2">
               {[
-                ["English", "Fluent"],
+                ["English", "C1 · Fluent"],
                 ["Turkish", "Native"],
-                ["German",  "A2 · Improving"],
-                ["French",  "Conversational"],
+                ["French",  "B2 · Conversational"],
+                ["German",  "B1 · Intermediate"],
               ].map(([lang, level]) => (
                 <div class="flex items-baseline gap-2">
                   <span class="text-[12px] font-medium text-foreground" style="font-family: var(--font-body)">{lang}</span>
@@ -103,8 +106,10 @@ const timeline = [
               was always the same: campaigns built faster than the infrastructure could support them.
               No unified customer data. No content system that survived beyond the agency relationship.
               No way to measure what actually moved qualified demand. I rebuilt it at every stop —
-              a 22-module IMC operating system at VeSync, a global content playbook and CRM
-              architecture at BSH, a localized conversion engine at Samsung that lowered CAC by 22%.
+              a 22-module IMC operating system at VeSync, a global CRM and content architecture
+              at Siemens spanning 20+ countries, a pandemic-era digital turnaround at Profilo
+              that tripled online revenue YoY and earned a promotion to Munich HQ in 9 months,
+              and a localized conversion engine at Samsung that lowered CAC by 22%.
             </p>
           </div>
 
