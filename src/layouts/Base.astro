@@ -60,7 +60,7 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -86,7 +86,7 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
     <slot name="head" />
     <ViewTransitions />
   </head>
-  <body class="min-h-screen bg-white text-gray-900 antialiased">
+  <body class="min-h-screen bg-background text-foreground antialiased">
     <slot />
 
     <!-- Cookie consent banner (GDPR opt-in, required for Germany) -->

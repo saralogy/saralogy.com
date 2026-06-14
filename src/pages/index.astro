@@ -1,201 +1,38 @@
 ---
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../styles/global.css";
+import { personSchemaJson } from "../data/schema";
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://saralogy.com/#website",
-      "url": "https://saralogy.com",
-      "name": "saralogy.com",
-      "description": "AI-native marketing for DACH SMEs by Berk Saraloglu",
-      "publisher": { "@id": "https://saralogy.com/#person" },
-    },
-    {
-      "@type": "Person",
-      "@id": "https://saralogy.com/#person",
-      "name": "Berk Saraloglu",
-      "url": "https://saralogy.com",
-      "jobTitle": "Marketing Leader & AI Tool Builder",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Hamburg",
-        "addressCountry": "DE",
-      },
-    },
-  ],
-};
+import { Marquee }       from "@components/Marquee";
+import { NavHeader }     from "@components/NavHeader";
+import { Hero }          from "@components/Hero";
+import { Stats }         from "@components/Stats";
+import { Services }      from "@components/Services";
+import { WorkShowcase }  from "@components/WorkShowcase";
+import { Testimonials }  from "@components/Testimonials";
+import { CaseStudy }     from "@components/CaseStudy";
+import { SiteFooter }    from "@components/SiteFooter";
 ---
 
 <Base
-  title="Berk Saraloglu | AI Marketing · Music · Hamburg"
-  description="Turkish-German marketing leader and AI tool builder in Hamburg. 10+ years at Samsung, Bosch Siemens Home Appliances (BSH), VeSync. Building AI-native marketing tools for DACH SMEs. Indie songwriter."
+  title="Berk Saraloglu | AI Marketing · Hamburg"
+  description="Turkish-German marketing leader and AI tool builder in Hamburg. 11+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing infrastructure for DACH SMEs."
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={personSchemaJson} />
   </Fragment>
 
-  <Header />
+  <Marquee client:load />
+  <NavHeader client:load />
 
   <main>
-    <!-- Hero -->
-    <section class="max-w-4xl mx-auto px-6 pt-24 pb-20">
-      <div class="max-w-2xl">
-        <p class="text-sm font-medium text-brand-500 mb-4 tracking-wide uppercase" data-reveal>Hamburg, Germany</p>
-        <h1 class="display-heading text-6xl sm:text-7xl text-gray-950 mb-6 leading-none" data-reveal data-reveal-delay="100">
-          Where Turkish hustle<br />meets German precision<br />and AI changes the math.
-        </h1>
-        <p class="text-xl text-gray-600 leading-relaxed mb-10" data-reveal data-reveal-delay="200">
-          I'm Berk: 11+ years of integrated marketing across Samsung, BSH, and VeSync. Organic media at €M+ scale. 600% CRM database growth. Now building AI-native marketing infrastructure for DACH SMEs through vision-intelligence.
-        </p>
-
-        <!-- Intent Router: 3 audience paths -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <a href="/work" class="group p-5 border-2 border-gray-900 rounded-xl bg-gray-950 text-white shadow-lg hover:-translate-y-0.5 transition" data-reveal data-reveal-delay="300">
-            <div class="text-xs font-medium text-gray-300 uppercase tracking-wide mb-2">Hiring?</div>
-            <div class="font-semibold text-white mb-1">Senior Marketing Manager, DACH</div>
-            <div class="text-sm text-gray-300 group-hover:text-white">See what I've shipped and my availability →</div>
-          </a>
-          <a href="/ai-marketing-dach" class="group p-5 border border-gray-200 rounded-xl hover:border-brand-500 transition-colors" data-reveal data-reveal-delay="350">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Building a DACH startup?</div>
-            <div class="font-semibold text-gray-900 mb-1">AI marketing tools for SMEs</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Tools and thinking for lean growth →</div>
-          </a>
-          <a href="/music" class="group p-5 border border-gray-200 rounded-xl hover:border-brand-500 transition-colors" data-reveal data-reveal-delay="400">
-            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Here for the music?</div>
-            <div class="font-semibold text-gray-900 mb-1">Indie songwriter</div>
-            <div class="text-sm text-gray-500 group-hover:text-gray-700">Songs and the process behind them →</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- The argument -->
-    <section class="bg-gray-50 border-y border-gray-100">
-      <div class="max-w-4xl mx-auto px-6 py-16">
-        <div class="max-w-2xl">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4" data-reveal>The thesis</h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            AI-native marketing is the only viable path for DACH SMEs in the next five years,
-            and most of them are years behind. <a href="/ai-marketing-dach" class="text-brand-600 hover:text-brand-700 font-medium">Read the full analysis →</a> I'm building the proof from two directions
-            simultaneously: from inside, as the marketing leader who has done it at enterprise
-            scale, and from outside, as the product developer building the tools to make it accessible.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Career highlights -->
-    <section class="max-w-4xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-bold text-gray-900 mb-8" data-reveal>What I built at each stop</h2>
-      <div class="space-y-4">
-        {[
-          {
-            company: "VeSync GmbH",
-            role: "Integrated Marketing Manager EU",
-            period: "2025–2026",
-            slug: "vesync",
-            highlight: "Launched a premium product line to 117% of target in 53 days across EU markets",
-          },
-          {
-            company: "BSH / Siemens Global",
-            role: "Senior Brand Communications Manager",
-            period: "2020–2024",
-            slug: "bsh",
-            highlight: "Created Siemens' first global Instagram presence and saved €1.5M annually through centralised content production",
-          },
-          {
-            company: "Samsung Electronics",
-            role: "Digital Marketing Specialist",
-            period: "2016–2020",
-            slug: "samsung",
-            highlight: "Ran 100+ campaigns and won 3 Kristal Elma Awards for creative effectiveness",
-          },
-        ].map((t) => (
-          <a href={`/career/${t.slug}`} class="group flex items-center justify-between p-5 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors">
-            <div>
-              <div class="font-semibold text-gray-900">{t.company}</div>
-              <div class="text-sm text-gray-500">{t.role} · {t.period}</div>
-              <div class="text-sm text-gray-600 mt-1">{t.highlight}</div>
-            </div>
-            <div class="text-gray-400 group-hover:text-gray-900 transition-colors text-xl">→</div>
-          </a>
-        ))}
-      </div>
-      <a href="/career" class="inline-block mt-6 text-sm font-medium text-brand-600 hover:text-brand-700">
-        Full career history →
-      </a>
-    </section>
-
-    <!-- Currently building -->
-    <section class="bg-gray-50 border-y border-gray-100">
-      <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8" data-reveal>Currently building</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="/projects/vision-intelligence" class="group p-5 border border-gray-200 rounded-xl bg-white hover:border-gray-900 transition-colors">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">MVP</span>
-            </div>
-            <div class="font-semibold text-gray-900 mb-1">vision-intelligence</div>
-            <div class="text-sm text-gray-500">AI marketing platform for DACH SMEs</div>
-          </a>
-          <a href="/projects/resume-matcher" class="group p-5 border border-gray-200 rounded-xl bg-white hover:border-gray-900 transition-colors">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Live</span>
-            </div>
-            <div class="font-semibold text-gray-900 mb-1">resume-matcher</div>
-            <div class="text-sm text-gray-500">ATS optimization used in my 2026 German job search workflow</div>
-          </a>
-        </div>
-      </div>
-    </section>
+    <Hero client:load />
+    <Stats />
+    <Testimonials />
+    <Services />
+    <WorkShowcase />
+    <CaseStudy />
   </main>
 
-  <script is:inline>
-    (function() {
-      const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (REDUCED) return;
-
-      const style = document.createElement('style');
-      style.textContent = `
-        [data-reveal] {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 0.55s ease, transform 0.55s ease;
-        }
-        [data-reveal].revealed {
-          opacity: 1;
-          transform: none;
-        }
-      `;
-      document.head.appendChild(style);
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const delay = entry.target.getAttribute('data-reveal-delay') || '0';
-          setTimeout(() => entry.target.classList.add('revealed'), parseInt(delay));
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-    })();
-  </script>
-
-  <footer class="border-t border-gray-100">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Base>

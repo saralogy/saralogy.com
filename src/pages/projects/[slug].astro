@@ -1,128 +1,145 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../../styles/global.css";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({ data }) => data.status === "published");
-  return projects.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return projects.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
 }
 
-interface Props {
-  entry: {
-    slug: string;
-    data: any;
-    render: () => Promise<{ Content: any }>;
-  };
-}
-
+interface Props { entry: { slug: string; data: any; render: () => Promise<{ Content: any }> } }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const d = entry.data;
+
+const STATUS_LABEL: Record<string, string> = {
+  concept: "Concept", mvp: "MVP", beta: "Beta", live: "Live", archived: "Archived",
+};
 ---
 
-<Base
-  title={d.seo.title}
-  description={d.seo.description}
-  ogImage={d.seo.ogImage}
->
-  <Header />
+<Base title={d.seo.title} description={d.seo.description} ogImage={d.seo.ogImage}>
+  <Marquee client:load />
+  <NavHeader client:load />
 
-  <main class="max-w-4xl mx-auto px-6">
+  <main>
+    <!-- Header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 pb-14">
+        <a href="/projects" class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors mb-10" style="font-family: var(--font-body)">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M5 1L1 4.5m0 0L5 8M1 4.5h10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          Projects
+        </a>
 
-    <section class="pt-16 pb-10 border-b border-gray-100">
-      <div class="flex items-center gap-3 mb-4">
-        <span class={`text-xs font-medium px-3 py-1.5 rounded-full ${
-          d.projectStatus === "live" ? "bg-green-100 text-green-700" :
-          d.projectStatus === "beta" ? "bg-amber-100 text-amber-700" :
-          d.projectStatus === "mvp" ? "bg-blue-100 text-blue-700" :
-          d.projectStatus === "concept" ? "bg-purple-100 text-purple-700" :
-          "bg-gray-100 text-gray-700"
-        }`}>
-          {d.projectStatus === "live" ? "Live" :
-           d.projectStatus === "beta" ? "Beta" :
-           d.projectStatus === "mvp" ? "MVP" :
-           d.projectStatus === "concept" ? "Concept" : "Archived"}
-        </span>
-      </div>
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">{d.title}</h1>
-      <p class="text-xl text-gray-600 mb-6">{d.tagline}</p>
-
-      <div class="space-y-4">
-        <div>
-          <h2 class="font-semibold text-gray-900 mb-2">Problem</h2>
-          <p class="text-gray-600">{d.problem}</p>
-        </div>
-        <div>
-          <h2 class="font-semibold text-gray-900 mb-2">Audience</h2>
-          <p class="text-gray-600">{d.audience}</p>
-        </div>
-        {d.proofPoint && (
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
-            <h2 class="font-semibold text-gray-900 mb-2">Current proof</h2>
-            <p class="text-gray-700">{d.proofPoint}</p>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          <div>
+            <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2.5 py-1 text-muted-foreground inline-block mb-4" style="font-family: var(--font-body)">
+              {STATUS_LABEL[d.projectStatus] ?? d.projectStatus}
+            </span>
+            <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+              {d.title}.
+            </h1>
+            <p class="text-muted-foreground mt-3" style="font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.2rem);">{d.tagline}</p>
           </div>
-        )}
+
+          <div class="flex flex-wrap gap-4 shrink-0">
+            {d.liveUrl && (
+              <a href={d.liveUrl} target="_blank" rel="noopener noreferrer"
+                class="text-[11px] tracking-widest uppercase bg-foreground text-background px-5 py-2.5 hover:opacity-80 transition-opacity"
+                style="font-family: var(--font-body)">
+                Visit ↗
+              </a>
+            )}
+            {d.waitlistUrl && (
+              <a href={d.waitlistUrl} target="_blank" rel="noopener noreferrer"
+                class="text-[11px] tracking-widest uppercase border border-border px-5 py-2.5 hover:border-foreground text-muted-foreground hover:text-foreground transition-all"
+                style="font-family: var(--font-body)">
+                Join waitlist
+              </a>
+            )}
+            {d.githubUrl && (
+              <a href={d.githubUrl} target="_blank" rel="noopener noreferrer"
+                class="text-[11px] tracking-widest uppercase border border-border px-5 py-2.5 hover:border-foreground text-muted-foreground hover:text-foreground transition-all"
+                style="font-family: var(--font-body)">
+                GitHub ↗
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="py-12 prose prose-sm max-w-none">
-      <Content />
+    <!-- Problem / Audience / Proof -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+          <div class="bg-background p-8 flex flex-col gap-3">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">Problem</span>
+            <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{d.problem}</p>
+          </div>
+          <div class="bg-background p-8 flex flex-col gap-3">
+            <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">Audience</span>
+            <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{d.audience}</p>
+          </div>
+          {d.proofPoint ? (
+            <div class="bg-background p-8 flex flex-col gap-3 border-l-2 border-foreground">
+              <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">Current proof</span>
+              <p class="text-[13px] text-foreground font-medium leading-relaxed" style="font-family: var(--font-body)">{d.proofPoint}</p>
+            </div>
+          ) : (
+            <div class="bg-background p-8" />
+          )}
+        </div>
+      </div>
     </section>
 
-    <section class="py-10 border-t border-gray-100 space-y-4">
-      {d.techStack && d.techStack.length > 0 && (
-        <div>
-          <h3 class="font-semibold text-gray-900 mb-2">Tech Stack</h3>
+    <!-- Content -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="max-w-2xl prose prose-sm text-muted-foreground" style="font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech stack -->
+    {d.techStack && d.techStack.length > 0 && (
+      <section class="border-b border-border">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">✦ Tech stack</span>
           <div class="flex flex-wrap gap-2">
             {d.techStack.map((tech: string) => (
-              <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">{tech}</span>
+              <span class="text-[10px] tracking-[0.15em] uppercase border border-border px-3 py-1.5 text-muted-foreground" style="font-family: var(--font-body)">{tech}</span>
             ))}
           </div>
         </div>
-      )}
+      </section>
+    )}
 
-      <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
-        {d.liveUrl && (
-          <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors">
-            Visit →
+    <!-- CTA -->
+    <section class="bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;">
+          See how these tools<br /><span class="italic font-light">would help you build.</span>
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/work"
+            class="text-[11px] tracking-widest uppercase bg-white text-black px-6 py-3 hover:bg-white/90 transition-opacity"
+            style="font-family: var(--font-body)">
+            Work with me
           </a>
-        )}
-        {d.waitlistUrl && (
-          <a href={d.waitlistUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors">
-            Join waitlist
+          <a href="/projects"
+            class="text-[11px] tracking-widest uppercase text-white/50 hover:text-white transition-colors"
+            style="font-family: var(--font-body)">
+            ← All projects
           </a>
-        )}
-        {d.githubUrl && (
-          <a href={d.githubUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors">
-            GitHub
-          </a>
-        )}
+        </div>
       </div>
     </section>
-
-    <section class="py-8 border-t border-gray-100">
-      <a href="/projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
-        ← Back to projects
-      </a>
-    </section>
-
   </main>
 
-  <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Base>

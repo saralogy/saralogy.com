@@ -1,180 +1,119 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../styles/global.css";
+import { Marquee }       from "@components/Marquee";
+import { NavHeader }     from "@components/NavHeader";
+import { SiteFooter }    from "@components/SiteFooter";
+import { ProjectsGrid, type ProjectEntry } from "@components/ProjectsGrid";
 
-const entries = await getCollection("projects", ({ data }) => data.status === "published");
+const raw = await getCollection("projects", ({ data }) => data.status === "published");
 
-// Sort by featured first, then by order
-const sorted = entries.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  return (a.data.order ?? 999) - (b.data.order ?? 999);
-});
-
-function projectStatusBadge(status: string) {
-  const badges: Record<string, { bg: string; text: string; label: string }> = {
-    concept: { bg: "bg-purple-100", text: "text-purple-700", label: "Concept" },
-    mvp: { bg: "bg-blue-100", text: "text-blue-700", label: "MVP" },
-    beta: { bg: "bg-amber-100", text: "text-amber-700", label: "Beta" },
-    live: { bg: "bg-green-100", text: "text-green-700", label: "Live" },
-    archived: { bg: "bg-gray-100", text: "text-gray-700", label: "Archived" },
-  };
-  return badges[status] || badges.concept;
-}
+const entries: ProjectEntry[] = raw
+  .sort((a, b) => {
+    if (a.data.featured && !b.data.featured) return -1;
+    if (!a.data.featured && b.data.featured) return 1;
+    return (a.data.order ?? 999) - (b.data.order ?? 999);
+  })
+  .map((e) => ({
+    slug:          e.slug,
+    title:         e.data.title,
+    tagline:       e.data.tagline,
+    problem:       e.data.problem,
+    audience:      e.data.audience,
+    projectStatus: e.data.projectStatus,
+    techStack:     e.data.techStack ?? [],
+    proofPoint:    e.data.proofPoint,
+    liveUrl:       e.data.liveUrl,
+    waitlistUrl:   e.data.waitlistUrl,
+    githubUrl:     e.data.githubUrl,
+    featured:      e.data.featured ?? false,
+  }));
 ---
 
 <Base
   title="Projects — AI Tools & Marketing Products | Berk Saraloglu"
-  description="Building products at the intersection of marketing, AI, and infrastructure. Vision-intelligence for DACH SMEs, tools for career builders, and more."
+  description="Products at the intersection of marketing, AI, and problems Berk saw at scale. Vision-intelligence for DACH SMEs and more."
 >
-  <Header />
+  <Marquee client:load />
+  <NavHeader client:load />
 
-  <main class="max-w-4xl mx-auto px-6">
-
-    <section class="pt-16 pb-10 border-b border-gray-100">
-      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Building</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Projects</h1>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-        Products at the intersection of marketing, AI, and the problems Berk saw at scale. Each project solves something real, proven in practice.
-      </p>
-    </section>
-
-    {sorted.length > 0 ? (
-      <section class="py-12">
-        <div class="space-y-6">
-          {sorted.map((entry) => {
-            const d = entry.data;
-            const badge = projectStatusBadge(d.projectStatus);
-
-            return (
-              <div class="border border-gray-200 rounded-xl p-6 hover:border-gray-900 transition-colors group">
-                <div class="flex items-start justify-between gap-4 mb-2">
-                  <div>
-                    <h2 class="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
-                      {d.title}
-                    </h2>
-                    <p class="text-gray-600 mt-1">{d.tagline}</p>
-                  </div>
-                  <span class={`text-xs font-medium px-3 py-1.5 rounded-full ${badge.bg} ${badge.text} shrink-0`}>
-                    {badge.label}
-                  </span>
-                </div>
-
-                <div class="mb-4 text-sm text-gray-600 leading-relaxed">
-                  <strong>Problem:</strong> {d.problem}
-                </div>
-
-                <div class="mb-4 text-sm text-gray-600 leading-relaxed">
-                  <strong>Audience:</strong> {d.audience}
-                </div>
-
-                {d.proofPoint && (
-                  <div class="mb-4 text-sm text-gray-700 leading-relaxed bg-amber-50 border border-amber-200 rounded-lg p-3">
-                    <strong>Current proof:</strong> {d.proofPoint}
-                  </div>
-                )}
-
-                {d.techStack && d.techStack.length > 0 && (
-                  <div class="flex flex-wrap gap-1.5 mb-4">
-                    {d.techStack.map((tech) => (
-                      <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {entry.slug === "vision-intelligence" && (
-                  <p class="text-xs text-gray-500 mb-4">
-                    Built from gaps observed at{" "}
-                    <a href="/career/bsh" class="underline hover:text-gray-900 transition-colors">BSH</a>
-                    {" "}and{" "}
-                    <a href="/career/vesync" class="underline hover:text-gray-900 transition-colors">VeSync</a>.
-                  </p>
-                )}
-
-                <div class="flex flex-wrap gap-2">
-                  <a
-                    href={`/projects/${entry.slug}`}
-                    class="text-sm text-white bg-gray-900 px-4 py-2 rounded-full hover:bg-gray-700 transition-colors"
-                  >
-                    Details →
-                  </a>
-                  {d.liveUrl && (
-                    <a
-                      href={d.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                    >
-                      Visit →
-                    </a>
-                  )}
-                  {d.waitlistUrl && (
-                    <a
-                      href={d.waitlistUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                    >
-                      Join waitlist
-                    </a>
-                  )}
-                  {d.githubUrl && (
-                    <a
-                      href={d.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-sm text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+  <main>
+    <!-- Page header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+            ✦ Building
+          </span>
+          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Projects.
+          </h1>
         </div>
-      </section>
-    ) : (
-      <section class="py-20 text-center text-gray-400">
-        <p>Projects coming soon.</p>
-      </section>
-    )}
-
-    <section class="py-10 border-t border-gray-100">
-      <h2 class="text-lg font-semibold text-gray-900 mb-4">Why these projects</h2>
-      <p class="text-gray-600 leading-relaxed mb-4">
-        Every project here solves a real gap Berk encountered at scale. Vision-intelligence came from seeing the exact same content infrastructure problem repeat at BSH and VeSync. Other projects address the gaps between what exists and what builders actually need.
-      </p>
-      <p class="text-gray-600 leading-relaxed mb-4">
-        The pattern: work in the product space, observe the structural gap, build the tool, validate it, then decide if it's a business or a service. Some projects stay exploration. Some become the next venture.
-      </p>
-      <p class="text-gray-600 leading-relaxed">
-        <a href="/career" class="underline hover:text-gray-900 transition-colors">See the pattern across career tenures</a> that led to each project.
-      </p>
+        <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+          Products at the intersection of marketing, AI, and the problems I saw at scale. Each project solves something real, validated in practice.
+        </p>
+      </div>
     </section>
 
-    <section class="py-8 border-t border-gray-100">
-      <a href="/work" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
-        See how these tools would help you build →
-      </a>
+    <!-- Interactive grid -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+      {entries.length > 0 ? (
+        <ProjectsGrid entries={entries} client:load />
+      ) : (
+        <p class="text-muted-foreground text-sm py-20 text-center" style="font-family: var(--font-body)">Projects coming soon.</p>
+      )}
     </section>
 
+    <!-- Why these projects -->
+    <section class="border-t border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="max-w-[1440px] grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+          <div class="bg-background p-10">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">
+              ✦ The pattern
+            </span>
+            <p class="text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+              Every project here solves a structural gap I encountered at scale. Vision-intelligence came from seeing the same content infrastructure problem repeat at BSH and VeSync. The pattern: work in the product space, observe the gap, build the tool, validate it, then decide if it's a business or a service.
+            </p>
+          </div>
+          <div class="bg-background p-10">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">
+              ✦ The approach
+            </span>
+            <p class="text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+              Some projects stay exploration. Some become the next venture. What links them: each starts with a problem I couldn't find a good tool for, built lean, tested with real users, and priced for the mid-market where the gap is largest.
+            </p>
+            <a
+              href="/career"
+              class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border-b border-foreground pb-px hover:gap-4 transition-all duration-200 mt-6 block"
+              style="font-family: var(--font-body)"
+            >
+              See the career pattern that led here
+              <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-border bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;">
+          See how these tools<br /><span class="italic font-light">would help you build.</span>
+        </p>
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border border-white/30 px-6 py-3 hover:bg-white hover:text-black transition-all duration-200 self-start"
+          style="font-family: var(--font-body)"
+        >
+          Work with me
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Base>

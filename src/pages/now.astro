@@ -1,84 +1,103 @@
 ---
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../styles/global.css";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
 ---
 
 <Base
-  title="Now — What Berk is Working On (Updated) | Saralogy"
+  title="Now — What Berk is Working On | Saralogy"
   description="What Berk is working on right now. Updated regularly."
 >
-  <Header />
+  <Marquee client:load />
+  <NavHeader client:load />
 
-  <main class="max-w-4xl mx-auto px-6">
-
-    <section class="pt-16 pb-10 border-b border-gray-100">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Now</h1>
-      <p class="text-sm text-gray-500">Updated June 2026</p>
-      <p class="text-xl text-gray-600 leading-relaxed mt-4">
-        What I'm working on right now. A snapshot of current focus and priority.
-      </p>
+  <main>
+    <!-- Header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+            ✦ Updated June 2026
+          </span>
+          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Now.
+          </h1>
+        </div>
+        <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+          What I'm working on right now. A snapshot of current focus and priority. More honest than a static bio.
+        </p>
+      </div>
     </section>
 
-    <section class="py-12 space-y-12">
-
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Work</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          Actively searching for a Senior Marketing Manager role in Hamburg or DACH (target: August 2026). Looking for companies building something serious — ideally where I can own a full marketing function and bring AI-native thinking to the team.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          In the meantime, developing the vision-intelligence MVP (AI marketing platform for DACH SMEs). Currently in closed beta with 3 pilot customers. Targeting public beta launch by August 2026.
-        </p>
+    <!-- Now items -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="flex flex-col divide-y divide-border">
+          {[
+            {
+              label: "Work",
+              body: [
+                "Actively searching for a Senior Marketing Manager role in Hamburg or DACH (target: August 2026). Looking for companies building something serious — where I can own a full marketing function and bring AI-native thinking.",
+                "Developing the vision-intelligence MVP — AI marketing platform for DACH SMEs. Currently in closed beta with 3 pilot customers. Targeting public launch by August 2026.",
+              ],
+              link: { href: "/work", text: "See how to work with me" },
+            },
+            {
+              label: "Music",
+              body: [
+                "Working on a 4-track EP exploring the theme of \"building.\" Recordings are 60% complete. Not rushing to release — focusing on depth of process over volume.",
+                "Three tracks are already public: Urban Wandering (released), Hamburg Nocturne (released), and Prototype (demo). New track in progress.",
+              ],
+              link: { href: "/music", text: "See the music" },
+            },
+            {
+              label: "Learning",
+              body: [
+                "Deep dive into agentic AI architecture and RAG. Building vision-intelligence has been my primary education — seeing firsthand how AI-native systems differ from AI-bolted-on tools.",
+              ],
+            },
+            {
+              label: "Life",
+              body: [
+                "Settling into Hamburg while keeping the next professional chapter deliberately focused. Wedding scheduled for September 12, 2026.",
+                "The big focus: building the compound revenue foundation that makes the next decade work — salary + product + consulting.",
+              ],
+            },
+          ].map(({ label, body, link }) => (
+            <div class="flex flex-col md:flex-row gap-6 py-10">
+              <div class="md:w-1/4 shrink-0">
+                <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; line-height: 1.1;">{label}.</p>
+              </div>
+              <div class="flex flex-col gap-4">
+                {body.map((p) => (
+                  <p class="text-[13px] text-muted-foreground leading-relaxed max-w-xl" style="font-family: var(--font-body)">{p}</p>
+                ))}
+                {link && (
+                  <a href={link.href} class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border-b border-foreground pb-px hover:gap-4 transition-all duration-200 mt-2 w-fit" style="font-family: var(--font-body)">
+                    {link.text}
+                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Music</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          Working on a 4-track EP exploring the theme of "building." Recordings are 60% complete. Production is deliberate — not rushing to release; focusing on depth of process over volume.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          Three tracks are already public: "Urban Wandering" (released), "Hamburg Nocturne" (released), and "Prototype" (demo). New track in progress.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Learning</h2>
-        <p class="text-gray-600 leading-relaxed">
-          Deep dive into agentic AI architecture and retrieval-augmented generation (RAG). Building vision-intelligence has been my primary education here — seeing firsthand how AI-native systems differ from "AI-bolted-on" tools.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Life</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          Settling into Hamburg while keeping the next professional chapter deliberately focused. Wedding scheduled for September 12, 2026.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          The big focus: building the compound revenue foundation I need to make the next decade work — salary + product + consulting. Getting the pieces in motion so the financial pressure is off and I can think clearly.
-        </p>
-      </div>
-
-      <div class="p-6 bg-gray-50 rounded-xl border border-gray-100">
-        <p class="text-sm text-gray-600">
-          <strong>Why this page?</strong> I keep this updated so people who know me (or are considering working with me) can see where I'm actually focused. It's more honest than a static bio.
-        </p>
-      </div>
-
     </section>
 
+    <!-- Note -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
+        <div class="border-l-2 border-muted pl-6 max-w-xl">
+          <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            <strong class="text-foreground">Why this page?</strong> I keep this updated so people considering working with me can see where I'm actually focused. It's more honest than a static bio — inspired by Derek Sivers' /now movement.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Base>

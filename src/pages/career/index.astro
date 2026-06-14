@@ -1,24 +1,20 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../../styles/global.css";
+import { Marquee }        from "@components/Marquee";
+import { NavHeader }      from "@components/NavHeader";
+import { SiteFooter }     from "@components/SiteFooter";
+import { CareerTimeline, type CareerEntry } from "@components/CareerTimeline";
 
-const entries = await getCollection("career", ({ data }) => data.status === "published");
+const raw = await getCollection("career", ({ data }) => data.status === "published");
 
-const buildLines: Record<string, string> = {
-  vesync: "Built 3 full-funnel launch playbooks; hit 117% of flagship product sell-out target in 53 days.",
-  bsh: "Built Siemens' first global Instagram presence and the content playbook adopted across 10+ markets.",
-  samsung: "Built 150 brand stores nationally and a YouTube format adopted as the Samsung EMEA benchmark.",
-  orma: "Opened the architect and designer segment from scratch; led full website and app redesign in 4 months.",
+const categoryMap: Record<string, CareerEntry["category"]> = {
+  bsh:     "corporate",
+  samsung: "corporate",
+  vesync:  "startup",
+  orma:    "early",
 };
-
-// Sort by end date descending (most recent first)
-const sorted = entries.sort((a, b) => {
-  const endA = a.data.period.end === "present" ? "9999-99" : a.data.period.end;
-  const endB = b.data.period.end === "present" ? "9999-99" : b.data.period.end;
-  return endB.localeCompare(endA);
-});
 
 function formatPeriod(start: string, end: string) {
   const fmt = (s: string) => {
@@ -29,107 +25,119 @@ function formatPeriod(start: string, end: string) {
   };
   return `${fmt(start)} – ${fmt(end)}`;
 }
+
+const highlights: Record<string, string> = {
+  vesync:  "Built 3 full-funnel launch playbooks; hit 117% of flagship sell-out target in 53 days.",
+  bsh:     "Built Siemens' first global Instagram presence and a content playbook adopted across 10+ markets.",
+  samsung: "Built 150 brand stores nationally and a YouTube format adopted as the Samsung EMEA benchmark.",
+  orma:    "Opened the architect and designer segment from scratch; led full website and app redesign in 4 months.",
+};
+
+const entries: CareerEntry[] = raw
+  .sort((a, b) => {
+    const ea = a.data.period.end === "present" ? "9999-99" : a.data.period.end;
+    const eb = b.data.period.end === "present" ? "9999-99" : b.data.period.end;
+    return eb.localeCompare(ea);
+  })
+  .map((e) => ({
+    slug:     e.slug,
+    company:  e.data.company,
+    role:     e.data.role,
+    location: e.data.location,
+    period:   formatPeriod(e.data.period.start, e.data.period.end),
+    highlight: highlights[e.slug] ?? "",
+    wins:     e.data.wins ?? [],
+    category: categoryMap[e.slug] ?? "early",
+  }));
 ---
 
 <Base
-  title="Career — Marketing Leadership & Product Strategy | Berk Saraloglu"
-  description="Building marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and solo. Consumer electronics, global brand, full-funnel launches. Based in Hamburg. Full career history with case studies."
+  title="Career — Marketing Leadership | Berk Saraloglu"
+  description="Marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and early (Samsung, ORMA). Full career history with case studies. Based in Hamburg."
 >
-  <Header />
+  <Marquee client:load />
+  <NavHeader client:load />
 
-  <main class="max-w-4xl mx-auto px-6">
-
-    <section class="pt-16 pb-10 border-b border-gray-100">
-      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Hamburg, Germany</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Career</h1>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-        Building marketing at three scales: startup (VeSync), corporate (BSH/Siemens), and solo (vision-intelligence).
-        Each page below is a case study, not a CV line. What the role was, what I actually built, and what it means today.
-      </p>
+  <main>
+    <!-- Page header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+            ✦ Hamburg, Germany
+          </span>
+          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Career.
+          </h1>
+        </div>
+        <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+          Marketing at three scales: startup, corporate, and early-career. Each entry below is a case study — what the role was, what I actually built, and what it means today.
+        </p>
+      </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="py-12">
-      {sorted.length > 0 ? (
-        <div class="space-y-4">
-          {sorted.map((entry) => {
-            const d = entry.data;
-            const period = formatPeriod(d.period.start, d.period.end);
-            return (
-              <a
-                href={`/career/${entry.slug}`}
-                class="group flex items-start gap-6 p-6 border border-gray-200 rounded-xl hover:border-gray-900 transition-colors"
-              >
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-3 mb-1 flex-wrap">
-                    <span class="font-semibold text-gray-900">{d.company}</span>
-                    <span class="text-xs text-gray-400">{d.location}</span>
-                  </div>
-                  <div class="text-sm text-gray-500 mb-2">{d.role} · {period}</div>
-                  {buildLines[entry.slug] && (
-                    <p class="text-sm text-gray-600 mb-3">{buildLines[entry.slug]}</p>
-                  )}
-                  <div class="flex flex-wrap gap-2">
-                    {d.wins.slice(0, 3).map((w) => (
-                      <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-                        {w.metric ?? w.headline.split(" ").slice(0, 4).join(" ")}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <span class="text-gray-400 group-hover:text-gray-900 transition-colors text-xl shrink-0 mt-1">→</span>
-              </a>
-            );
-          })}
-        </div>
+    <!-- Interactive timeline -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+      {entries.length > 0 ? (
+        <CareerTimeline entries={entries} client:load />
       ) : (
-        <div class="text-center py-20 text-gray-400">
-          <p>Career pages coming soon.</p>
-        </div>
+        <p class="text-muted-foreground text-sm py-20 text-center" style="font-family: var(--font-body)">Career pages coming soon.</p>
       )}
     </section>
 
     <!-- Education -->
-    <section class="py-10 border-t border-gray-100">
-      <h2 class="text-xl font-bold text-gray-900 mb-2">Education</h2>
-      <p class="text-sm text-gray-500 mb-6 max-w-2xl">
-        Industrial Design before Marketing Communication. That sequence matters: it means I think in systems and user flows before I think in messages. Most marketers learn the product after the brief. I learned how products are conceived.
-      </p>
-      <div class="space-y-4">
-        {[
-          { degree: "M.A. Marketing Communication", school: "Istanbul Bilgi University", year: "2016–2018", note: "Built the strategic layer on top of a design foundation." },
-          { degree: "B.Sc. Industrial Design", school: "Middle East Technical University", year: "2009–2014", note: "Exchange: Politecnico di Torino. Trained to design for human behaviour before designing for attention." },
-        ].map(({ degree, school, year, note }) => (
-          <div class="flex items-start justify-between p-5 border border-gray-100 rounded-xl bg-gray-50">
-            <div>
-              <div class="font-medium text-gray-900">{degree}</div>
-              <div class="text-sm text-gray-500">{school}</div>
-              {note && <div class="text-xs text-gray-400 mt-0.5">{note}</div>}
-            </div>
-            <span class="text-sm text-gray-400 shrink-0 ml-4">{year}</span>
+    <section class="border-t border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+          <div>
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+              ✦ Education
+            </span>
+            <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+              Foundation.
+            </h2>
           </div>
-        ))}
+          <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            Industrial Design before Marketing Communication. That sequence matters — I think in systems before I think in messages.
+          </p>
+        </div>
+
+        <div class="flex flex-col divide-y divide-border">
+          {[
+            { degree: "M.A. Marketing Communication", school: "Istanbul Bilgi University", year: "2016–2018", note: "Built the strategic layer on top of a design foundation." },
+            { degree: "B.Sc. Industrial Design", school: "Middle East Technical University", year: "2009–2014", note: "Exchange: Politecnico di Torino. Trained to design for human behaviour before attention." },
+          ].map(({ degree, school, year, note }) => (
+            <div class="flex flex-col md:flex-row md:items-center gap-4 py-6">
+              <span class="text-[11px] tracking-widest text-muted-foreground w-10 shrink-0" style="font-family: var(--font-body)">↗</span>
+              <div class="md:w-1/3">
+                <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em;">{degree}</p>
+                <p class="text-[12px] text-muted-foreground mt-0.5" style="font-family: var(--font-body)">{school}</p>
+              </div>
+              <p class="md:w-1/2 text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{note}</p>
+              <span class="md:ml-auto text-[11px] text-muted-foreground shrink-0" style="font-family: var(--font-body)">{year}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="py-8 border-t border-gray-100">
-      <a href="/work" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
-        Available for hire →
-      </a>
+    <!-- CTA -->
+    <section class="border-t border-border bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;">
+          Available for the right role.
+        </p>
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border border-white/30 px-6 py-3 hover:bg-white hover:text-black transition-all duration-200"
+          style="font-family: var(--font-body)"
+        >
+          Work with me
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        </a>
+      </div>
     </section>
-
   </main>
 
-  <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Base>

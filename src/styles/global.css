@@ -3,26 +3,56 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #f7f7f7;
+    --card-foreground: #0a0a0a;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0a;
+    --primary: #0a0a0a;
+    --primary-foreground: #ffffff;
+    --secondary: #f0f0f0;
+    --secondary-foreground: #0a0a0a;
+    --muted: #f0f0f0;
+    --muted-foreground: #6b6b6b;
+    --accent: #e8e8e8;
+    --accent-foreground: #0a0a0a;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
+    --input: #f0f0f0;
+    --ring: #0a0a0a;
+    --radius: 0rem;
+  }
+
   html {
+    font-size: 16px;
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: "Inter", system-ui, sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(84, 110, 122, 0.06), transparent 32rem),
-      linear-gradient(180deg, #f8fbfc 0%, #ffffff 18rem);
+    font-family: var(--font-body);
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+  * {
+    border-color: var(--border);
   }
-}
 
-@layer components {
-  .display-heading {
-    font-family: "Instrument Serif", Georgia, serif;
-    font-weight: 400;
-    letter-spacing: 0;
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
+
+  h1 { font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 700; }
+  h2 { font-size: clamp(2rem, 5.5vw, 5.5rem); font-weight: 700; }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 2rem); font-weight: 600; }
 }

@@ -1,205 +1,119 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
-import Header from "@components/Header.astro";
 import "../styles/global.css";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
+import { MusicList, type MusicEntry } from "@components/MusicList";
 
-const entries = await getCollection("music", ({ data }) => data.status === "published");
+const raw = await getCollection("music", ({ data }) => data.status === "published");
 
-// Sort by datePublished descending (most recent first)
-const sorted = entries.sort((a, b) => {
-  const dateA = a.data.datePublished || "2000-01";
-  const dateB = b.data.datePublished || "2000-01";
-  return dateB.localeCompare(dateA);
-});
-
-function formatDate(dateString?: string) {
-  if (!dateString) return "Undated";
-  const [year, month] = dateString.split("-");
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return `${months[parseInt(month) - 1]} ${year}`;
-}
-
-function releaseStatusBadge(status: string) {
-  const badges: Record<string, { bg: string; text: string }> = {
-    released: { bg: "bg-green-100", text: "text-green-700" },
-    demo: { bg: "bg-blue-100", text: "text-blue-700" },
-    writing: { bg: "bg-amber-100", text: "text-amber-700" },
-    archived: { bg: "bg-gray-100", text: "text-gray-700" },
-  };
-  return badges[status] || badges.demo;
-}
-
-function soundcloudEmbed(url?: string) {
-  if (!url) return "";
-  return `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23111827&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false`;
-}
+const entries: MusicEntry[] = raw
+  .sort((a, b) => {
+    const da = a.data.datePublished || "2000-01";
+    const db = b.data.datePublished || "2000-01";
+    return db.localeCompare(da);
+  })
+  .map((e) => ({
+    title:         e.data.title,
+    genre:         e.data.genre ?? [],
+    releaseStatus: e.data.releaseStatus,
+    datePublished: e.data.datePublished,
+    duration:      e.data.duration,
+    soundcloud:    e.data.soundcloud,
+    spotify:       e.data.spotify,
+    appleMusic:    e.data.appleMusic,
+    youtube:       e.data.youtube,
+    writingProcess: e.data.writingProcess,
+  }));
 ---
 
 <Base
-  title="Music — Indie Songwriter & Producer | Berk Saraloglu"
-  description="Indie songwriter writing about movement, building, and the spaces between. Original compositions exploring production, process, and place."
+  title="Music — Indie Songwriter | Berk Saraloglu"
+  description="Indie songwriter exploring production, process, and place. Writing about movement — physical, mental, creative."
 >
-  <Header />
+  <Marquee client:load />
+  <NavHeader client:load />
 
-  <main class="max-w-4xl mx-auto px-6">
-
-    <section class="pt-16 pb-10 border-b border-gray-100">
-      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Creative Work</p>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">Music</h1>
-      <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-        Indie songwriter exploring production, process, and place. Writing about movement—physical, mental, and creative. Each piece is a deliberate exploration of what it takes to build something that doesn't exist yet.
-      </p>
-    </section>
-
-    {sorted.length > 0 ? (
-      <section class="py-12">
-        <div class="space-y-6">
-          {sorted.map((entry) => {
-            const d = entry.data;
-            const badge = releaseStatusBadge(d.releaseStatus);
-            const hasLinks = d.spotify || d.appleMusic || d.youtube || d.soundcloud;
-
-            return (
-              <div class="border border-gray-200 rounded-xl p-6 hover:border-gray-900 transition-colors group">
-                <div class="flex items-start justify-between gap-4 mb-3">
-                  <div>
-                    <h2 class="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
-                      {d.title}
-                    </h2>
-                    <div class="flex items-center gap-3 mt-1 flex-wrap">
-                      <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${badge.bg} ${badge.text}`}>
-                        {d.releaseStatus === "released" ? "Released" : d.releaseStatus === "demo" ? "Demo" : d.releaseStatus === "writing" ? "Writing" : "Archived"}
-                      </span>
-                      {d.duration && <span class="text-sm text-gray-500">{d.duration.replace("PT", "").replace("M", ":").replace("S", "")}</span>}
-                      {d.datePublished && <span class="text-sm text-gray-500">{formatDate(d.datePublished)}</span>}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex flex-wrap gap-1.5 mb-4">
-                  {d.genre.map((g) => (
-                    <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-                      {g}
-                    </span>
-                  ))}
-                </div>
-
-                {d.writingProcess && (
-                  <div class="text-sm text-gray-600 mb-4 leading-relaxed">
-                    <strong>Process:</strong> {d.writingProcess.substring(0, 200)}{d.writingProcess.length > 200 ? "..." : ""}
-                  </div>
-                )}
-
-                {d.soundcloud && (
-                  <iframe
-                    title={`Listen to ${d.title} on SoundCloud`}
-                    class="w-full h-32 rounded-lg border border-gray-200 mb-4"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src={soundcloudEmbed(d.soundcloud)}
-                  ></iframe>
-                )}
-
-                {!d.soundcloud && hasLinks && (
-                  <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 mb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                      Streaming preview available through the linked release platforms.
-                    </p>
-                  </div>
-                )}
-
-                {hasLinks && (
-                  <div class="flex flex-wrap gap-2">
-                    {d.spotify && (
-                      <a
-                        href={d.spotify}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                      >
-                        Spotify
-                      </a>
-                    )}
-                    {d.appleMusic && (
-                      <a
-                        href={d.appleMusic}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                      >
-                        Apple Music
-                      </a>
-                    )}
-                    {d.youtube && (
-                      <a
-                        href={d.youtube}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                      >
-                        YouTube
-                      </a>
-                    )}
-                    {d.soundcloud && (
-                      <a
-                        href={d.soundcloud}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-sm text-gray-600 border border-gray-300 px-3 py-1.5 rounded-full hover:border-gray-900 hover:text-gray-900 transition-colors"
-                      >
-                        SoundCloud
-                      </a>
-                    )}
-                  </div>
-                )}
-                {d.writingProcess && (
-                  <p class="text-xs text-gray-400 mt-3">
-                    <a href="/about" class="hover:text-gray-600 transition-colors underline underline-offset-2">Explore the process behind production →</a>
-                  </p>
-                )}
-              </div>
-            );
-          })}
+  <main>
+    <!-- Page hero with animated waveform -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-14">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+              ✦ Creative Work
+            </span>
+            <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em;">
+              Music.
+            </h1>
+          </div>
+          <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            Indie songwriter exploring production, process, and place. Writing about movement — physical, mental, and creative. Each piece is a deliberate exploration of what it takes to build something that doesn't exist yet.
+          </p>
         </div>
-      </section>
-    ) : (
-      <section class="py-20 text-center text-gray-400">
-        <p>Music coming soon.</p>
-      </section>
-    )}
 
-    <section class="py-10 border-t border-gray-100">
-      <h2 class="text-lg font-semibold text-gray-900 mb-4">Why I write music</h2>
-      <p class="text-gray-600 leading-relaxed mb-4">
-        Writing music and building products feed the same need: to create something that didn't exist before. Music is where I work without constraints—no market validation, no product roadmap, just the idea and the time to explore it.
-      </p>
-      <p class="text-gray-600 leading-relaxed">
-        The process feeds back into how I think about marketing. Both require the same skill: understanding what a person actually feels before they can name it, then building something that captures that feeling exactly.
-        This creative process feeds back into how I think about marketing — explore that at <a href="/about" class="text-gray-900 underline underline-offset-2 hover:text-gray-600 transition-colors">/about</a> and <a href="/career/bsh" class="text-gray-900 underline underline-offset-2 hover:text-gray-600 transition-colors">/career/bsh</a> where I discuss the connection.
-      </p>
+        <!-- Static waveform decoration -->
+        <div class="mt-10 flex items-end gap-[3px] h-10 opacity-20" aria-hidden="true">
+          {[4,7,12,9,15,11,18,14,10,16,13,8,17,12,6,14,10,18,9,15,11,7,13,16,8,12,17,10,14,6,15,11,9,16,13,7,18,12,8,14].map((h, i) => (
+            <div
+              class="flex-none w-[3px] bg-foreground"
+              style={`height: ${h}px; animation: waveform-idle ${0.8 + (i % 4) * 0.15}s ease-in-out infinite alternate; animation-delay: ${i * 0.04}s`}
+            />
+          ))}
+        </div>
+      </div>
     </section>
 
-    <section class="py-8 border-t border-gray-100">
-      <p class="text-sm text-gray-500 mb-4">Want to know the full context? See <a href="/about" class="text-gray-700 underline underline-offset-2 hover:text-gray-900 transition-colors">/about</a> for how music and marketing intersect.</p>
-      <a href="/about" class="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-700 transition-colors">
-        Back to about →
-      </a>
+    <!-- Interactive track list -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+      {entries.length > 0 ? (
+        <MusicList entries={entries} client:load />
+      ) : (
+        <p class="text-muted-foreground text-sm py-20 text-center" style="font-family: var(--font-body)">Music coming soon.</p>
+      )}
     </section>
 
+    <!-- Why music -->
+    <section class="border-t border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+          <div class="bg-background p-10">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">
+              ✦ Why music
+            </span>
+            <p class="text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+              Writing music and building products feed the same need: to create something that didn't exist before. Music is where I work without constraints — no market validation, no product roadmap, just the idea and the time to explore it.
+            </p>
+          </div>
+          <div class="bg-background p-10">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">
+              ✦ The connection
+            </span>
+            <p class="text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+              The process feeds back into how I think about marketing. Both require the same skill: understanding what a person actually feels before they can name it, then building something that captures that feeling exactly.
+            </p>
+            <a
+              href="/about"
+              class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border-b border-foreground pb-px hover:gap-4 transition-all duration-200 mt-6 block"
+              style="font-family: var(--font-body)"
+            >
+              Read about the process
+              <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="border-t border-gray-100 mt-4">
-    <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between text-sm text-gray-500">
-      <span>© 2026 Berk Saraloglu · AI-native marketing leader in Hamburg</span>
-      <div class="flex gap-6">
-        <a href="/now" class="hover:text-gray-900 transition-colors">Now</a>
-        <a href="/music" class="hover:text-gray-900 transition-colors">Music</a>
-        <a href="mailto:berksaraloglu@gmail.com?subject=Opportunity%20via%20saralogy.com" class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://linkedin.com/in/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-        <a href="https://github.com/berksaraloglu" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
-      </div>
-    </div>
-  </footer>
+  <style>
+    @keyframes waveform-idle {
+      from { transform: scaleY(0.4); }
+      to   { transform: scaleY(1); }
+    }
+  </style>
+
+  <SiteFooter />
 </Base>
