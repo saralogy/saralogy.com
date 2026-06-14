@@ -3,19 +3,19 @@ const experiences = [
     company: "VeSync GmbH",
     period: "2025–2026",
     brands: "Cosori · Levoit",
-    contribution: "I was brought into VeSync to build and operationalize their European IMC launch infrastructure; having successfully engineered a standardized 22-module operating system, scaled it across three countries, and proven its value by driving the flagship 2026 launch to a 60% conversion rate improvement.",
+    contribution: "I was brought in on a targeted assignment to build and standardize VeSync's European IMC launch infrastructure; now that the system is fully operational and scaled across three countries, I am looking to return to a long-term role within an established global matrix.",
   },
   {
     company: "Bosch Siemens Home Appliances",
     period: "2020–2024",
     brands: "Siemens Home",
-    contribution: "Built Siemens' first global Instagram presence and a centralised content system adopted across 10+ markets, saving significant annual production costs.",
+    contribution: "My focus was on building a holistic digital ecosystem that connected global brand equity with measurable consumer journeys across 20+ countries. By integrating long-tail SEO strategies with performance marketing, we injected over 20,000 high-intent monthly visitors per country into our funnel — then closed the loop with a multi-pillar CRM architecture piloted in Germany and the Netherlands to drive a 6-fold increase in MQLs, before scaling those automated lifecycles across core European markets to lift conversions by 13%.",
   },
   {
     company: "Samsung Electronics",
     period: "2016–2020",
     brands: "Samsung Turkey",
-    contribution: "Ran 100+ campaigns across 4 product divisions, won 3 Kristal Elma Awards, and developed a YouTube format adopted as the Samsung EMEA regional benchmark.",
+    contribution: "As the centralized digital marketing and agency lead under Samsung's local marketing directorate, I synchronized commercial execution across seven distinct product lines — by transforming global GTM playbooks into a high-efficiency localized conversion engine that systematically lowered customer acquisition costs by 22% and institutionalized a high-retention consumer-education framework scaled as an EMEA-wide benchmark.",
   },
   {
     company: "ORMA Chipwood",
