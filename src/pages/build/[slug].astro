@@ -1,0 +1,204 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../../styles/global.css";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
+
+type BuildEntry = CollectionEntry<"build">;
+
+export async function getStaticPaths() {
+  const builds = await getCollection(
+    "build",
+    ({ data }) => data.status === "published",
+  );
+  return builds.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: BuildEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+
+const MONTHS: readonly string[] = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+const PUBLISHED_AT_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function formatDate(value: string): string {
+  const parts = PUBLISHED_AT_RE.test(value) ? value.split("-") : null;
+  if (!parts) return value;
+  const year = Number(parts[0]);
+  const month = Number(parts[1]);
+  if (!Number.isFinite(year) || month < 1 || month > 12) return value;
+  return `${MONTHS[month - 1]} ${year}`;
+}
+
+const articleUrl = `https://saralogy.com/build/${entry.slug}`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": d.title,
+      "description": d.excerpt,
+      "datePublished": d.publishedAt,
+      "dateModified": d.updatedAt ?? d.publishedAt,
+      "url": articleUrl,
+      "image": {
+        "@type": "ImageObject",
+        "url": d.seo.ogImage ?? "https://saralogy.com/og-default.png",
+        "width": 1200,
+        "height": 630,
+      },
+      "author": { "@id": "https://saralogy.com/#person" },
+      "publisher": { "@id": "https://saralogy.com/#person" },
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+        { "@type": "ListItem", "position": 2, "name": "Build", "item": "https://saralogy.com/build" },
+        { "@type": "ListItem", "position": 3, "name": d.title, "item": articleUrl },
+      ],
+    },
+  ],
+};
+---
+
+<Base
+  title={d.seo.title}
+  description={d.seo.description}
+  ogImage={d.seo.ogImage}
+  noIndex={d.seo.noIndex}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <Marquee client:load />
+  <NavHeader client:load />
+
+  <main>
+    <!-- Header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 pb-14">
+        <a
+          href="/build"
+          class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors mb-10"
+          style="font-family: var(--font-body)"
+        >
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M5 1L1 4.5m0 0L5 8M1 4.5h10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          Build
+        </a>
+
+        <div class="max-w-3xl">
+          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+            {d.title}
+          </h1>
+
+          <div class="flex flex-wrap items-center gap-3 mt-8">
+            <span class="text-[11px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">
+              {formatDate(d.publishedAt)}
+            </span>
+            {d.readingTime !== undefined && (
+              <>
+                <span class="text-muted-foreground/40 text-[11px]">·</span>
+                <span class="text-[11px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">
+                  {d.readingTime} min read
+                </span>
+              </>
+            )}
+            {d.buildStatus === "in-progress" && (
+              <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2.5 py-1 text-foreground inline-flex items-center" style="font-family: var(--font-body)">
+                <span class="w-1.5 h-1.5 bg-foreground rounded-full animate-pulse inline-block mr-1.5"></span>In progress
+              </span>
+            )}
+            {d.buildStatus === "shipped" && (
+              <span class="text-[10px] tracking-[0.2em] uppercase border border-foreground px-2.5 py-1 text-foreground" style="font-family: var(--font-body)">
+                Shipped ✓
+              </span>
+            )}
+            {d.buildStatus === "abandoned" && (
+              <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2.5 py-1 text-muted-foreground" style="font-family: var(--font-body)">
+                Abandoned
+              </span>
+            )}
+            {d.buildStatus === "idea" && (
+              <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2.5 py-1 text-muted-foreground" style="font-family: var(--font-body)">
+                Idea
+              </span>
+            )}
+            {d.relatedProject && (
+              <a
+                href={`/projects/${d.relatedProject}`}
+                class="text-[10px] tracking-[0.15em] uppercase border border-border px-2.5 py-1 text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                style="font-family: var(--font-body)"
+              >
+                → /projects/{d.relatedProject}
+              </a>
+            )}
+          </div>
+
+          <p
+            class="text-muted-foreground mt-8 leading-relaxed"
+            style="font-family: var(--font-body); font-size: clamp(1.05rem, 1.5vw, 1.25rem);"
+          >
+            {d.excerpt}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div
+          class="max-w-2xl prose prose-sm text-muted-foreground"
+          style="font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;"
+        >
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;">
+          Still<br /><span class="italic font-light">building.</span>
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/work"
+            class="text-[11px] tracking-widest uppercase bg-white text-black px-6 py-3 hover:bg-white/90 transition-opacity"
+            style="font-family: var(--font-body)"
+          >
+            Work with me
+          </a>
+          <a
+            href="/build"
+            class="text-[11px] tracking-widest uppercase text-white/50 hover:text-white transition-colors self-center"
+            style="font-family: var(--font-body)"
+          >
+            ← All builds
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>

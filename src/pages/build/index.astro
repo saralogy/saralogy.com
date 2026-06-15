@@ -1,0 +1,220 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "@layouts/Base.astro";
+import "../../styles/global.css";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
+
+type BuildEntry = CollectionEntry<"build">;
+
+const raw: BuildEntry[] = await getCollection(
+  "build",
+  ({ data }) => data.status === "published",
+);
+
+const entries: BuildEntry[] = raw.sort((a, b) => {
+  if (a.data.featured !== b.data.featured) {
+    return a.data.featured ? -1 : 1;
+  }
+  return new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime();
+});
+
+const MONTHS: readonly string[] = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+const PUBLISHED_AT_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function formatDate(value: string): string {
+  const parts = PUBLISHED_AT_RE.test(value) ? value.split("-") : null;
+  if (!parts) return value;
+  const year = Number(parts[0]);
+  const month = Number(parts[1]);
+  if (!Number.isFinite(year) || month < 1 || month > 12) return value;
+  return `${MONTHS[month - 1]} ${year}`;
+}
+
+type BuildStatus = BuildEntry["data"]["buildStatus"];
+
+function buildStatusLabel(status: BuildStatus): string {
+  if (status === "shipped") return "Shipped ✓";
+  if (status === "abandoned") return "Abandoned";
+  if (status === "idea") return "Idea";
+  return "In progress";
+}
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Build",
+  "url": "https://saralogy.com/build",
+  "description": "What I'm building, how it's going, and what I've learned. Honest build logs from a marketer who codes — Hamburg, 2026.",
+  "author": { "@id": "https://saralogy.com/#person" },
+  "publisher": { "@id": "https://saralogy.com/#person" },
+  "inLanguage": "en",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Build", "item": "https://saralogy.com/build" },
+  ],
+};
+---
+
+<Base
+  title="Build — Making Things in Public | Berk Saraloglu"
+  description="What I'm building, how it's going, and what I've learned. Honest build logs from a marketer who codes — Hamburg, 2026."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <Marquee client:load />
+  <NavHeader client:load />
+
+  <main>
+    <!-- Page header -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-3" style="font-family: var(--font-body)">
+            ✦ Making Things in Public
+          </span>
+          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Build.
+          </h1>
+        </div>
+        <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+          Build logs, stack breakdowns, and postmortems. The honest version of what it takes to ship products while holding a day job.
+        </p>
+      </div>
+    </section>
+
+    <!-- Build listing -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-20">
+      {entries.length > 0 ? (
+        <ul class="divide-y divide-border">
+          {entries.map((entry: BuildEntry) => (
+            <li class="py-10 md:py-12 first:pt-0">
+              <article class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="text-[11px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">
+                      {formatDate(entry.data.publishedAt)}
+                    </span>
+                    {entry.data.readingTime !== undefined && (
+                      <>
+                        <span class="text-muted-foreground/40 text-[11px]">·</span>
+                        <span class="text-[11px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">
+                          {entry.data.readingTime} min read
+                        </span>
+                      </>
+                    )}
+                    {entry.data.buildStatus === "in-progress" && (
+                      <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2 py-0.5 text-foreground inline-flex items-center" style="font-family: var(--font-body)">
+                        <span class="w-1.5 h-1.5 bg-foreground rounded-full animate-pulse inline-block mr-1.5"></span>In progress
+                      </span>
+                    )}
+                    {entry.data.buildStatus === "shipped" && (
+                      <span class="text-[10px] tracking-[0.2em] uppercase border border-foreground px-2 py-0.5 text-foreground" style="font-family: var(--font-body)">
+                        Shipped ✓
+                      </span>
+                    )}
+                    {entry.data.buildStatus === "abandoned" && (
+                      <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2 py-0.5 text-muted-foreground" style="font-family: var(--font-body)">
+                        Abandoned
+                      </span>
+                    )}
+                    {entry.data.buildStatus === "idea" && (
+                      <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2 py-0.5 text-muted-foreground" style="font-family: var(--font-body)">
+                        Idea
+                      </span>
+                    )}
+                    {entry.data.featured && (
+                      <span class="text-[10px] tracking-[0.2em] uppercase border border-border px-2 py-0.5 text-muted-foreground" style="font-family: var(--font-body)">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  <h2 class="mb-3">
+                    <a
+                      href={`/build/${entry.slug}`}
+                      class="hover:opacity-70 transition-opacity"
+                      style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; letter-spacing: -0.02em;"
+                    >
+                      {entry.data.title}
+                    </a>
+                  </h2>
+
+                  <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl mb-5" style="font-family: var(--font-body)">
+                    {entry.data.excerpt}
+                  </p>
+
+                  {entry.data.relatedProject && (
+                    <p class="text-[12px] tracking-wide text-muted-foreground/80 leading-relaxed max-w-2xl mb-5" style="font-family: var(--font-body)">
+                      →
+                      <a
+                        href={`/projects/${entry.data.relatedProject}`}
+                        class="underline hover:text-foreground transition-colors"
+                      >
+                        See project: /projects/{entry.data.relatedProject}
+                      </a>
+                    </p>
+                  )}
+
+                  <a
+                    href={`/build/${entry.slug}`}
+                    class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase border-b border-foreground pb-px hover:gap-4 transition-all duration-200"
+                    style="font-family: var(--font-body)"
+                  >
+                    Read
+                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-muted-foreground text-sm py-20 text-center" style="font-family: var(--font-body)">
+          First build log coming soon.
+        </p>
+      )}
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-border bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;">
+          Want to work together?<br /><span class="italic font-light">let's build something.</span>
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/work"
+            class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase bg-white text-black px-6 py-3 hover:bg-white/90 transition-opacity"
+            style="font-family: var(--font-body)"
+          >
+            Work with me
+            <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M7 1l4 3.5m0 0L7 8m4-3.5H1" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </a>
+          <a
+            href="/insights"
+            class="inline-flex items-center text-[11px] tracking-widest uppercase text-white/50 hover:text-white transition-colors px-2 py-3"
+            style="font-family: var(--font-body)"
+          >
+            Read insights →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>

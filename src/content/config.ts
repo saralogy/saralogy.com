@@ -111,6 +111,23 @@ const tripsCollection = defineCollection({
     }),
 });
 
+const buildCollection = defineCollection({
+  type: "content",
+  schema: () =>
+    z.object({
+      title: z.string(),
+      publishedAt: z.string(),
+      updatedAt: z.string().optional(),
+      buildStatus: z.enum(["in-progress", "shipped", "abandoned", "idea"]),
+      excerpt: z.string().max(280),
+      readingTime: z.number().optional(),
+      relatedProject: z.string().optional(),
+      seo: seoFields,
+      status: contentStatus.default("draft"),
+      featured: z.boolean().default(false),
+    }),
+});
+
 const writingCollection = defineCollection({
   type: "content",
   schema: () =>
@@ -130,6 +147,7 @@ const writingCollection = defineCollection({
 });
 
 export const collections = {
+  build: buildCollection,
   career: careerCollection,
   music: musicCollection,
   projects: projectsCollection,
