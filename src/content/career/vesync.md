@@ -98,7 +98,7 @@ The strategy was built around the Jobs-to-Be-Done framework. We ran consumer int
 
 Result: 117% of sell-out target. 4.0% conversion against a 2.5% category benchmark. Seven channels active in parallel, each brief anchored to the same Jobs-to-Be-Done foundation.
 
-### The mini tower fan launch
+## The mini tower fan launch
 
 The Levoit mini tower fan required a different approach: a seasonal product most consumers ignore until a heatwave makes it urgent. I built a TikTok-first launch with weather-triggered media, where ads activated automatically when temperature forecasts crossed a threshold in targeted cities.
 
