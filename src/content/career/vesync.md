@@ -71,7 +71,6 @@ The scope was unusual for a single IC role: direct commercial accountability for
   <div style="padding: 1rem;">
     <p style="font-family: var(--font-display); font-weight: 700; font-size: 2.5rem; line-height: 1; margin: 0; letter-spacing: -0.02em;">117%</p>
     <p style="font-size: 0.875rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 0.05em; margin: 0.5rem 0 2rem 0;">Sell-out target achieved</p>
-    
     <div style="display: grid; gap: 1.5rem;">
       <div>
         <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">53 days</p>
