@@ -62,6 +62,33 @@ VeSync is the EU growth organisation behind COSORI, Levoit, and Etekcity: consum
 
 The scope was unusual for a single IC role: direct commercial accountability for German market performance, a team spanning Germany and China HQ, three major product launches, and a fixed-term structure that meant every launch had to count.
 
+## The flagship launch at a glance
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 0;">
+  <div>
+    <img src="/images/vesync-cosori-unboxing.png" alt="COSORI Premium Air Fryer Unboxing" style="width: 100%; height: auto; border-radius: 0.5rem;" />
+  </div>
+  <div style="padding: 1rem;">
+    <p style="font-family: var(--font-display); font-weight: 700; font-size: 2.5rem; line-height: 1; margin: 0; letter-spacing: -0.02em;">117%</p>
+    <p style="font-size: 0.875rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 0.05em; margin: 0.5rem 0 2rem 0;">Sell-out target achieved</p>
+    
+    <div style="display: grid; gap: 1.5rem;">
+      <div>
+        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">53 days</p>
+        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Launch window</p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">4.0%</p>
+        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Conversion rate (vs. 2.5% benchmark)</p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">7.07x</p>
+        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Blended ROAS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 ## What I actually did
 
 ### The airfryer launch: 117% in 53 days
