@@ -108,8 +108,15 @@ const faqItems = roleFaqs[entry.slug] ?? [];
           <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground" style="font-family: var(--font-body)">✦ The story</span>
           <span class="text-[10px] tracking-widest uppercase text-muted-foreground border border-border px-2.5 py-1" style="font-family: var(--font-body)">Permanent record</span>
         </div>
-        <div class="prose max-w-2xl" style="--tw-prose-body: var(--muted-foreground); --tw-prose-headings: var(--foreground); font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;">
-          <Content />
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-8 prose" style="--tw-prose-body: var(--muted-foreground); --tw-prose-headings: var(--foreground); font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;">
+            <Content />
+          </div>
+          {d.posterImage && (
+            <div class="col-span-4 flex items-start">
+              <img src={d.posterImage} alt="Career poster" style="width: 100%; height: auto;" />
+            </div>
+          )}
         </div>
       </div>
     </section>

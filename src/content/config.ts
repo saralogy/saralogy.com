@@ -21,6 +21,7 @@ const careerCollection = defineCollection({
         end: z.string().or(z.literal("present")),
       }),
       role: z.string(),
+      posterImage: z.string().optional(),
       roleHistory: z.array(z.object({ title: z.string(), period: z.string() })).optional(),
       wins: z.array(z.object({
         headline: z.string(),
