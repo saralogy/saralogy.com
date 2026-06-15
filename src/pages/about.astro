@@ -23,6 +23,25 @@ const timeline = [
   title="About Berk Saraloglu — Marketing Leader & AI Tool Builder"
   description="Turkish-German marketing leader in Hamburg. 11+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing tools for European SMEs. Industrial Design background. Indie songwriter."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://saralogy.com/about#profilepage",
+        "url": "https://saralogy.com/about",
+        "name": "About Berk Saraloglu",
+        "mainEntity": { "@id": "https://saralogy.com/#person" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://saralogy.com/about" }
+        ]
+      }
+    ]
+  })} />
   <Marquee client:load />
   <NavHeader client:load />
 

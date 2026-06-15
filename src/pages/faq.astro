@@ -99,6 +99,14 @@ const faqSchema = {
   title="FAQ — Berk Saraloglu | Senior Marketing Manager Hamburg"
   description="Frequently asked questions about Berk Saraloglu: his background, career at BSH, VeSync, Samsung, AI marketing for DACH SMEs, and how to work with him."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://saralogy.com/faq" }
+    ]
+  })} />
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>

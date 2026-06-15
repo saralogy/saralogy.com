@@ -27,6 +27,9 @@ export function CaseStudy() {
               src="/images/bsh-siemens-case-study.png"
               alt="BSH Siemens brand case study"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-40 grayscale"
+              width={800}
+              height={600}
+              loading="lazy"
             />
             <div className="relative z-10 p-10 flex flex-col justify-between h-full" style={{ minHeight: "380px" }}>
               <div>

@@ -1,0 +1,426 @@
+---
+import Base from "@layouts/Base.astro";
+import { Marquee }    from "@components/Marquee";
+import { NavHeader }  from "@components/NavHeader";
+import { SiteFooter } from "@components/SiteFooter";
+import "../styles/global.css";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "KI-natives Marketing für den deutschen Mittelstand: Der vollständige Leitfaden",
+      "description": "Warum die meisten deutschen KMU beim KI-Marketing hinterherhinken, was KI-natives Marketing wirklich bedeutet und ein praktisches Framework für den Mittelstand — geschrieben von einem Marketing-Manager, der es im Unternehmensmaßstab umgesetzt hat.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://saralogy.com/og-default.png",
+        "width": 1200,
+        "height": 630,
+      },
+      "author": { "@id": "https://saralogy.com/#person" },
+      "datePublished": "2026-06-15",
+      "dateModified": "2026-06-15",
+      "inLanguage": "de",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://saralogy.com/ki-marketing-dach",
+      },
+      "publisher": { "@id": "https://saralogy.com/#person" },
+      "keywords": "KI Marketing, KI-Marketing Mittelstand, AI Marketing Deutschland, KI natives Marketing KMU, Künstliche Intelligenz Marketing DACH",
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist KI-natives Marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KI-natives Marketing bedeutet, das gesamte Marketingsystem von Grund auf rund um KI aufzubauen — nicht KI-Tools nachträglich in bestehende Prozesse einzufügen. Der Unterschied: Ein Bolt-on-Ansatz nutzt KI, um bestehende Aufgaben zu beschleunigen (Texte schneller erstellen, Posts automatisch planen). Ein KI-nativer Ansatz gestaltet den Workflow so um, dass KI die repetitiven, skalierbaren Aufgaben übernimmt, während der Mensch sich auf Strategie, Kundenbeziehungen und kreatives Urteilsvermögen konzentriert. Für einen Mittelständler mit einer Ein-Personen-Marketingabteilung bedeutet das: aus 12 Stunden Produktionsaufwand pro Woche werden 4.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Warum hinkt der deutsche Mittelstand beim KI-Marketing hinterher?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drei strukturelle Gründe: Erstens sind die dominanten KI-Marketing-Tools englischsprachig und US-zentriert — sie verstehen weder deutsche Sprachregister (Sie-Form, regionale Unterschiede) noch lokale Compliance-Anforderungen wie DSGVO und UWG. Zweitens verfügen DACH-KMU in der Regel über kein dediziertes Marketingteam; der Inhaber oder ein Generalist übernimmt alles und hat keine Kapazität, neue Tools zu evaluieren und einzuführen. Drittens wird der ROI für KI-Marketing meist mit US-Startup-Kennzahlen begründet, die sich nicht auf einen Mittelstands-Kontext übertragen lassen.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Ist KI-Marketing DSGVO-konform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KI-Marketing ist DSGVO-konform, wenn es korrekt implementiert wird. Die wichtigsten Compliance-Punkte: Einwilligung für Personalisierung (jede KI-gestützte Personalisierung mit personenbezogenen Daten erfordert ausdrückliche Einwilligung), Transparenzpflichten (automatisierte Entscheidungsfindung, die Einzelpersonen betrifft, muss offengelegt werden) und Datensparsamkeit (KI-Tools sollten nur die für die jeweilige Marketingfunktion notwendigen personenbezogenen Daten verarbeiten). Die Nutzung von EU-ansässigen KI-Marketing-Tools reduziert den Compliance-Aufwand erheblich. Deutschland hat eine der strengsten Durchsetzungsumgebungen in der EU — Compliance-Leitplanken müssen von Anfang an in den Workflow integriert werden.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Welche KI-Marketing-Tools eignen sich für den deutschen Mittelstand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die richtige Antwort hängt vom Marketing-Reifegrad ab. Für KMU am Anfang: Ein strukturierter Ansatz zur Content-Erstellung mit LLM-Assistenten (Claude, GPT-4) und deutschen Prompts liefert den schnellsten ROI. Für KMU mit bestehender digitaler Präsenz: KI-gestützte Kampagnenanalyse und automatisierte Zielgruppensegmentierung produzieren innerhalb von 60 Tagen messbare Ergebnisse. Der entscheidende Faktor ist nicht welches Tool — sondern der Workflow, der das Tool dazu bringt, konsistente Ergebnisse zu produzieren, ohne tägliche Aufmerksamkeit zu erfordern.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet KI-Marketing-Beratung für ein deutsches KMU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Phase 1 (KI-Content-Infrastruktur) kostet zwischen €3.000 und €6.000 bei einem festen Umfang von 4–6 Wochen. Das beinhaltet: Audit der aktuellen Situation, Implementierung des ersten Automatisierungs-Workflows, Erstellung eines Marken-Sprach-Frameworks auf Deutsch und ein Übergabe-Playbook, das das Team selbstständig weiterführen kann. Phase 2 (Kaufintent-Content-Strategie) wird nach individuellem Angebot auf Basis des Zielmarkts und Wettbewerbsumfelds berechnet. Es gibt keine laufenden Retainer-Verpflichtungen — alle Engagements sind projektbasiert mit klar definierten Lieferumfängen.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+        { "@type": "ListItem", "position": 2, "name": "KI Marketing DACH", "item": "https://saralogy.com/ki-marketing-dach" },
+      ],
+    },
+  ],
+};
+---
+
+<Base
+  title="KI-Marketing für den Mittelstand | DACH KMU Guide — Berk Saraloglu"
+  description="Warum die meisten DACH-KMU beim KI-Marketing hinterherhinken und wie Sie das ändern. Ein praktisches Framework von einem Marketing-Manager mit Erfahrung bei Samsung, BSH Siemens und VeSync."
+>
+  <link rel="alternate" hreflang="en" href="https://saralogy.com/ai-marketing-dach" slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Marquee client:load />
+  <NavHeader client:load />
+
+  <main>
+
+    <!-- Hero -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 pt-20 pb-16">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          <div class="max-w-2xl">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-4" style="font-family: var(--font-body)">
+              ✦ KI-Marketing · Mittelstand · DACH
+            </span>
+            <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+              KI-natives Marketing<br />
+              <span class="italic font-light">für den deutschen</span><br />
+              Mittelstand.
+            </h1>
+          </div>
+          <div class="max-w-sm shrink-0">
+            <p class="text-sm text-muted-foreground leading-relaxed mb-6" style="font-family: var(--font-body)">
+              Warum die meisten DACH-KMU beim KI-Marketing hinterherhinken, was KI-natives Marketing wirklich bedeutet und wie Sie die Lücke in 6–9 Monaten schließen — ohne Agentur, ohne zusätzliches Headcount.
+            </p>
+            <div class="flex items-center gap-3 text-[11px] text-muted-foreground" style="font-family: var(--font-body)">
+              <span>Von Berk Saraloglu</span>
+              <span class="text-border">·</span>
+              <span>Juni 2026</span>
+              <span class="text-border">·</span>
+              <a href="/ai-marketing-dach" class="underline hover:text-foreground transition-colors">English version ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Das Problem -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Die Lücke<br /><span class="italic font-light">ist real.</span>
+          </h2>
+          <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            Europäische KMU geben deutlich weniger für KI-Marketing aus als US-Wettbewerber derselben Größenklasse. Die Lücke wächst. Aber das eigentliche Problem ist nicht das Budget.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+          {[
+            {
+              label: "01 · Sprache & Register",
+              heading: "Die Tools sprechen kein Deutsch.",
+              body: "Die dominanten KI-Marketing-Plattformen sind US-entwickelt. Sie kennen den Unterschied zwischen Sie- und Du-Ansprache nicht. Sie verstehen nicht, dass ein Maschinenbauer aus dem Ruhrgebiet anders angesprochen werden will als ein Berliner D2C-Brand. Und sie kennen die regionalen Idiome nicht, die im deutschen B2B-Kaufprozess Vertrauen erzeugen.",
+            },
+            {
+              label: "02 · Compliance",
+              heading: "DSGVO und UWG sind kein Randthema.",
+              body: "Deutschland hat die strikteste Datenschutzdurchsetzung in der EU. KI-gestützte Personalisierung, automatisierte E-Mails und Targeting-Algorithmen erfordern Einwilligungsarchitektur und Transparenzpflichten, die in keinem US-Marketing-Tool standardmäßig eingebaut sind. Wer das ignoriert, riskiert Abmahnungen.",
+            },
+            {
+              label: "03 · Kaufverhalten",
+              heading: "Deutsche Käufer recherchieren länger.",
+              body: "Im B2B-Mittelstand dauert der Kaufzyklus 3–6 Monate. Konsumenten googeln ein Produkt 7–12 Mal, bevor sie kaufen. US-zentrierte KI-Marketing-Frameworks sind auf schnelle Conversion optimiert. Was im DACH-Markt funktioniert, ist Content, der die Recherchephase begleitet — nicht unterbrricht.",
+            },
+          ].map(({ label, heading, body }) => (
+            <div class="bg-background p-8 md:p-10 flex flex-col gap-4">
+              <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">{label}</span>
+              <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; line-height: 1.2;">{heading}</p>
+              <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Was KI-natives Marketing bedeutet -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="max-w-3xl">
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">✦ Definition</span>
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.05; letter-spacing: -0.025em;" class="mb-8">
+            Was KI-natives Marketing<br /><span class="italic font-light">wirklich bedeutet.</span>
+          </h2>
+          <div class="space-y-5 text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            <p>
+              <strong class="text-foreground">KI-natives Marketing</strong> bedeutet, das Marketingsystem von Grund auf rund um KI zu bauen — nicht KI-Tools nachträglich einzufügen. Der Unterschied ist fundamental: Ein Bolt-on-Ansatz nutzt KI, um bestehende Aufgaben zu beschleunigen. Ein KI-nativer Ansatz gestaltet den Workflow so um, dass KI die repetitiven, skalierbaren Aufgaben übernimmt, während der Mensch sich auf Strategie, Kundenbeziehungen und kreatives Urteilsvermögen konzentriert.
+            </p>
+            <p>
+              Für einen Mittelständler mit einer Ein-Personen-Marketingabteilung bedeutet das konkret: statt 12 Stunden pro Woche für Content-Produktion werden 4 Stunden investiert, bei gleichem oder höherem Output. Die eingesparte Zeit fließt in Kundengespräche, Kampagnenanalyse und strategische Entscheidungen — die einzigen Aufgaben, die KI auf absehbare Zeit nicht ersetzen kann.
+            </p>
+            <p>
+              Das ist kein Versprechen für die Zukunft. Bei BSH Siemens haben wir den Content-Produktionsprozess für 10+ Länder zentralisiert und dabei €1,5 Mio. jährliche Produktionskosten eingespart, während das organische Medienvolumen auf €M+ gestiegen ist. Das Prinzip ist dasselbe — nur die Skala ist für einen KMU zugänglicher.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Die drei Phasen -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Das Framework.<br /><span class="italic font-light">Drei Phasen.</span>
+          </h2>
+          <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            Nicht jedes KMU startet vom gleichen Punkt. Das Framework ist modular — Sie können mit Phase 1 beginnen und weitermachen, wenn die Ergebnisse da sind.
+          </p>
+        </div>
+
+        <div class="flex flex-col divide-y divide-border">
+          {[
+            {
+              phase: "Phase 01",
+              title: "KI-Infrastruktur",
+              timeline: "Woche 1–6",
+              desc: "Aufbau des KI-gestützten Content-Produktionssystems. Ziel: 60–70 % der manuellen Produktionsarbeit eliminieren, ohne Qualitätsverlust.",
+              deliverables: [
+                "Audit: Was wird heute produziert, wie lange dauert es, was kostet es",
+                "Marken-Sprach-Framework auf Deutsch (Sie-Form, Tonalität, Tabu-Wörter)",
+                "KI-Workflow für Content-Typen mit dem höchsten Zeitaufwand (z.B. Produktbeschreibungen, Newsletter, Social-Media-Posts)",
+                "Übergabe-Playbook: Das Team kann es selbstständig weiterführen",
+              ],
+              result: "Messbare Zeiteinsparung ab Woche 4",
+            },
+            {
+              phase: "Phase 02",
+              title: "Kaufintent-Content",
+              timeline: "Monat 2–6",
+              desc: "Aufbau einer Purchase-Intent-Content-Strategie, die genau dann sichtbar ist, wenn potenzielle Kunden aktiv recherchieren.",
+              deliverables: [
+                "Keyword-Recherche für die 10–20 Fragen, die Ihre Käufer vor dem Kauf stellen",
+                "Content-Kalender mit Kaufintent-Inhalten (Vergleiche, Anleitungen, Anwendungsfälle)",
+                "Produktionsworkflow: KI-Draft → Experten-Review → Veröffentlichung in unter 2 Stunden",
+                "Monatliches Ranking-Tracking ohne Agentur",
+              ],
+              result: "Erste organische Anfragen typischerweise in Monat 3–4",
+            },
+            {
+              phase: "Phase 03",
+              title: "Intelligenz-Schicht",
+              timeline: "Monat 7–9",
+              desc: "Automatisiertes Performance-Reporting, das jeden Montag in 30 Minuten das Wichtigste auf den Tisch liefert — ohne Agentur, ohne Dashboard-Pflege.",
+              deliverables: [
+                "Wöchentliches KI-generiertes Performance-Briefing (Kanäle, Rankings, Conversions)",
+                "Automatische Anomalie-Erkennung: Was läuft besser als erwartet, was schlechter",
+                "Quartals-Review-Format, das der Geschäftsführung ohne Vorbereitung präsentiert werden kann",
+                "Entscheidungsregeln: Wann wird Budget umgeschichtet, wann wird ein Inhalt aktualisiert",
+              ],
+              result: "Marketing-Entscheidungen in unter 1 Stunde pro Woche",
+            },
+          ].map(({ phase, title, timeline, desc, deliverables, result }, i) => (
+            <div class="flex flex-col md:flex-row gap-8 py-12">
+              <div class="md:w-1/3 shrink-0">
+                <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground block mb-2" style="font-family: var(--font-body)">{phase} · {timeline}</span>
+                <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; line-height: 1.1;">{title}</p>
+              </div>
+              <div class="flex-1 flex flex-col gap-5">
+                <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{desc}</p>
+                <ul class="space-y-2">
+                  {deliverables.map((d) => (
+                    <li class="flex items-start gap-3 text-[13px] text-muted-foreground" style="font-family: var(--font-body)">
+                      <span class="text-foreground mt-0.5 shrink-0">→</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="border-l-2 border-foreground pl-4">
+                  <span class="text-[11px] tracking-widest uppercase text-muted-foreground" style="font-family: var(--font-body)">Ergebnis: </span>
+                  <span class="text-[13px] text-foreground font-medium" style="font-family: var(--font-body)">{result}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Für wen -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-12" style="font-family: var(--font-body)">✦ Für wen</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-border">
+          {[
+            { label: "Unternehmensgröße", value: "10–100 Mitarbeiter" },
+            { label: "Marketingteam", value: "1 Person oder kleines Team" },
+            { label: "Markt", value: "DACH — DE, AT, CH" },
+            { label: "Vertriebsmodell", value: "B2B oder B2C mit Erklärungsbedarf" },
+            { label: "Status", value: "Über Experimentieren hinaus" },
+            { label: "Kein Match", value: "Ohne Marketing-Budget oder ohne Entscheidungsträger im Gespräch" },
+          ].map(({ label, value }) => (
+            <div class="bg-background p-6 flex flex-col gap-2">
+              <span class="text-[10px] tracking-[0.2em] uppercase text-muted-foreground" style="font-family: var(--font-body)">{label}</span>
+              <span style="font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em;">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Ergebnisse -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+            Was realistisch<br /><span class="italic font-light">erreichbar ist.</span>
+          </h2>
+          <p class="max-w-sm text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            Diese Zahlen stammen aus Enterprise-Implementierungen bei BSH Siemens und VeSync. Für einen KMU-Kontext sind die absoluten Zahlen kleiner — die Verhältnisse bleiben.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+          {[
+            { metric: "30–50 %", label: "Einsparung bei Content-Produktionskosten", sub: "Phase 1, Monat 1–2" },
+            { metric: "6–12 Mo.", label: "Bis zu signifikantem organischen Traffic", sub: "Phase 2, je nach Wettbewerb" },
+            { metric: "€M+", label: "Organischer Medienwert bei BSH (10+ Länder)", sub: "Referenz Enterprise-Skala" },
+            { metric: "1 Std./Wo.", label: "Marketing-Entscheidungszeit nach Phase 3", sub: "Wöchentliches Performance-Briefing" },
+          ].map(({ metric, label, sub }) => (
+            <div class="bg-background p-8 flex flex-col gap-2">
+              <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;">{metric}</span>
+              <span class="text-[12px] text-foreground font-medium leading-snug" style="font-family: var(--font-body)">{label}</span>
+              <span class="text-[10px] text-muted-foreground tracking-wider uppercase" style="font-family: var(--font-body)">{sub}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Kosten -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <div class="max-w-2xl">
+          <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">✦ Investition</span>
+          <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.05; letter-spacing: -0.025em;" class="mb-8">
+            Was es kostet.
+          </h2>
+          <div class="space-y-6 text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+            <p>
+              <strong class="text-foreground">Phase 1 (KI-Infrastruktur):</strong> €3.000–6.000 bei festem Leistungsumfang, 4–6 Wochen. Kein Retainer, kein laufender Vertrag. Das Übergabe-Playbook gehört Ihnen.
+            </p>
+            <p>
+              <strong class="text-foreground">Phase 2 (Kaufintent-Content-Strategie):</strong> Individuelles Angebot auf Basis Ihres Zielmarkts und Wettbewerbsumfelds. Typischerweise 3–4 Wochen.
+            </p>
+            <p>
+              <strong class="text-foreground">Phase 3 (Intelligenz-Schicht):</strong> In Phase 1 oder 2 einschließbar oder als separates Projekt.
+            </p>
+            <p class="border-l-2 border-foreground pl-4 text-foreground">
+              Für Q3 2026 sind noch 2 Plätze verfügbar. Q4-Anfragen werden jetzt gesammelt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="border-b border-border">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+        <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-12" style="font-family: var(--font-body)">✦ Häufige Fragen</span>
+        <div class="flex flex-col divide-y divide-border">
+          {[
+            {
+              q: "Was ist KI-natives Marketing?",
+              a: "KI-natives Marketing bedeutet, das Marketingsystem von Grund auf rund um KI zu bauen — nicht Tools nachträglich einzufügen. Ein Bolt-on-Ansatz beschleunigt bestehende Aufgaben. Ein KI-nativer Ansatz gestaltet den Workflow so um, dass KI die repetitiven Aufgaben übernimmt, während der Mensch sich auf Strategie und Kundenbeziehungen konzentriert. Für eine Ein-Personen-Marketingabteilung bedeutet das: aus 12 Stunden Produktionsaufwand werden 4.",
+            },
+            {
+              q: "Wie unterscheidet sich KI-Marketing vom normalen Marketing?",
+              a: "KI-Marketing-Tools sind einzelne Produkte, die spezifische Aufgaben automatisieren (Texterstellung, Planung, Reporting). KI-natives Marketing ist eine Workflow-Designphilosophie: Statt KI-Tools in bestehende Prozesse einzufügen, wird die gesamte Marketingoperation rund um das neu gestaltet, was KI zuverlässig leisten kann. Ein Unternehmen mit KI-Tools erstellt schnellere Erstentwürfe. Ein KMU mit KI-nativem Marketing hat 60–70 % der manuellen Produktionsarbeit eliminiert und diese Zeit in Strategie und Kundenbeziehungen investiert.",
+            },
+            {
+              q: "Ist KI-Marketing DSGVO-konform?",
+              a: "Ja, wenn korrekt implementiert. Die wichtigsten Punkte: Einwilligung für Personalisierung (explizite Einwilligung bei personenbezogenen Daten), Transparenzpflichten (automatisierte Entscheidungsfindung offenlegen), Datensparsamkeit (nur notwendige Daten verarbeiten). Die Nutzung von EU-ansässigen Tools reduziert den Compliance-Aufwand erheblich. Deutschland hat die strengste Durchsetzung — Compliance muss von Anfang an eingebaut sein, nicht nachträglich.",
+            },
+            {
+              q: "Welche KI-Marketing-Tools eignen sich für den deutschen Mittelstand?",
+              a: "Für KMU am Anfang: LLM-Assistenten (Claude, GPT-4) mit deutschen Prompts für Content-Erstellung. Für KMU mit bestehender digitaler Präsenz: KI-gestützte Kampagnenanalyse und automatisierte Zielgruppensegmentierung. Brevo für DSGVO-konformes E-Mail-Marketing. Semrush für Keyword-Recherche (Qualität der deutschen Daten verbessert sich, aber noch hinter EN). Der entscheidende Faktor ist nicht das Tool — es ist der Workflow.",
+            },
+            {
+              q: "Was kostet KI-Marketing-Beratung für ein deutsches KMU?",
+              a: "Phase 1 (KI-Infrastruktur): €3.000–6.000 bei festem Umfang, 4–6 Wochen, kein Retainer. Phase 2 (Kaufintent-Content): Individuelles Angebot nach Zielmarkt und Wettbewerb. Alle Engagements sind projektbasiert mit klar definierten Lieferumfängen — das Übergabe-Playbook gehört dem Unternehmen.",
+            },
+          ].map(({ q, a }) => (
+            <div class="flex flex-col md:flex-row gap-4 py-8">
+              <p class="md:w-1/3 shrink-0 text-[13px] font-medium text-foreground leading-relaxed" style="font-family: var(--font-body)">{q}</p>
+              <p class="text-[13px] text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-foreground text-background">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1; letter-spacing: -0.02em;" class="mb-2">
+            Passt das zu Ihrer Situation?
+          </p>
+          <p class="text-white/50 text-sm" style="font-family: var(--font-body)">
+            Q3 2026: 2 Plätze verfügbar. Q4-Anfragen offen.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://cal.com/saralogy/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[11px] tracking-widest uppercase bg-white text-black px-6 py-3 hover:bg-white/90 transition-opacity"
+            style="font-family: var(--font-body)"
+          >
+            20-Min-Gespräch buchen
+          </a>
+          <a
+            href="mailto:berksaraloglu@gmail.com?subject=KI-Marketing%20Anfrage%20via%20saralogy.com"
+            class="text-[11px] tracking-widest uppercase border border-white/30 px-6 py-3 hover:bg-white hover:text-black transition-all duration-200 text-white/70"
+            style="font-family: var(--font-body)"
+          >
+            E-Mail schreiben
+          </a>
+          <a
+            href="/ai-marketing-dach"
+            class="text-[11px] tracking-widest uppercase text-white/40 hover:text-white transition-colors px-3 py-3"
+            style="font-family: var(--font-body)"
+          >
+            English version ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <SiteFooter />
+</Base>

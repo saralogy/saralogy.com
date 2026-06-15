@@ -7,13 +7,22 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Article",
+      "@type": "BlogPosting",
       "headline": "AI-Native Marketing for DACH SMEs: The Complete Guide",
       "description": "Why most DACH SMEs are years behind on AI marketing adoption, what AI-native marketing actually means, and a practical framework for closing the gap — written by a marketing leader who has done it at enterprise scale.",
       "author": { "@id": "https://saralogy.com/#person" },
       "datePublished": "2026-06-13",
-      "dateModified": "2026-06-13",
-      "mainEntityOfPage": "https://saralogy.com/ai-marketing-dach",
+      "dateModified": "2026-06-15",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://saralogy.com/og-default.png",
+        "width": 1200,
+        "height": 630,
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://saralogy.com/ai-marketing-dach",
+      },
       "publisher": { "@id": "https://saralogy.com/#person" },
       "keywords": "AI marketing Germany, KI Marketing Mittelstand, AI marketing DACH, marketing automation SME Germany",
     },

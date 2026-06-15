@@ -35,6 +35,14 @@ const entries: ProjectEntry[] = raw
   title="Projects — AI Tools & Marketing Products | Berk Saraloglu"
   description="Products at the intersection of marketing, AI, and problems Berk saw at scale. Vision-intelligence for DACH SMEs and more."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saralogy.com" },
+      { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://saralogy.com/projects" }
+    ]
+  })} />
   <Marquee client:load />
   <NavHeader client:load />
 

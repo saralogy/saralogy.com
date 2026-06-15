@@ -33,7 +33,7 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {noIndex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -58,37 +58,27 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
     <meta name="theme-color" content="#1F2937" />
 
-    <!-- Fonts -->
+    <!-- Fonts + image origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop&auto=format&q=80" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- GA4: loaded only after cookie consent -->
+    <!-- GTM: loaded only after cookie consent (GDPR) -->
     <script is:inline>
-      function readConsent() {
-        try {
-          return window.localStorage.getItem('cookie_consent');
-        } catch (_) {
-          var match = document.cookie.match(/(?:^|; )cookie_consent=([^;]+)/);
-          return match ? decodeURIComponent(match[1]) : null;
-        }
-      }
-
-      if (typeof window !== 'undefined' && readConsent() === 'accepted') {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K0X4GTJ76V');
-      }
+      window.dataLayer = window.dataLayer || [];
     </script>
 
     <slot name="head" />
     <ViewTransitions />
   </head>
   <body class="min-h-screen bg-background text-foreground antialiased">
+    <!-- GTM noscript (fires only after consent via cookie banner below) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTML68ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <slot />
 
     <!-- Cookie consent banner (GDPR opt-in, required for Germany) -->
@@ -148,17 +138,12 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
         }
 
         function loadGA() {
-          if (document.getElementById('ga-script')) return;
+          if (document.getElementById('gtm-script')) return;
           var s = document.createElement('script');
-          s.id = 'ga-script';
+          s.id = 'gtm-script';
           s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K0X4GTJ76V';
+          s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KTML68ML';
           document.head.appendChild(s);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-K0X4GTJ76V');
         }
 
         document.getElementById('cookie-accept')?.addEventListener('click', function() {

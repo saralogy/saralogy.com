@@ -16,6 +16,9 @@ export function Hero() {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop&auto=format&q=80"
           alt="Berk Saraloglu — AI-native marketing leader in Hamburg"
           className="absolute inset-0 w-full h-full object-cover object-center grayscale"
+          width={1600}
+          height={900}
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/20" />
 
@@ -78,6 +81,12 @@ export function Hero() {
           </h1>
         </div>
         <div className="max-w-xs">
+          <p
+            className="text-muted-foreground text-sm leading-relaxed mb-4"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Berk Saraloglu is a Senior Marketing Manager based in Hamburg, Germany, with 11+ years building AI-augmented marketing systems for global consumer electronics brands including Samsung and BSH. He specializes in helping DACH SMEs implement AI-native marketing infrastructure that reduces content production costs by 30–50% while scaling qualified inbound traffic.
+          </p>
           <p
             className="text-muted-foreground text-sm leading-relaxed mb-4"
             style={{ fontFamily: "var(--font-body)" }}

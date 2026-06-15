@@ -77,6 +77,9 @@ export function WorkShowcase() {
                   src={p.image}
                   alt={p.alt}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  width={800}
+                  height={600}
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 flex flex-col gap-1 border-t border-border">
