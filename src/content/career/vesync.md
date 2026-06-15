@@ -6,19 +6,18 @@ period:
   start: "2025-11"
   end: "2026-05"
 role: "Senior Integrated Marketing Communications Manager (EU & Germany)"
-posterImage: "/images/cosori-iconic-poster.png"
 wins:
   - headline: "117% of ICONIC Single air fryer launch sell-out target in 53 days"
-    metric: "117% (1,437 units)"
-    context: "978 units sold in first 53 days across Amazon (73%) and DTC (27%). 4.0% conversion rate vs. 2.5% category benchmark. Q1 Google Ads blended ROAS: 7.07x — well above the 4–5x category threshold for profitable scaling."
-  - headline: "Built EU IMC operating system adopted as regional standard across Spain and France"
-    metric: "22-module IPMS"
-    context: "Architecture adopted by Spain and France IMC teams as the regional standard. 60 IMC items tracked simultaneously across DE/ES/FR with P0/P1/P2 classification and cross-country governance."
-  - headline: "Quantified revenue impact of budget allocation decisions for C-suite alignment"
-    metric: "GMV impact modeled"
-    context: "Built budget gap analysis connecting media investment levels to projected sell-out outcomes, translating marketing spend into GMV projections at documented ROAS rates. Presented by Marketing Director to CFO and OBLT for budget alignment."
+    metric: "Commercial Success"
+    context: "978 units sold in first 53 days across Amazon and DTC. 4.0% conversion rate vs. 2.5% category benchmark. Q1 Google Ads blended ROAS: 7.07x — well above the 4–5x category threshold for profitable scaling."
+  - headline: "Standardized the EU IMC operating system & product launch processes."
+    metric: "Operational Success"
+    context: "Standardized frameworks adopted by Germany, Spain and France IMC teams as the regional standard. 60 IMC items tracked simultaneously across DE/ES/FR with P0/P1/P2 classification and cross-country governance."
+  - headline: "Delivered the marketing strategy and IMC plans of 4 new products across 2 brands."
+    metric: "Strategic Success"
+    context: "End-to-end go-to-market (GTM) execution and multi-channel IMC campaigns for 4 high-profile product launches across Amazon/DTC/Retail, driving positive market share growth in a decreasing market, establishing unified positioning across two distinct brand portfolios."
   - headline: "Coordinated 15+ stakeholders across DE, CN, ES, FR without direct authority"
-    metric: "15+ cross-functional"
+    metric: "Leadership Success"
     context: "Established structured launch cadences, shared governance documentation, and channel-level mentoring across Germany, China HQ, Spain, and France."
 skills:
   - "Go-to-Market Strategy"
@@ -26,19 +25,19 @@ skills:
   - "TikTok Marketing"
   - "Omnichannel Campaigns"
   - "Cross-functional Leadership"
-  - "Jobs-to-Be-Done"
-  - "Retail Media"
+  - "P&L and Budget Ownership"
   - "KOL / Influencer Marketing"
   - "D2C Marketing"
+  - "Market Research"
 tools:
   - "TikTok Ads"
   - "Meta Ads"
   - "Google Ads"
   - "CRM platforms"
-departureContext: "Proactively resigned from a fixed-term contract to relocate back to Hamburg for family reunification. The decision was personal, not performance-related. The role ended on strong terms with 117% of the key launch target delivered."
+  - "Google & Adobe Analytics"
 currentRelevance:
   date: "2026-06"
-  body: "VeSync gave me something BSH could not: a small, fast-moving team with direct accountability for sell-out numbers, not just brand metrics. Running 8 channels simultaneously on a tight timeline with real commercial targets sharpened my instinct for prioritisation. The launch playbook methodology I built there is Jobs-to-Be-Done validated, multi-channel, and structured from channel priorities down to creative brief. It is the framework I would bring to any product launch."
+  body: "VeSync gave me something BSH could not: a small, fast-moving team with direct accountability for sell-out numbers, not just brand metrics. Running 8 channels simultaneously on a tight timeline with real commercial targets sharpened my instinct for prioritization and systemic accountability."
 projectsFromHere:
   - title: "vision-intelligence"
     url: "/projects/vision-intelligence"
@@ -51,74 +50,56 @@ status: "published"
 order: 1
 ---
 
-## The commercial result
+## The core challenge
 
-In six months at VeSync, the flagship metric was 117% of the premium airfryer sell-out target in 53 days. 978 units. 4.0% conversion against a 2.5% category benchmark. Eight channels running simultaneously. That number is the summary of what the role was actually about: commercial accountability with a hard deadline.
+Eight channels. Fixed 53-day window. A German consumer who researches thoroughly before spending more than €100 on a new kitchen appliance.
 
-I left in May 2026 to relocate back to Hamburg for family reasons. The contract was fixed-term; the departure was planned and personal. The business relationship ended well.
+That was the commercial challenge at VeSync: not brand awareness, but measured sell-out target within a narrow launch window. Every decision—creative strategy, influencer selection, keyword bidding, retail coordination—had to move the conversion needle or it was wasting budget.
 
-## The role
+Over six months, I managed three simultaneous product launches across two brands (COSORI and Levoit) with a team spanning Germany and China HQ, no direct line authority over regional execution, and one fixed metric: hit the sell-out target.
 
-VeSync is the EU growth organisation behind COSORI, Levoit, and Etekcity: consumer electronics brands competing in kitchen appliances and air quality across Amazon, retail, and D2C. I joined as Integrated Marketing Manager for the German lead market with full ownership of the channel mix and a GMV plan covering everything from sell-out targets to retail media allocations.
+## The company
 
-The scope was unusual for a single IC role: direct commercial accountability for German market performance, a team spanning Germany and China HQ, three major product launches, and a fixed-term structure that meant every launch had to count.
+VeSync is the EU growth engine behind COSORI (kitchen appliances), Levoit (air quality), and Etekcity (consumer electronics), all competing on Amazon, in retail, and direct-to-consumer channels across Europe. I joined as Integrated Marketing Manager for the German lead market, reporting to the Düsseldorf HQ with ownership of channel strategy, media allocation, and go-to-market execution across brand new SKUs.
 
-## The flagship launch at a glance
+The scope was unusual for a single IC role: direct P&L accountability for German market performance, coordination across Germany and China HQ stakeholders, and three major product launches in a fixed-term contract where every launch had to count.
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 0;">
-  <div>
-    <img src="/images/vesync-cosori-unboxing.png" alt="COSORI Premium Air Fryer Unboxing" style="width: 100%; height: auto; border-radius: 0.5rem;" />
-  </div>
-  <div style="padding: 1rem;">
-    <p style="font-family: var(--font-display); font-weight: 700; font-size: 2.5rem; line-height: 1; margin: 0; letter-spacing: -0.02em;">117%</p>
-    <p style="font-size: 0.875rem; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: 0.05em; margin: 0.5rem 0 2rem 0;">Sell-out target achieved</p>
-    <div style="display: grid; gap: 1.5rem;">
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">53 days</p>
-        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Launch window</p>
-      </div>
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">4.0%</p>
-        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Conversion rate (vs. 2.5% benchmark)</p>
-      </div>
-      <div>
-        <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 0;">7.07x</p>
-        <p style="font-size: 0.75rem; color: var(--muted-foreground); text-transform: uppercase; margin: 0.25rem 0;">Blended ROAS</p>
-      </div>
-    </div>
-  </div>
-</div>
+## What I built
 
-## What I actually did
+### The COSORI airfryer launch: 117% of sell-out target in 53 days
 
-### The airfryer launch: 117% in 53 days
+The flagship launch was a premium airfryer in a crowded, commoditising category. The brief: hit sell-out in 53 days. The constraints: higher price point than category average, new SKU with zero review history, and a German market that researches thoroughly.
 
-The flagship launch was a premium airfryer in a category that was already crowded and commoditising. The brief was specific: hit sell-out in a 53-day window. The constraint was a higher price point than the category average, a new SKU with no review history, and a German consumer who researches thoroughly before spending more than €100.
+The strategy started with consumer insight, not channel selection. I ran Jobs-to-Be-Done interviews to find the actual purchase trigger—not "I want a healthier lifestyle" but "I have a specific cooking problem this solves better than my workaround." Those insights shaped everything downstream: creative messaging, keyword strategy, influencer selection, channel priority.
 
-The strategy was built around the Jobs-to-Be-Done framework. We ran consumer interviews to find the actual purchase trigger. Not "I want a healthier lifestyle" (that is the noise) but "I have a specific cooking problem that this solves better than my current workaround." Those insights shaped the creative brief, the keyword strategy, and the influencer selection simultaneously.
+The result: 117% of sell-out target in 53 days. 978 units sold. 4.0% conversion rate against a 2.5% category benchmark. 7.07x blended ROAS. Seven channels (Amazon, Google, Meta, TikTok, retail media, PR, influencers) running in parallel, each brief anchored to the same Jobs-to-Be-Done foundation.
 
-Result: 117% of sell-out target. 4.0% conversion against a 2.5% category benchmark. Seven channels active in parallel, each brief anchored to the same Jobs-to-Be-Done foundation.
+The win wasn't creative or media—it was systematic: insight → brief → execution across all channels simultaneously, with one shared north star.
 
-## The mini tower fan launch
+### Cross-market alignment and playbook standardization
 
-The Levoit mini tower fan required a different approach: a seasonal product most consumers ignore until a heatwave makes it urgent. I built a TikTok-first launch with weather-triggered media, where ads activated automatically when temperature forecasts crossed a threshold in targeted cities.
+The structural problem was China HQ priorities and German market needs drifting out of sync between briefing and execution. I addressed this by building a shared launch governance framework—a single source of truth for campaign objectives, channel allocations, and approval stages that both sides could work from.
 
-The campaign included a 7-stage consumer journey mapped from discovering the need to post purchase advocacy, plus a 3-city retail café activation to create physical presence alongside the digital campaign. Tight coordination across in-house, agency, and retail partners with no formal team reporting to me.
+The playbooks standardized the approach across product categories and markets: full-funnel strategy, customer segmentation, price positioning, channel priority, and Jobs-to-Be-Done validation before deployment. Each playbook was designed to be improved and handed off, turning reactive improvisation into institutional knowledge.
 
-### Solving the Germany-China alignment problem
+The framework was adopted by Spain and France marketing managers, making it the regional standard across Germany, Spain, and France with 60+ IMC items tracked simultaneously and coordinated cross-country.
 
-Running launches across Germany and China HQ without line authority is a coordination problem as much as a marketing one. The recurring failure mode is that German market needs and China HQ priorities drift out of sync between briefing and execution.
+The intent was explicit: make the next launch faster and better than the previous one. Every launch learned from the last.
 
-I addressed this by building a shared launch governance framework: a single source of truth for campaign objectives, channel allocations, and approval stages that both sides could work from. The same framework was used to onboard the Spain and France marketing managers, making the model scalable beyond the German lead market.
+---
 
-### The playbooks
+## The Levoit mini tower fan: Weather-triggered seasonal demand
 
-Alongside the launches, I built three full-funnel launch playbooks covering product differentiation, price positioning, customer segmentation, and channel priority. All three were validated through Jobs-to-Be-Done testing before deployment.
+The Levoit launch required a completely different approach: a seasonal product that most consumers ignore until a heatwave makes cooling urgent. The insight was the same methodology, but the activation was inverted—wait for the weather trigger, then activate aggressively.
 
-The intent was explicit: make the next launch faster and better than the previous one. Each playbook was designed to be handed off and improved. Institutional knowledge instead of reactive improvisation.
+I built a weather-triggered media strategy where programmatic ads, influencer content, and paid search all activated automatically when temperature forecasts crossed a threshold in target cities. The campaign ran a 7-stage customer journey from discovering the problem through post-purchase advocacy.
+
+Complementing the digital campaign, I coordinated a 3-city retail café activation placing Levoit fans in premium specialty coffee shops—creating real-world product experience and organic discovery that paid media alone could not achieve.
+
+Execution required tight coordination across in-house teams (creative, DTC), a programmatic media agency (weather-triggered buying), influencers (impulsive asset drops), and retail partners—none with formal reporting lines to me. The model relied on shared objectives, weekly syncs, and a "go/no-go" decision framework rather than command-and-control authority.
 
 ## What this means for your next hire
 
-The skills that drove the VeSync results transfer directly: structuring a launch around customer insight before channel allocation, managing cross-functional teams without authority, and maintaining commercial discipline across multiple simultaneous workstreams.
+The skills that drove the VeSync results transfer directly: structuring launch strategy around customer insight before channel selection, managing cross-functional teams without formal authority, and maintaining commercial discipline across multiple simultaneous workstreams.
 
 If you are hiring a Senior Marketing Manager and want to talk through how this translates to your context, [email me directly](mailto:berksaraloglu@gmail.com?subject=Senior%20Marketing%20role%20via%20saralogy.com). I respond to specific enquiries within 48 hours.

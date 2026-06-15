@@ -30,7 +30,7 @@ const careerCollection = defineCollection({
       })),
       skills: z.array(z.string()),
       tools: z.array(z.string()).optional(),
-      departureContext: z.string(),
+      departureContext: z.string().optional(),
       currentRelevance: z.object({
         date: z.string(),
         body: z.string(),

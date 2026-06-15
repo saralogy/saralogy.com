@@ -18,7 +18,7 @@ wins:
     metric: "€M+"
     context: "Developed and scaled a purchase-intent SEO content strategy targeting mid-funnel buying guides and product comparisons across 6 product categories in 10+ countries. Top-5 SERP rankings for 40+ high-intent keywords. Framework subsequently adopted by Bosch and Gaggenau."
   - headline: "Saved €M+ in annual marketing costs through content centralization"
-    metric: "€5M+"
+    metric: "€1.5M"
     context: "Eliminated redundant content production across 3 continents through a unified global content playbook. Regions reinvested savings in performance marketing and media allocation."
   - headline: "600% expansion of CRM marketing qualified leads in the Netherlands market"
     metric: "6× MQL growth"

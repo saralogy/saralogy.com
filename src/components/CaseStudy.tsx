@@ -1,8 +1,8 @@
 const metrics = [
-  { label: "Target achieved in 53 days", value: "117%" },
-  { label: "CRM database growth", value: "600%" },
-  { label: "Annual savings (content centralisation)", value: "€1.5M" },
-  { label: "Markets activated (EU)", value: "12+" },
+  { label: "Annual organic media value via SEO", value: "€1.6M+" },
+  { label: "CRM database growth (Netherlands)", value: "600%" },
+  { label: "Markets activated (EU, Middle East, China)", value: "12+" },
+  { label: "Annual savings via content centralisation", value: "€1.5M" },
 ];
 
 const chartData = [8, 12, 11, 18, 22, 19, 31, 28, 38, 35, 46, 53];
@@ -24,7 +24,7 @@ export function CaseStudy() {
           {/* Left — image + brand */}
           <div className="relative overflow-hidden bg-neutral-900" style={{ minHeight: "380px" }}>
             <img
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&h=600&fit=crop&auto=format&q=80"
+              src="/images/bsh-siemens-case-study.png"
               alt="BSH Siemens brand case study"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-40 grayscale"
             />
@@ -73,7 +73,7 @@ export function CaseStudy() {
                   color: "white",
                 }}
               >
-                117% launch target,
+                €1.6M organic media,
                 <br />
                 600% CRM growth
               </p>

@@ -29,15 +29,15 @@ const period = formatPeriod(d.period.start, d.period.end);
 
 const roleFaqs: Record<string, {q: string; a: string}[]> = {
   vesync: [
-    { q: "What did Berk Saraloglu achieve at VeSync?", a: "117% of premium airfryer sell-out target in 53 days across 8 channels. 4.0% conversion rate against a 2.5% category benchmark. 7.07x blended ROAS. Built a 22-module EU IMC operating system adopted by Spain and France as the regional standard." },
-    { q: "How did the VeSync airfryer launch reach 117% in 53 days?", a: "Built around the Jobs-to-Be-Done framework. Consumer interviews identified the real purchase trigger. Those insights shaped the creative brief, keyword strategy, and influencer selection simultaneously. Seven channels ran in parallel, each anchored to the same JTBD foundation." },
+    { q: "What did Berk Saraloglu achieve at VeSync?", a: "117% of premium air fryer sell-out target in 53 days across 8 channels. 4.0% conversion rate against a 2.5% category benchmark. 7.07x blended ROAS. Standardized EU IMC operating system." },
+    { q: "How did the VeSync airfryer launch reach 117% in 53 days?", a: "Built around the Jobs-to-Be-Done framework. Consumer interviews identified the real purchase trigger. Those insights shaped the creative brief, keyword strategy, and influencer selection simultaneously. PR, Digital, Amazon, Retail,Social Media, Influencer, Affiliate channels ran in parallel, each anchored to the specific customer journey stages." },
   ],
   bsh: [
-    { q: "What did Berk Saraloglu accomplish at BSH?", a: "Built Siemens' first global Instagram account, developed a purchase-intent SEO content strategy generating €M+ in annual organic media value across 10+ countries, achieved 600% CRM database growth in the Netherlands, and saved significantly through content centralisation across 3 continents." },
-    { q: "How did Berk Saraloglu scale content across 10+ countries at Siemens?", a: "Redesigned the content strategy around purchase intent rather than brand awareness, deploying comparison guides, how-to videos, and product explainers across 10+ countries. Content was centralised into a unified global playbook, eliminating the pattern of 12 country teams briefing 12 agencies on the same campaign." },
+    { q: "What did Berk Saraloglu accomplish at BSH?", a: "Built Siemens' first global Instagram account strategy, developed a purchase-intent SEO content strategy generating €M+ in annual organic media value across 10+ countries, achieved 600% CRM database growth for marketing qualified leads in the Netherlands, and accomplished several customer experience journey related marketing initiatives." },
+    { q: "How did Berk Saraloglu scale content across 10+ countries at Siemens?", a: "Redesigned the content strategy around purchase intent rather than brand awareness, deploying comparison guides, how-to videos, and product explainers across 10+ countries. Each module was centralized into a unified global playbook, eliminating the pattern of 12 country teams briefing 12 agencies on the same campaign." },
   ],
   samsung: [
-    { q: "What awards did Berk Saraloglu win at Samsung?", a: "3 Kristal Elma Awards in 2019 — Turkey's equivalent of Cannes Lions. Silver for Creative Engaging Contents, Silver for Best Branded Content, Bronze for Best Product Placement Content. The winning campaign was the Göbeklitepe UNESCO documentary shot on Samsung mobile." },
+    { q: "What awards did Berk Saraloglu win at Samsung?", a: "3 Kristal Elma Awards in 2019 — Turkey's equivalent of Cannes Lions. Silver for Creative Engaging Contents, Silver for Best Branded Content, Bronze for Best Product Placement Content. The winning campaign was the Göbeklitepe UNESCO documentary shot on Samsung mobile as the first Instagram-documentary genre." },
     { q: "How many stores did Berk Saraloglu launch at Samsung?", a: "Directed the national rollout of 150 Samsung brand experience stores across Turkey in two years, achieving a 40% reduction in project timeline and a 15–24% reduction in fixture production costs." },
   ],
   orma: [
@@ -86,7 +86,7 @@ const faqItems = roleFaqs[entry.slug] ?? [];
     <!-- Key wins -->
     <section class="border-b border-border">
       <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border">
+        <div class="wins-grid gap-px bg-border">
           {d.wins.slice(0, 6).map((w: any) => (
             <div class="bg-background px-6 py-8 flex flex-col gap-2">
               {w.metric && (
@@ -108,8 +108,8 @@ const faqItems = roleFaqs[entry.slug] ?? [];
           <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground" style="font-family: var(--font-body)">✦ The story</span>
           <span class="text-[10px] tracking-widest uppercase text-muted-foreground border border-border px-2.5 py-1" style="font-family: var(--font-body)">Permanent record</span>
         </div>
-        <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-8 prose" style="--tw-prose-body: var(--muted-foreground); --tw-prose-headings: var(--foreground); font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;">
+        <div class={`grid ${d.posterImage ? 'grid-cols-12' : ''} gap-8`}>
+          <div class={`${d.posterImage ? 'col-span-8' : 'col-span-12'} prose prose-base`} style="--tw-prose-body: var(--muted-foreground); --tw-prose-headings: var(--foreground); font-family: var(--font-body); font-size: 0.875rem; line-height: 1.8;">
             <Content />
           </div>
           {d.posterImage && (
@@ -172,14 +172,6 @@ const faqItems = roleFaqs[entry.slug] ?? [];
             </div>
           </div>
         )}
-      </div>
-    </section>
-
-    <!-- Departure -->
-    <section class="border-b border-border">
-      <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16">
-        <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-6" style="font-family: var(--font-body)">✦ Why I left</span>
-        <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl" style="font-family: var(--font-body)">{d.departureContext}</p>
       </div>
     </section>
 
