@@ -52,13 +52,13 @@ order: 1
 
 ## The commercial result
 
-<div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; margin: 2rem 0;">
-  <div style="flex: 1; min-width: 0;">
-    <p>In six months at VeSync, the flagship metric was 117% of the premium airfryer sell-out target in 53 days. 978 units. 4.0% conversion against a 2.5% category benchmark. Eight channels running simultaneously. That number is the summary of what the role was actually about: commercial accountability with a hard deadline.</p>
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: flex-start; margin: 2rem 0;">
+  <div>
+In six months at VeSync, the flagship metric was 117% of the premium airfryer sell-out target in 53 days. 978 units. 4.0% conversion against a 2.5% category benchmark. Eight channels running simultaneously. That number is the summary of what the role was actually about: commercial accountability with a hard deadline.
 
-    <p>I left in May 2026 to relocate back to Hamburg for family reasons. The contract was fixed-term; the departure was planned and personal. The business relationship ended well.</p>
+I left in May 2026 to relocate back to Hamburg for family reasons. The contract was fixed-term; the departure was planned and personal. The business relationship ended well.
   </div>
-  <div style="flex: 0 0 auto; width: 280px;">
+  <div>
     <img src="/images/cosori-iconic-poster.png" alt="COSORI Iconic Airfryer Poster" style="width: 100%; height: auto;" />
   </div>
 </div>
