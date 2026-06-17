@@ -1,0 +1,56 @@
+---
+import { icps } from "../data/icps";
+---
+
+<section class="border-t border-border bg-background">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+      <div>
+        <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground block mb-4" style="font-family: var(--font-body)">✦ Start here</span>
+        <h2 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.03em;">
+          Why are you<br /><span class="italic font-light">here?</span>
+        </h2>
+      </div>
+      <p class="max-w-xs text-sm text-muted-foreground leading-relaxed" style="font-family: var(--font-body)">
+        Two reasons people reach out. Pick the one that fits and I'll take you straight to what you need — no form, no funnel maze.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+      {icps.map((icp) => (
+        <a
+          href={icp.destination}
+          class="group bg-background p-8 md:p-10 flex flex-col gap-6 hover:bg-foreground hover:text-background transition-colors duration-200"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] tracking-[0.25em] uppercase text-muted-foreground group-hover:text-background/60" style="font-family: var(--font-body)">{icp.label}</span>
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" class="text-muted-foreground group-hover:text-background group-hover:translate-x-1 transition-all duration-200">
+              <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <p style="font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.05; letter-spacing: -0.02em;">
+            {icp.selfId}
+          </p>
+
+          <p class="text-[13px] text-muted-foreground group-hover:text-background/70 leading-relaxed" style="font-family: var(--font-body)">
+            {icp.situation}
+          </p>
+
+          <div class="mt-auto pt-6 border-t border-border group-hover:border-background/20">
+            <p style="font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em;" class="mb-1">{icp.proof.stat}</p>
+            <p class="text-[12px] text-muted-foreground group-hover:text-background/60 leading-relaxed" style="font-family: var(--font-body)">{icp.proof.context}</p>
+          </div>
+
+          <span class="text-[11px] tracking-widest uppercase border-b border-foreground group-hover:border-background pb-px self-start" style="font-family: var(--font-body)">
+            {icp.primaryCta.label} →
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-8 text-[13px] text-muted-foreground" style="font-family: var(--font-body)">
+      Neither fits? <a href="/start" class="underline underline-offset-4 hover:text-foreground transition-colors duration-200">See both paths side by side →</a>
+    </p>
+  </div>
+</section>
