@@ -7,12 +7,12 @@
     "total_target": 15
   },
   "progress": {
-    "cycles_completed": 1,
-    "articles_written": 2,
+    "cycles_completed": 2,
+    "articles_written": 4,
     "articles_total": 15,
     "pages_at_start": 25,
-    "last_cycle_at": "2026-06-17T12:45:00Z",
-    "last_commit": "f8b27bb"
+    "last_cycle_at": "2026-06-17T12:50:11.677725+00:00",
+    "last_commit": "8f8e700"
   },
   "articles": {
     "make-vs-zapier-marketing-dach": {
@@ -23,6 +23,16 @@
     "hubspot-vs-salesforce-dach-b2b": {
       "status": "done",
       "written_at": "2026-06-17T12:45:00Z",
+      "collection": "writing"
+    },
+    "ai-marketing-audit-12-point": {
+      "status": "done",
+      "written_at": "2026-06-17T12:50:11.677725+00:00",
+      "collection": "writing"
+    },
+    "linkedin-b2b-germany-2026": {
+      "status": "done",
+      "written_at": "2026-06-17T12:50:11.677725+00:00",
       "collection": "writing"
     }
   }
