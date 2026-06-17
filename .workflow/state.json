@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "workflow_start": "2026-06-17",
+    "workflow_end": "2026-06-24",
+    "cycle_interval_hours": 8,
+    "articles_per_cycle": 2,
+    "total_target": 15
+  },
+  "progress": {
+    "cycles_completed": 0,
+    "articles_written": 0,
+    "articles_total": 15,
+    "pages_at_start": 25,
+    "last_cycle_at": null,
+    "last_commit": null
+  },
+  "articles": {}
+}
