@@ -1,0 +1,74 @@
+name: SEO Content Cycle
+
+# Runs 3x daily on GitHub servers — no local machine required.
+# Also triggerable manually or by the audit workflow on catch-up.
+on:
+  schedule:
+    - cron: "17 6,14,22 * * *"   # 06:17, 14:17, 22:17 UTC daily
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force catch-up mode (writes up to 4 articles)"
+        required: false
+        default: "false"
+        type: boolean
+
+concurrency:
+  group: seo-content
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Generate SEO Articles
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+
+      - name: Install Astro project dependencies
+        run: bun install
+
+      - name: Install workflow script dependencies
+        run: cd .workflow && bun install
+
+      - name: Generate articles
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SITE_URL: https://saralogy.com
+          PUBLIC_SITE_NAME: saralogy.com
+          PUBLIC_SITE_DESCRIPTION: AI-native marketing for DACH SMEs
+          FORCE_MODE: ${{ inputs.force }}
+        run: |
+          if [ "${FORCE_MODE}" = "true" ]; then
+            cd .workflow && bun run generate-cycle.ts --force
+          else
+            cd .workflow && bun run generate-cycle.ts
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name  "Saralogy SEO Bot"
+          git config user.email "bot@saralogy.com"
+          git add -A
+          git diff --staged --quiet && echo "Nothing to commit — all articles done." && exit 0
+          WRITTEN=$(python3 -c "import json; s=json.load(open('.workflow/state.json')); print(s['progress']['articles_written'])")
+          TOTAL=$(python3 -c "import json; s=json.load(open('.workflow/state.json')); print(s['progress']['articles_total'])")
+          CYCLE=$(python3 -c "import json; s=json.load(open('.workflow/state.json')); print(s['progress']['cycles_completed'])")
+          git commit -m "feat: auto SEO articles [cycle ${CYCLE}] [skip ci]
+
+Progress: ${WRITTEN}/${TOTAL} articles written"
+          git push

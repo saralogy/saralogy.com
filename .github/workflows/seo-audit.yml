@@ -1,0 +1,60 @@
+name: SEO Content Audit
+
+# Runs every 5 hours independent of content cycles.
+# Checks schedule adherence; triggers catch-up content cycle if behind.
+on:
+  schedule:
+    - cron: "37 1,6,11,16,21 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  audit:
+    name: Audit SEO Progress
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+
+      - name: Install workflow dependencies
+        run: cd .workflow && bun install
+
+      - name: Run audit
+        id: audit
+        run: |
+          set +e
+          cd .workflow && bun run seo-audit.ts
+          CODE=$?
+          echo "audit_exit=${CODE}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit audit log
+        run: |
+          git config user.name  "Saralogy SEO Bot"
+          git config user.email "bot@saralogy.com"
+          git add .workflow/audit-log.jsonl || true
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: SEO audit log [skip ci]"
+          git push
+
+      - name: Trigger catch-up if behind schedule
+        if: steps.audit.outputs.audit_exit == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Behind schedule — triggering catch-up content cycle"
+          gh workflow run seo-content.yml --repo "${REPO}" --field force=true
