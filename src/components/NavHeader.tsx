@@ -53,7 +53,7 @@ export function NavHeader() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="/work"
+            href="/start"
             className="text-[12px] tracking-widest uppercase border border-foreground px-5 py-2 hover:bg-foreground hover:text-background transition-all duration-200"
             style={{ fontFamily: "var(--font-body)" }}
           >
@@ -97,7 +97,7 @@ export function NavHeader() {
             </a>
           ))}
           <a
-            href="/work"
+            href="/start"
             className="mt-2 text-[12px] tracking-widest uppercase border border-foreground px-5 py-2 text-center"
             style={{ fontFamily: "var(--font-body)" }}
             onClick={() => setOpen(false)}

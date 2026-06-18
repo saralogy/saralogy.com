@@ -1,10 +1,14 @@
 const footerLinks = {
-  Work: ["Career", "Projects", "AI Marketing", "Music"],
-  Connect: ["About", "Now", "FAQ", "Privacy"],
-  Contact: ["berksaraloglu@gmail.com", "LinkedIn", "GitHub", "X / Twitter"],
+  "Work with me": ["Start here", "Hire me", "Consulting", "AI Marketing"],
+  Explore: ["About", "Career", "Projects", "Music"],
+  Connect: ["Now", "FAQ", "Privacy", "LinkedIn"],
+  Contact: ["berksaraloglu@gmail.com", "GitHub", "X / Twitter"],
 };
 
 const hrefMap: Record<string, string> = {
+  "Start here": "/start",
+  "Hire me": "/open-to-work",
+  "Consulting": "/work",
   "Career": "/career",
   "Projects": "/projects",
   "AI Marketing": "/ai-marketing-dach",
@@ -23,7 +27,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-foreground text-background">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-12 mb-16">
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <p

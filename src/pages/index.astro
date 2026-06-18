@@ -6,6 +6,7 @@ import { personSchemaJson } from "../data/schema";
 import { Marquee }       from "@components/Marquee";
 import { NavHeader }     from "@components/NavHeader";
 import { Hero }          from "@components/Hero";
+import IntentRouter      from "@components/IntentRouter.astro";
 import { Stats }         from "@components/Stats";
 import { Services }      from "@components/Services";
 import { WorkShowcase }  from "@components/WorkShowcase";
@@ -27,6 +28,7 @@ import { SiteFooter }    from "@components/SiteFooter";
 
   <main>
     <Hero client:load />
+    <IntentRouter />
     <Stats />
     <Testimonials />
     <Services />
