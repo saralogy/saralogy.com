@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "workflow_start": "2026-06-17",
+    "workflow_end": "2026-06-24",
+    "cycle_interval_hours": 8,
+    "articles_per_cycle": 2,
+    "total_target": 15
+  },
+  "progress": {
+    "cycles_completed": 3,
+    "articles_written": 6,
+    "articles_total": 15,
+    "pages_at_start": 25,
+    "last_cycle_at": "2026-06-17T18:18:56.411401+00:00",
+    "last_commit": "8f8e700"
+  },
+  "articles": {
+    "make-vs-zapier-marketing-dach": {
+      "status": "done",
+      "written_at": "2026-06-17T12:45:00Z",
+      "collection": "writing"
+    },
+    "hubspot-vs-salesforce-dach-b2b": {
+      "status": "done",
+      "written_at": "2026-06-17T12:45:00Z",
+      "collection": "writing"
+    },
+    "ai-marketing-audit-12-point": {
+      "status": "done",
+      "written_at": "2026-06-17T12:50:11.677725+00:00",
+      "collection": "writing"
+    },
+    "linkedin-b2b-germany-2026": {
+      "status": "done",
+      "written_at": "2026-06-17T12:50:11.677725+00:00",
+      "collection": "writing"
+    },
+    "product-launch-dach-playbook": {
+      "status": "done",
+      "written_at": "2026-06-17T18:18:56.411401+00:00",
+      "collection": "writing"
+    },
+    "content-kpis-b2b-germany": {
+      "status": "done",
+      "written_at": "2026-06-17T18:18:56.411401+00:00",
+      "collection": "writing"
+    }
+  }
+}

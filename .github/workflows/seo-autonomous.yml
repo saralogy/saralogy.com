@@ -1,0 +1,90 @@
+name: SEO Autonomous Agent
+
+# DISABLED: schedule removed because ANTHROPIC_API_KEY secret is not configured.
+# Re-enable the cron line below once the secret is set in repo Settings > Secrets.
+# Previously ran every 5 hours: cron: '0 */5 * * *'
+on:
+  # schedule:
+  #   - cron: '0 */5 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: seo-autonomous
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  seo-cycle:
+    name: SEO Content Cycle
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Stop check — max cycles or all articles done
+        id: stopcheck
+        run: |
+          CYCLE=$(grep "^cycle_completed:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          WRITTEN=$(grep "^articles_written:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          TOTAL=$(grep "^articles_total:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          echo "Cycle: ${CYCLE} | Written: ${WRITTEN}/${TOTAL}"
+          if [ "${CYCLE}" -ge "150" ]; then
+            echo "Reached 150-cycle safety cap. Stopping."
+            echo "should_stop=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "${WRITTEN}" -ge "${TOTAL}" ]; then
+            echo "All ${TOTAL} articles written. Workflow complete."
+            echo "should_stop=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "should_stop=false" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Bun
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+
+      - name: Install Astro dependencies
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        run: bun install
+
+      - name: Install Claude CLI
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Create logs directory
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        run: mkdir -p logs
+
+      - name: Run SEO Cycle
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        run: |
+          claude --print "$(cat saralogy-seo-plan/SESSION-START-PROMPT.md)" \
+            --max-turns 200 \
+            --output-format text >> logs/session-$(date +%Y%m%d-%H%M).log 2>&1
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit new content
+        if: steps.stopcheck.outputs.should_stop != 'true'
+        run: |
+          git config user.name "saralogy-seo-agent"
+          git config user.email "agent@saralogy.com"
+          git add src/content/writing/ src/content/build/ \
+                  saralogy-seo-plan/CYCLE-STATE.md \
+                  public/sitemap.xml logs/
+          CYCLE=$(grep "^cycle_completed:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          WRITTEN=$(grep "^articles_written:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          TOTAL=$(grep "^articles_total:" saralogy-seo-plan/CYCLE-STATE.md | awk '{print $2}')
+          git commit -m "chore: SEO cycle ${CYCLE} — ${WRITTEN}/${TOTAL} articles [skip ci]" \
+            || echo "Nothing to commit"
+          git push
