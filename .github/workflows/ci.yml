@@ -46,7 +46,12 @@ jobs:
         continue-on-error: true
 
       - name: Lint (if eslint configured)
-        run: bun run lint --if-present
+        run: |
+          if grep -q '"lint"' package.json; then
+            bun run lint
+          else
+            echo "No lint script configured, skipping."
+          fi
 
       - name: Astro build (production)
         run: bunx astro build
