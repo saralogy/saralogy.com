@@ -68,17 +68,43 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
       rel="stylesheet"
     />
 
-    <!-- GTM: loaded only after cookie consent (GDPR) -->
+    <!-- Google Analytics 4 (gtag.js) with Consent Mode v2 — GDPR default-denied -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      // Deny everything until the visitor opts in (required for Germany).
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+      gtag('set', 'url_passthrough', true);
+      gtag('set', 'ads_data_redaction', true);
+
+      // Restore a prior "accepted" decision before the first hit fires.
+      try {
+        if (window.localStorage.getItem('cookie_consent') === 'accepted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+          });
+        }
+      } catch (_) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-G4X8NDYGJF');
     </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-G4X8NDYGJF"></script>
 
     <slot name="head" />
     <ViewTransitions />
   </head>
   <body class="min-h-screen bg-background text-foreground antialiased">
-    <!-- GTM noscript (fires only after consent via cookie banner below) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTML68ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <slot />
 
     <!-- Cookie consent banner (GDPR opt-in, required for Germany) -->
@@ -132,46 +158,45 @@ const ogImageAbsolute = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogIm
 
         var consent = readConsent();
 
-        // Show banner only if no decision yet
+        // Show banner only if no decision yet (gtag default is already 'denied').
         if (!consent && banner) {
           banner.style.display = 'block';
         }
 
-        function loadGA() {
-          if (document.getElementById('gtm-script')) return;
-          var s = document.createElement('script');
-          s.id = 'gtm-script';
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KTML68ML';
-          document.head.appendChild(s);
+        function grantConsent() {
+          if (typeof gtag !== 'function') return;
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+          });
         }
 
         document.getElementById('cookie-accept')?.addEventListener('click', function() {
           writeConsent('accepted');
-          banner.style.display = 'none';
-          loadGA();
+          if (banner) banner.style.display = 'none';
+          grantConsent();
         });
 
         document.getElementById('cookie-reject')?.addEventListener('click', function() {
           writeConsent('rejected');
-          banner.style.display = 'none';
+          if (banner) banner.style.display = 'none';
+          // Consent stays 'denied' (the default set in <head>).
         });
 
-        // Load GA immediately if already accepted
-        if (consent === 'accepted') loadGA();
-
-        // Track contact clicks (fires only when GA is loaded post-consent)
+        // Track contact clicks. With Consent Mode these send cookieless pings
+        // before consent and full events after.
         document.addEventListener('click', function(e) {
           var el = e.target.closest('a');
-          if (!el) return;
-          if (!window.gtag) return;
+          if (!el || typeof gtag !== 'function') return;
           var href = el.getAttribute('href') || '';
           if (href.startsWith('mailto:')) {
-            window.gtag('event', 'contact_initiated', { method: 'email', page: window.location.pathname });
+            gtag('event', 'contact_initiated', { method: 'email', page: window.location.pathname });
           } else if (href.includes('linkedin.com')) {
-            window.gtag('event', 'contact_initiated', { method: 'linkedin', page: window.location.pathname });
+            gtag('event', 'contact_initiated', { method: 'linkedin', page: window.location.pathname });
           } else if (href.includes('cal.com')) {
-            window.gtag('event', 'contact_initiated', { method: 'calendly', page: window.location.pathname });
+            gtag('event', 'contact_initiated', { method: 'calendly', page: window.location.pathname });
           }
         });
       })();
