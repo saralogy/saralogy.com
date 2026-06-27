@@ -26,4 +26,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://saralogy.com/sitemap.xml
+Sitemap: https://saralogy.com/sitemap-index.xml
