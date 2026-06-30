@@ -1,8 +1,8 @@
 const metrics = [
-  { label: "Annual organic media value via SEO", value: "€1.6M+" },
+  { label: "Annual organic media value via SEO", value: "7-figure €" },
   { label: "CRM database growth (Netherlands)", value: "600%" },
   { label: "Markets activated (EU, Middle East, China)", value: "12+" },
-  { label: "Annual savings via content centralisation", value: "€1.5M" },
+  { label: "Annual savings via content centralisation", value: "7-figure €" },
 ];
 
 const chartData = [8, 12, 11, 18, 22, 19, 31, 28, 38, 35, 46, 53];
@@ -76,7 +76,7 @@ export function CaseStudy() {
                   color: "white",
                 }}
               >
-                €1.6M organic media,
+                7-figure organic media,
                 <br />
                 600% CRM growth
               </p>
