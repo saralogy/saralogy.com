@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /draft/
+# yts.saralogy.com is a private tool — its own robots.txt disallows all crawlers
 
 User-agent: GPTBot
 Allow: /
