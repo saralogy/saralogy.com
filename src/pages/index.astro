@@ -1,38 +1,42 @@
 ---
 import Base from "@layouts/Base.astro";
 import "../styles/global.css";
-import { personSchemaJson } from "../data/schema";
-
-import { Marquee }       from "@components/Marquee";
-import { NavHeader }     from "@components/NavHeader";
-import { Hero }          from "@components/Hero";
-import { Stats }         from "@components/Stats";
-import { Services }      from "@components/Services";
-import { WorkShowcase }  from "@components/WorkShowcase";
-import { Testimonials }  from "@components/Testimonials";
-import { CaseStudy }     from "@components/CaseStudy";
-import { SiteFooter }    from "@components/SiteFooter";
 ---
 
 <Base
-  title="Berk Saraloglu | AI Marketing · Hamburg"
-  description="Turkish-German marketing leader and AI tool builder in Hamburg. 11+ years at Samsung, BSH Siemens, VeSync. Building AI-native marketing infrastructure for DACH SMEs."
+  title="Berk Saraloglu | Site Under Construction"
+  description="saralogy.com is being rebuilt. Get in touch in the meantime."
+  noIndex={true}
 >
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={personSchemaJson} />
-  </Fragment>
+  <main class="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
+    <p class="font-sans text-sm font-medium uppercase tracking-[0.2em] text-brand-500">
+      Saralogy
+    </p>
 
-  <Marquee client:load />
-  <NavHeader client:load />
+    <h1 class="mt-4 font-display text-4xl font-semibold text-foreground sm:text-5xl">
+      Site under construction
+    </h1>
 
-  <main>
-    <Hero client:load />
-    <Stats />
-    <Testimonials />
-    <Services />
-    <WorkShowcase />
-    <CaseStudy />
+    <p class="mt-4 max-w-md text-base text-muted-foreground">
+      Berk Saraloglu's site is being rebuilt. Full site coming soon &mdash;
+      in the meantime, reach out directly.
+    </p>
+
+    <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+      <a
+        href="mailto:berksaraloglu@gmail.com"
+        class="rounded-md bg-brand-600 px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-brand-700"
+      >
+        berksaraloglu@gmail.com
+      </a>
+      <a
+        href="https://www.linkedin.com/in/berksaraloglu"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md border border-border px-6 py-3 font-sans text-sm font-medium text-foreground transition-colors hover:bg-muted"
+      >
+        LinkedIn
+      </a>
+    </div>
   </main>
-
-  <SiteFooter />
 </Base>

@@ -77,7 +77,7 @@ const articleSchema = {
   title={d.seo.title}
   description={d.seo.description}
   ogImage={d.seo.ogImage}
-  noIndex={d.seo.noIndex}
+  noIndex={true}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
