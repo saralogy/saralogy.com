@@ -19,7 +19,27 @@
       "source": "/blog/:slug",
       "destination": "/writing/:slug",
       "permanent": true
-    }
+    },
+
+    { "source": "/about", "destination": "/", "permanent": false },
+    { "source": "/work", "destination": "/", "permanent": false },
+    { "source": "/now", "destination": "/", "permanent": false },
+    { "source": "/faq", "destination": "/", "permanent": false },
+    { "source": "/music", "destination": "/", "permanent": false },
+    { "source": "/open-to-work", "destination": "/", "permanent": false },
+    { "source": "/privacy", "destination": "/", "permanent": false },
+    { "source": "/ai-marketing-dach", "destination": "/", "permanent": false },
+    { "source": "/ki-marketing-dach", "destination": "/", "permanent": false },
+    { "source": "/projects", "destination": "/", "permanent": false },
+    { "source": "/projects/:path*", "destination": "/", "permanent": false },
+    { "source": "/career", "destination": "/", "permanent": false },
+    { "source": "/career/:path*", "destination": "/", "permanent": false },
+    { "source": "/build", "destination": "/", "permanent": false },
+    { "source": "/build/:path*", "destination": "/", "permanent": false },
+    { "source": "/travel", "destination": "/", "permanent": false },
+    { "source": "/travel/:path*", "destination": "/", "permanent": false },
+    { "source": "/insights", "destination": "/", "permanent": false },
+    { "source": "/insights/:path*", "destination": "/", "permanent": false }
   ],
 
   "headers": [
