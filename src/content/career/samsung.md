@@ -18,7 +18,7 @@ wins:
   - headline: "YouTube product comparison format adopted as Samsung EMEA benchmark"
     metric: "EMEA standard"
     context: "Developed low-cost, scalable video model with 70–76% video completion rate (each over 3 minutes!). Series created in Turkish market was adopted across EMEA region as the official benchmark format for product education and comparisons."
-  - headline: "150 Samsung brand experience stores launched in 2 years"
+  - headline: "150 Samsung brand experience stores open by 2018"
     metric: "150 stores"
     context: "Directed national rollout with 40% reduction in project timeline (35 → 21 days per store) and 15–24% reduction in fixture production costs. Managed concept-to-execution across design, vendor management, and operational setup."
   - headline: "+10% YoY online sales across 4 product divisions"
@@ -59,7 +59,7 @@ order: 3
 
 ## The short version
 
-Four years at Samsung Electronics Turkey. I ran retail strategy & store development for the first two years, directing the national rollout of 150 brand stores, then moved into digital marketing and managed 100+ campaigns across many product divisions. I left in 2020 to take a role at BSH Hausgeräte which was the market leader in Turkey where I could own messaging strategy, not just channel execution.
+Four years at Samsung Electronics Turkey. I ran retail strategy & store development for the first two years, directing the national rollout of 150 brand stores by 2018, then moved into digital marketing and managed 100+ campaigns across many product divisions. I left in 2020 to take a role at BSH Hausgeräte which was the market leader in Turkey where I could own messaging strategy, not just channel execution.
 
 ## What I actually delivered
 
@@ -67,7 +67,14 @@ Four years at Samsung Electronics Turkey. I ran retail strategy & store developm
 
 **+10% YoY online sales across four product divisions, +15% ROI.** Two years of digital campaign management across TV, home appliances, monitors, and memory. More than 10 different product categories, 20+ different purchase triggers, various different competitor landscapes, one team. The sales and ROI gains came together, not as a trade-off.
 
-**150 brand stores in two years, +20% sales per square meter.** Before moving to digital, I spent two years directing the national rollout of Samsung brand experience stores across Turkey. The commercial result came from a systematic redesign of the store layout, in-store display and merchandising architecture. The core insight: most retail setups optimize for how many SKUs fit on a shelf rather than how customers navigate a purchase decision. I fixed that by closely collaborating with resellers & regional sales teams.
+**150 brand stores by 2018, +20% sales per square meter.** Before moving to digital, I spent two years directing the national rollout of Samsung brand experience stores across Turkey, with 150 stores open by 2018. The commercial result came from a systematic redesign of the store layout, in-store display and merchandising architecture. The core insight: most retail setups optimize for how many SKUs fit on a shelf rather than how customers navigate a purchase decision. I fixed that by closely collaborating with resellers & regional sales teams.
+
+
+### Turning satisfied customers into vocal advocates
+
+Samsung Turkey’s customer research showed 95% satisfaction among TV owners, while positive public reviews lagged. I shaped an integrated retail, PR, CRM and social activation that invited customers to share their stories, with a South Korea trip as an incentive.
+
+The campaign generated 200+ high-quality positive reviews, 3 million organic YouTube views and 5 million social impressions. Two of the videos entered YouTube’s weekly top 10. [Read the case study](https://saraloglu.notion.site/Samsung-Electronics-Turning-Satisfied-Customers-into-Vocal-Advocates-1b0346e7dd8c8065b1dbd08fc07bebaf).
 
 ## How I worked
 

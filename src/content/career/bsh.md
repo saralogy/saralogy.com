@@ -94,6 +94,11 @@ The bigger structural problem was that content was being produced for brand awar
 The answer was a combination of inspiration content (recipes for kitchen appliances, design guides for integrated appliances) and decision-support content (comparison guides, how-to videos, spec explainers). We deployed this across 10+ countries. The result was +€M recurring savings in annual organic media value: content that earned attention rather than paid for it. The Bosch brand adopted the framework.
 
 
+
+### Post-purchase lifecycle communications
+
+Alongside pre-purchase CRM acquisition, I helped pilot a Netherlands post-purchase programme for Siemens customers. It connected ownership milestones to useful care guidance and relevant product recommendations across email and other customer touchpoints. The pilot delivered 19% higher email engagement, 3.2× accessory click-through and 22% higher accessory attachment. [Read the case study](https://saraloglu.notion.site/The-Customer-Journey-Beyond-Purchase-Building-Lifecycle-Communications-at-BSH-1b0346e7dd8c80bfaf89f6af35d7417b).
+
 ### A product innovation: the Kitchen Planning App
 
 I ideated and originated a Kitchen Planning App in collaboration with TU Munich. The insight was that purchase consideration for integrated kitchen appliances dropped sharply at the planning stage because customers are either dependent on kitchen resellers or individually handling more than 15 different stages by themselves with no guarantee of making no mistake. The app solved the kitchen planning process for the users by providing inspirational content, product selection assistance, step by step kitchen planning tracker. In pilot markets, purchase consideration increased by 80% in the tested Spanish and Turkish markets over online consumer surveys.
