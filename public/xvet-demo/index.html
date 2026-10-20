@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<base href="/xvet-demo/">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XVET Vietnam Case Study</title>
+<meta name="description" content="From a country to a chicken to a bottle: an interactive go-to-market case study for XVET in Southeast Vietnam.">
+<meta name="theme-color" content="#0a0e1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="map" aria-hidden="true"></canvas>
+<div id="map-labels" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#intro"><b>XVET</b><span>× VIETNAM</span></a>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-set-lang="en" aria-pressed="true">EN</button>
+    <button data-set-lang="tr" aria-pressed="false">TR</button>
+  </div>
+</header>
+
+<div class="mprog" aria-hidden="true"><i id="mprog-bar"></i><span id="mprog-label"></span></div>
+
+<nav class="chain-hud" aria-label="Story progress">
+  <ol>
+    <li data-for="country"><span class="en">Market</span><span class="tr">Pazar</span></li>
+    <li data-for="regions"><span class="en">Regions</span><span class="tr">Bölgeler</span></li>
+    <li data-for="south"><span class="en">Cluster</span><span class="tr">Küme</span></li>
+    <li data-for="persona"><span class="en">ICP</span><span class="tr">ICP</span></li>
+    <li data-for="farm"><span class="en">Farm</span><span class="tr">Çiftlik</span></li>
+    <li data-for="bird"><span class="en">Bird</span><span class="tr">Hayvan</span></li>
+    <li data-for="inside"><span class="en">Problem</span><span class="tr">Problem</span></li>
+    <li data-for="solution"><span class="en">Solution</span><span class="tr">Çözüm</span></li>
+    <li data-for="pack"><span class="en">Product</span><span class="tr">Ürün</span></li>
+    <li data-for="gtm"><span class="en">Go-to-market</span><span class="tr">Pazara giriş</span></li>
+    <li data-for="plan"><span class="en">Plan</span><span class="tr">Plan</span></li>
+    <li data-for="ops"><span class="en">Operations</span><span class="tr">Operasyon</span></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 0 · INTRO -->
+<section id="intro" class="scene intro">
+  <div class="intro-bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="intro-inner">
+    <p class="kicker"><span class="en">XVET · Vietnam · Poultry</span><span class="tr">XVET · Vietnam · Kanatlı</span></p>
+    <h1 class="mega">
+      <span class="en">From a country<br>to a chicken<br><em>to a bottle.</em></span>
+      <span class="tr">Bir ülkeden<br>bir tavuğa,<br><em>bir şişeye.</em></span>
+    </h1>
+    <p class="lede"><span class="en">A go-to-market plan, one zoom at a time.</span><span class="tr">Adım adım yakınlaşan bir pazara giriş planı.</span></p>
+    <ol class="flow-chips">
+      <li style="--c:var(--magenta)"><span class="en">Market</span><span class="tr">Pazar</span></li>
+      <li style="--c:var(--amber)"><span class="en">Region</span><span class="tr">Bölge</span></li>
+      <li style="--c:var(--cyan)">ICP</li>
+      <li style="--c:var(--lime)"><span class="en">Farm</span><span class="tr">Çiftlik</span></li>
+      <li style="--c:var(--paper)"><span class="en">Bird</span><span class="tr">Hayvan</span></li>
+      <li style="--c:var(--red)"><span class="en">Problem</span><span class="tr">Problem</span></li>
+      <li style="--c:var(--gold)"><span class="en">Solution</span><span class="tr">Çözüm</span></li>
+      <li style="--c:var(--violet)"><span class="en">Go-to-market</span><span class="tr">Pazara giriş</span></li>
+    </ol>
+    <p class="scroll-cue"><span class="en">Scroll</span><span class="tr">Kaydırın</span><i></i></p>
+  </div>
+</section>
+
+<!-- 1 · COUNTRY -->
+<section id="country" class="scene map-scene" data-pin="160">
+  <div class="pin">
+    <div class="panel left">
+      <div class="flag-wrap" aria-hidden="true">
+        <svg class="flag" viewBox="0 0 300 200"><defs><linearGradient id="flagShade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset=".35" stop-color="#fff" stop-opacity=".12"/><stop offset=".7" stop-color="#000" stop-opacity=".14"/><stop offset="1" stop-color="#fff" stop-opacity=".08"/></linearGradient></defs>
+          <rect width="300" height="200" fill="#DA251D"/><polygon fill="#FFFF00" points="150,46 163.2,86.6 205.9,86.6 171.4,111.7 184.5,152.3 150,127.2 115.5,152.3 128.6,111.7 94.1,86.6 136.8,86.6"/><rect width="300" height="200" fill="url(#flagShade)"/></svg>
+      </div>
+      <p class="kicker"><span class="en">01 · Market</span><span class="tr">01 · Pazar</span></p>
+      <h2 class="big">Vietnam</h2>
+      <p class="lede small"><span class="en">A big poultry sector that just lost antibiotics.</span><span class="tr">Antibiyotiği yeni kaybetmiş büyük bir kanatlı sektörü.</span></p>
+      <ul class="facts">
+        <li><b>1.1.2026</b><span class="en">Preventive antibiotics banned in feed</span><span class="tr">Yemde koruyucu antibiyotik yasak</span></li>
+        <li><b>530–550 M</b><span class="en">day-old chicks a year</span><span class="tr">yıllık civciv</span></li>
+        <li><b>41%</b><span class="en">of compound feed is poultry</span><span class="tr">karma yemin kanatlı payı</span></li>
+      </ul>
+      <p class="note"><span class="en">Decree 13/2020 Art. 12; VPA 2025; industry report 2025.</span><span class="tr">Kararname 13/2020 Md. 12; VPA 2025; sektör raporu 2025.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · REGIONS -->
+<section id="regions" class="scene map-scene" data-pin="320">
+  <div class="pin">
+    <div class="panel left narrow">
+      <p class="kicker"><span class="en">02 · Regions</span><span class="tr">02 · Bölgeler</span></p>
+      <h2><span class="en">Where is the heat?</span><span class="tr">Sıcak nerede?</span></h2>
+      <p class="lede small"><span class="en">Hours above THI 28, when broilers start to struggle.</span><span class="tr">THI 28 üstü saatler: broilerin zorlanmaya başladığı eşik.</span></p>
+      <div class="region-cards" id="region-cards"></div>
+      <p class="note"><span class="en">Climate: NASA POWER 2021–23. Regions illustrative.</span><span class="tr">İklim: NASA POWER 2021–23. Bölgeler temsilidir.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · SOUTH -->
+<section id="south" class="scene map-scene" data-pin="240">
+  <div class="pin">
+    <div class="panel right">
+      <p class="kicker"><span class="en">03 · Zoom: South</span><span class="tr">03 · Yakınlaş: Güney</span></p>
+      <h2><span class="en">Two clusters. One beachhead.</span><span class="tr">İki küme. Tek hedef.</span></h2>
+      <div class="icp-compare" id="icp-compare"></div>
+      <p class="note"><span class="en">Scores 0–5 from the ICP database (modeled).</span><span class="tr">Skorlar 0–5, ICP veritabanından (modellenmiş).</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · PERSONA -->
+<section id="persona" class="scene persona" data-pin="180">
+  <div class="pin">
+    <div class="persona-art" aria-hidden="true">
+      <div class="halo"></div>
+      <svg viewBox="0 0 400 520" class="person">
+        <defs>
+          <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1fd1c1"/><stop offset="1" stop-color="#0b8f86"/></linearGradient>
+          <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9b98f"/><stop offset="1" stop-color="#d49b70"/></linearGradient>
+        </defs>
+        <path d="M60 520 C60 410 120 360 200 356 C280 360 340 410 340 520Z" fill="url(#shirt)"/>
+        <path d="M168 356 L200 404 L232 356 Z" fill="#f4f1ea"/>
+        <rect x="176" y="300" width="48" height="66" rx="20" fill="url(#skin)"/>
+        <ellipse cx="200" cy="232" rx="78" ry="92" fill="url(#skin)"/>
+        <ellipse cx="124" cy="240" rx="14" ry="22" fill="#d49b70"/><ellipse cx="276" cy="240" rx="14" ry="22" fill="#d49b70"/>
+        <path d="M118 214 C112 140 160 118 204 120 C256 122 292 150 284 214 C270 180 240 168 206 170 C170 170 140 182 118 214Z" fill="#14171f"/>
+        <path d="M150 226 q14 -8 28 0" stroke="#14171f" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M222 226 q14 -8 28 0" stroke="#14171f" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <circle cx="164" cy="246" r="7" fill="#14171f"/><circle cx="236" cy="246" r="7" fill="#14171f"/>
+        <path d="M200 252 q-6 22 4 26" stroke="#b97f57" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M176 292 q24 16 48 0" stroke="#7a3b2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <rect x="120" y="120" width="160" height="34" rx="12" fill="#ffb000" transform="rotate(-3 200 137)"/>
+        <rect x="112" y="146" width="176" height="14" rx="7" fill="#e09a00" transform="rotate(-3 200 153)"/>
+        <rect x="244" y="410" width="40" height="22" rx="4" fill="#f4f1ea"/><text x="264" y="425" font-size="11" text-anchor="middle" fill="#0a0e1a" font-family="Inter" font-weight="700">TECH</text>
+        <g transform="translate(70 430) rotate(-10)"><rect width="110" height="78" rx="10" fill="#0a0e1a"/><rect x="8" y="8" width="94" height="62" rx="5" fill="#173040"/><rect x="16" y="46" width="12" height="18" fill="#00e0c6"/><rect x="34" y="36" width="12" height="28" fill="#b6ff3b"/><rect x="52" y="24" width="12" height="40" fill="#ffb000"/><rect x="70" y="16" width="12" height="48" fill="#ff2e6e"/></g>
+      </svg>
+      <p class="persona-tag"><span class="en">Persona · fictional</span><span class="tr">Persona · kurgusal</span></p>
+    </div>
+    <div class="char-sheet">
+      <p class="kicker"><span class="en">04 · Meet the ICP</span><span class="tr">04 · ICP ile tanışın</span></p>
+      <h2 class="char-name">Anh Tuấn <small><span class="en">Tech manager · contract-farm network · Đồng Nai</span><span class="tr">Teknik müdür · sözleşmeli çiftlik ağı · Đồng Nai</span></small></h2>
+      <div class="char-class">
+        <span><span class="en">Class</span><span class="tr">Sınıf</span></span>
+        <b><span class="en">Mid-size integrator</span><span class="tr">Orta ölçekli entegratör</span></b>
+      </div>
+      <div class="stats" id="persona-stats"></div>
+      <div class="char-grid">
+        <div><h4><span class="en">Trigger</span><span class="tr">Tetikleyici</span></h4><p><span class="en">Hot-season losses</span><span class="tr">Sıcak sezon kayıpları</span></p></div>
+        <div><h4><span class="en">Objection</span><span class="tr">İtiraz</span></h4><p><span class="en">"Show me a farm like mine"</span><span class="tr">"Benim gibi bir çiftlik göster"</span></p></div>
+        <div><h4><span class="en">Allies</span><span class="tr">Etkileyenler</span></h4><p><span class="en">Farm vet, nutritionist, distributor</span><span class="tr">Veteriner, beslenme uzmanı, distribütör</span></p></div>
+        <div><h4><span class="en">Channel</span><span class="tr">Kanal</span></h4><p>Zalo · Facebook</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · FARM -->
+<section id="farm" class="scene farm" data-pin="220">
+  <div class="pin">
+    <div class="farm-art" aria-hidden="true">
+      <svg class="layer sky" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1d6e"/><stop offset=".45" stop-color="#ff2e6e"/><stop offset=".8" stop-color="#ffb000"/><stop offset="1" stop-color="#ffd27a"/></linearGradient>
+          <radialGradient id="sunG"><stop offset="0" stop-color="#fff6c8"/><stop offset=".55" stop-color="#ffd23f"/><stop offset="1" stop-color="#ffb000" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#skyG)"/>
+        <circle class="sun" cx="1120" cy="380" r="260" fill="url(#sunG)"/>
+        <circle cx="1120" cy="380" r="110" fill="#fff3b0"/>
+      </svg>
+      <svg class="layer hills" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"><path d="M0 560 C200 500 330 540 470 510 C640 470 760 540 940 500 C1120 460 1260 520 1600 480 L1600 900 L0 900Z" fill="#7a2e6b" opacity=".85"/></svg>
+      <svg class="layer trees" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" id="tree-row"></svg>
+      <svg class="layer houses" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <defs><linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f1ea"/><stop offset="1" stop-color="#c9c2b3"/></linearGradient></defs>
+        <g id="house-row"></g>
+      </svg>
+      <svg class="layer ground" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"><path d="M0 760 C300 730 700 750 1000 735 C1250 722 1450 740 1600 730 L1600 900 L0 900Z" fill="#2c1a3a"/><g id="flock"></g></svg>
+      <div class="heat-haze"></div>
+    </div>
+    <div class="farm-copy">
+      <p class="kicker"><span class="en">05 · His farm, April</span><span class="tr">05 · Çiftliği, nisan</span></p>
+      <h2><span class="en">What he wants. When he buys.</span><span class="tr">Ne istiyor? Ne zaman alıyor?</span></h2>
+      <div class="two-col">
+        <div class="glass">
+          <h3><span class="en">He expects</span><span class="tr">Beklentisi</span></h3>
+          <ul class="ticks">
+            <li><span class="en">Numbers from a farm like his</span><span class="tr">Kendine benzer çiftlikten rakam</span></li>
+            <li><span class="en">A demo on his own houses</span><span class="tr">Kendi kümesinde demo</span></li>
+            <li><span class="en">Price per 1,000 birds, with credit</span><span class="tr">1.000 kuş başına fiyat, vadeli</span></li>
+          </ul>
+        </div>
+        <div class="glass">
+          <h3><span class="en">Buying moments</span><span class="tr">Satın alma anları</span></h3>
+          <ol class="ceps">
+            <li><b><span class="en">Heat builds</span><span class="tr">Sıcaklar başlıyor</span></b><span class="en">Feb → Apr peak</span><span class="tr">Şubat → nisan zirvesi</span></li>
+            <li><b><span class="en">Last week slips</span><span class="tr">Son hafta kayıyor</span></b><span class="en">FCR before harvest</span><span class="tr">Kesim öncesi FCR</span></li>
+            <li><b><span class="en">No antibiotics</span><span class="tr">Antibiyotik yok</span></b><span class="en">Since Jan 2026</span><span class="tr">Ocak 2026'dan beri</span></li>
+            <li><b><span class="en">Vaccine week</span><span class="tr">Aşı haftası</span></b><span class="en">Respiratory reactions</span><span class="tr">Solunum reaksiyonları</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · BIRD -->
+<section id="bird" class="scene bird" data-pin="160">
+  <div class="pin">
+    <div class="bird-stage" aria-hidden="true">
+      <svg viewBox="0 0 800 800" class="chicken" id="chicken">
+        <defs>
+          <radialGradient id="bodyG" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#f1ece2"/><stop offset="1" stop-color="#d8cfbf"/></radialGradient>
+          <linearGradient id="wingG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf8f2"/><stop offset="1" stop-color="#d4cab8"/></linearGradient>
+          <radialGradient id="gutGlow"><stop offset="0" stop-color="#ff2e6e" stop-opacity=".95"/><stop offset="1" stop-color="#ff2e6e" stop-opacity="0"/></radialGradient>
+        </defs>
+        <ellipse cx="400" cy="740" rx="230" ry="26" fill="#000" opacity=".35"/>
+        <g class="legs" stroke="#ffb000" stroke-width="16" stroke-linecap="round" fill="none"><path d="M350 600 L340 720 M340 720 L300 735 M340 720 L370 738"/><path d="M450 600 L460 720 M460 720 L425 738 M460 720 L500 735"/></g>
+        <path d="M170 430 C150 330 230 250 330 260 C380 210 470 200 520 240 C600 250 660 330 650 430 C640 560 540 630 410 630 C280 630 185 560 170 430Z" fill="url(#bodyG)"/>
+        <path d="M150 380 C110 330 120 270 160 250 C170 300 200 330 230 340Z" fill="#efe8db"/>
+        <path d="M250 400 C300 340 420 340 470 420 C430 500 330 520 260 480 Z" fill="url(#wingG)" stroke="#d1c6b2" stroke-width="3"/>
+        <path d="M280 450 q60 20 150 -10 M290 420 q70 10 150 -10" stroke="#d1c6b2" stroke-width="3" fill="none"/>
+        <g class="head">
+          <path d="M520 250 C510 170 550 110 610 110 C670 112 700 160 690 220 C684 260 650 290 600 292 C560 294 530 280 520 250Z" fill="url(#bodyG)"/>
+          <path d="M575 112 C565 70 600 58 610 90 C615 55 650 55 648 92 C660 66 692 78 676 118 C650 104 600 100 575 112Z" fill="#e8213b"/>
+          <path d="M680 190 L742 206 L682 222 Z" fill="#ffb000"/>
+          <path d="M680 206 L736 208 L684 216Z" fill="#e09a00"/>
+          <path d="M672 228 C690 250 690 290 662 296 C646 280 650 250 672 228Z" fill="#e8213b"/>
+          <circle cx="640" cy="178" r="13" fill="#14171f"/><circle cx="644" cy="174" r="4" fill="#fff"/>
+          <path class="pant" d="M700 214 l26 6" stroke="#fff" stroke-width="3" opacity="0"/>
+        </g>
+        <circle class="gut-spot" cx="395" cy="500" r="70" fill="url(#gutGlow)" opacity="0"/>
+        <g class="heat-lines" stroke="#ff2e6e" stroke-width="5" stroke-linecap="round" fill="none" opacity="0">
+          <path d="M240 210 q-14 -20 0 -40 q14 -20 0 -40"/><path d="M330 190 q-14 -20 0 -40 q14 -20 0 -40"/><path d="M430 180 q-14 -20 0 -40 q14 -20 0 -40"/>
+        </g>
+      </svg>
+    </div>
+    <div class="bird-copy">
+      <p class="kicker"><span class="en">06 · One bird</span><span class="tr">06 · Tek bir kuş</span></p>
+      <h2 class="huge"><span class="en">2,832 hours.</span><span class="tr">2.832 saat.</span></h2>
+      <p class="lede"><span class="en">Heat stress every year. <b>One hour in three.</b></span><span class="tr">Her yıl ısı stresi. <b>Her üç saatin biri.</b></span></p>
+      <div class="insight">
+        <p class="kicker"><span class="en">Insight</span><span class="tr">İçgörü</span></p>
+        <p><span class="en">He doesn't buy an additive. He buys <b>a better last week.</b></span><span class="tr">Katkı maddesi almıyor. <b>Daha iyi bir son hafta</b> alıyor.</span></p>
+      </div>
+      <p class="note"><span class="en">Hours above THI 28, VN-2, NASA POWER 2021–23.</span><span class="tr">THI 28 üstü saat, VN-2, NASA POWER 2021–23.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · INSIDE -->
+<section id="inside" class="scene inside" data-pin="260">
+  <div class="pin">
+    <div class="iris" aria-hidden="true">
+      <svg viewBox="0 0 1000 700" class="gut" id="gut" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="lumen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0b1f"/><stop offset="1" stop-color="#4a0f2c"/></linearGradient>
+          <linearGradient id="villusG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8fb0"/><stop offset="1" stop-color="#d81b5a"/></linearGradient>
+          <linearGradient id="villusSick" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb37a"/><stop offset="1" stop-color="#9c1336"/></linearGradient>
+          <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2134e"/><stop offset="1" stop-color="#5e0a2a"/></linearGradient>
+        </defs>
+        <rect width="1000" height="700" fill="url(#lumen)"/>
+        <g id="nutrients"></g>
+        <g id="villi"></g>
+        <rect y="560" width="1000" height="140" fill="url(#wallG)"/>
+        <g id="vessels" stroke="#ff2e6e" stroke-width="6" fill="none" opacity=".8"><path d="M0 620 C200 600 300 650 500 620 C700 590 800 640 1000 615"/><path d="M0 665 C220 645 360 690 560 660 C760 632 860 680 1000 660" opacity=".6"/></g>
+        <g id="drops"></g>
+      </svg>
+    </div>
+    <p class="gut-state" id="gut-state" aria-live="polite"></p>
+    <div class="inside-copy">
+      <p class="kicker"><span class="en">07 · Inside the gut</span><span class="tr">07 · Bağırsağın içi</span></p>
+      <h2><span class="en">Heat hits the gut.</span><span class="tr">Sıcak bağırsağı vuruyor.</span></h2>
+      <ol class="cascade" id="cascade">
+        <li><b>1</b><span class="en">Blood goes to the skin to cool.</span><span class="tr">Kan serinlemek için deriye gider.</span></li>
+        <li><b>2</b><span class="en">Villi shrink.</span><span class="tr">Villuslar kısalır.</span></li>
+        <li><b>3</b><span class="en">Less absorption, leaky lining.</span><span class="tr">Emilim düşer, duvar sızdırır.</span></li>
+        <li><b>4</b><span class="en">Worse FCR. Lost margin.</span><span class="tr">FCR kötüleşir. Marj kaybolur.</span></li>
+      </ol>
+      <p class="note"><span class="en">General heat-stress physiology, illustrative.</span><span class="tr">Genel ısı stresi fizyolojisi, temsili.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · SOLUTION -->
+<section id="solution" class="scene solution" data-pin="220">
+  <div class="pin">
+    <div class="drop-stage" aria-hidden="true">
+      <svg viewBox="0 0 700 700" class="mega-drop" id="mega-drop">
+        <defs>
+          <radialGradient id="dropG" cx=".38" cy=".38" r=".75"><stop offset="0" stop-color="#fffbe0"/><stop offset=".35" stop-color="#d9ff6b"/><stop offset=".75" stop-color="#3fd4a0"/><stop offset="1" stop-color="#0b8f86"/></radialGradient>
+          <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+        </defs>
+        <circle cx="350" cy="380" r="250" fill="#b6ff3b" opacity=".25" filter="url(#soft)"/>
+        <path d="M350 70 C410 190 560 280 560 420 C560 540 465 620 350 620 C235 620 140 540 140 420 C140 280 290 190 350 70Z" fill="url(#dropG)"/>
+        <ellipse cx="275" cy="350" rx="40" ry="70" fill="#fff" opacity=".35" transform="rotate(25 275 350)"/>
+        <g id="bubbles"></g>
+      </svg>
+      <div class="orbit" id="orbit">
+        <div class="ing" style="--a:0deg"><svg viewBox="0 0 64 64"><path d="M32 6 C50 18 54 40 32 58 C10 40 14 18 32 6Z" fill="#7fd1b9"/><path d="M32 10 V56" stroke="#0b5f55" stroke-width="2.5"/></svg><b><span class="en">Eucalyptus</span><span class="tr">Okaliptüs</span></b></div>
+        <div class="ing" style="--a:90deg"><svg viewBox="0 0 64 64"><g fill="#9bd36a"><ellipse cx="22" cy="18" rx="7" ry="4"/><ellipse cx="42" cy="18" rx="7" ry="4"/><ellipse cx="20" cy="32" rx="7" ry="4"/><ellipse cx="44" cy="32" rx="7" ry="4"/><ellipse cx="22" cy="46" rx="7" ry="4"/><ellipse cx="42" cy="46" rx="7" ry="4"/></g><path d="M32 6 V60" stroke="#4f7a2c" stroke-width="2.5"/></svg><b><span class="en">Thyme</span><span class="tr">Kekik</span></b></div>
+        <div class="ing" style="--a:180deg"><svg viewBox="0 0 64 64"><path d="M32 8 C52 14 56 34 32 56 C8 34 12 14 32 8Z" fill="#3ddc84"/><path d="M32 12 V54 M32 24 l10 -6 M32 34 l12 -6 M32 24 l-10 -6 M32 34 l-12 -6" stroke="#167a45" stroke-width="2.5" fill="none"/></svg><b><span class="en">Peppermint</span><span class="tr">Nane</span></b></div>
+        <div class="ing" style="--a:270deg"><svg viewBox="0 0 64 64"><g fill="#e8fbff" stroke="#7fe3ff" stroke-width="2"><polygon points="32,6 44,20 38,36 26,36 20,20"/><polygon points="18,34 30,40 26,56 12,54 8,42"/><polygon points="46,34 56,42 52,56 38,56 34,42"/></g></svg><b>L-Menthol</b></div>
+      </div>
+    </div>
+    <div class="solution-copy">
+      <p class="kicker"><span class="en">08 · Solution</span><span class="tr">08 · Çözüm</span></p>
+      <h2><span class="en">Essential oils, in the water line.</span><span class="tr">Su hattında esansiyel yağlar.</span></h2>
+      <p class="lede small"><span class="en">Hot birds eat less, but keep drinking.</span><span class="tr">Sıcakta kuş az yer ama içmeye devam eder.</span></p>
+      <div class="evidence">
+        <div class="grade">A</div>
+        <div>
+          <h4><span class="en">University trial, Thailand</span><span class="tr">Üniversite denemesi, Tayland</span></h4>
+          <ul class="kpis">
+            <li><b><span class="en">Villi ↑</span><span class="tr">Villus ↑</span></b><span class="en">height</span><span class="tr">boy</span></li>
+            <li><b>FCR −6.7%</b><span class="en">days 36–42</span><span class="tr">36–42. gün</span></li>
+            <li><b><span class="en">Gain +11.9%</span><span class="tr">Kazanç +%11,9</span></b><span class="en">days 36–42</span><span class="tr">36–42. gün</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note"><span class="en">Kasetsart Univ. 2016, 600 broilers, randomised. Late-cycle only; analog climate, not local proof.</span><span class="tr">Kasetsart Üniv. 2016, 600 broiler, randomize. Yalnız dönem sonu; benzer iklim, yerel kanıt değil.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · PACK -->
+<section id="pack" class="scene pack" data-pin="200">
+  <div class="pin">
+    <div class="pack-stage" aria-hidden="true">
+      <svg viewBox="0 0 600 800" class="bottle-svg" id="bottle">
+        <defs>
+          <clipPath id="bottleClip"><path d="M240 120 h120 v60 c0 20 70 40 70 110 v380 c0 30 -20 50 -50 50 h-160 c-30 0 -50 -20 -50 -50 v-380 c0 -70 70 -90 70 -110Z"/></clipPath>
+          <linearGradient id="hdpe" x1="0" x2="1"><stop offset="0" stop-color="#d9d4ca"/><stop offset=".25" stop-color="#ffffff"/><stop offset=".6" stop-color="#f1ede5"/><stop offset="1" stop-color="#bdb6a8"/></linearGradient>
+          <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9ff6b"/><stop offset="1" stop-color="#0b8f86"/></linearGradient>
+        </defs>
+        <path class="stream" id="stream" d="M300 -20 C300 40 300 80 300 140" stroke="url(#liq)" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <path d="M240 120 h120 v60 c0 20 70 40 70 110 v380 c0 30 -20 50 -50 50 h-160 c-30 0 -50 -20 -50 -50 v-380 c0 -70 70 -90 70 -110Z" fill="url(#hdpe)" opacity=".16"/>
+        <g clip-path="url(#bottleClip)"><rect id="fill" x="150" y="730" width="300" height="0" fill="url(#liq)" opacity=".9"/></g>
+        <path d="M240 120 h120 v60 c0 20 70 40 70 110 v380 c0 30 -20 50 -50 50 h-160 c-30 0 -50 -20 -50 -50 v-380 c0 -70 70 -90 70 -110Z" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/>
+        <g id="cap"><rect x="232" y="78" width="136" height="54" rx="10" fill="#0a0e1a"/><rect x="232" y="118" width="136" height="10" fill="#1d2433"/></g>
+        <g id="label">
+          <rect x="185" y="330" width="230" height="300" rx="14" fill="#0a0e1a"/>
+          <rect x="185" y="330" width="230" height="10" fill="#b6ff3b"/>
+          <text x="300" y="384" text-anchor="middle" fill="#f4f1ea" font-family="Unbounded, sans-serif" font-weight="900" font-size="30" letter-spacing="2">XVET</text>
+          <text x="300" y="448" text-anchor="middle" fill="#b6ff3b" font-family="Unbounded, sans-serif" font-weight="700" font-size="34">Aromax®</text>
+          <text x="300" y="478" text-anchor="middle" fill="#f4f1ea" font-family="Inter, sans-serif" font-size="13">A puff of fresh and healthy air</text>
+          <g transform="translate(250 500)" fill="none" stroke="#3fd4a0" stroke-width="3"><path d="M10 50 C30 10 70 10 90 50"/><path d="M25 50 C38 25 62 25 75 50"/></g>
+          <text x="300" y="605" text-anchor="middle" fill="#9aa3b5" font-family="JetBrains Mono, monospace" font-size="13">1 L · DRINKING WATER</text>
+        </g>
+      </svg>
+      <img class="packshot" id="packshot" alt="Aromax packshot" hidden>
+    </div>
+    <div class="pack-copy">
+      <p class="kicker"><span class="en">09 · Product</span><span class="tr">09 · Ürün</span></p>
+      <h2 class="big">Aromax®</h2>
+      <p class="lede small"><span class="en">One bottle. One hot-season programme.</span><span class="tr">Tek şişe. Tek sıcak sezon programı.</span></p>
+      <dl class="spec">
+        <div><dt><span class="en">Form</span><span class="tr">Form</span></dt><dd><span class="en">Liquid, in water</span><span class="tr">Sıvı, suya</span></dd></div>
+        <div><dt><span class="en">Packs</span><span class="tr">Ambalaj</span></dt><dd>250 ml – 25 L</dd></div>
+        <div><dt><span class="en">Partner</span><span class="tr">Ortak</span></dt><dd>Turbo Fluid</dd></div>
+        <div><dt><span class="en">Status</span><span class="tr">Durum</span></dt><dd><span class="en">Subject to registration</span><span class="tr">Tescile tabi</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · GTM -->
+<section id="gtm" class="gtm">
+
+  <div class="gtm-hero">
+    <p class="kicker"><span class="en">10 · Go-to-market</span><span class="tr">10 · Pazara giriş</span></p>
+    <h2 class="mega small-mega"><span class="en">Now zoom<br><em>back out.</em></span><span class="tr">Şimdi<br><em>uzaklaşalım.</em></span></h2>
+    <p class="lede"><span class="en">Prove it on one house. Sell it through one distributor. Then scale.</span><span class="tr">Tek kümeste kanıtla. Tek distribütörle sat. Sonra büyüt.</span></p>
+  </div>
+
+  <article class="g-card positioning reveal">
+    <p class="kicker"><span class="en">Positioning</span><span class="tr">Konumlandırma</span></p>
+    <p class="pos-statement">
+      <span class="en">The <i>water-line heat programme</i> for South Vietnam's broiler farms. <i>Proven in Thailand.</i> Proven again <i>on your houses</i> before you scale.</span>
+      <span class="tr">Güney Vietnam broiler çiftlikleri için <i>su hattı sıcak programı.</i> <i>Tayland'da kanıtlandı.</i> Büyütmeden önce <i>sizin kümesinizde</i> yeniden kanıtlanır.</span>
+    </p>
+    <div class="pillars">
+      <div style="--c:var(--magenta)"><b><span class="en">WHO</span><span class="tr">KİM</span></b><span class="en">Integrator tech managers</span><span class="tr">Entegratör teknik müdürleri</span></div>
+      <div style="--c:var(--amber)"><b><span class="en">WHEN</span><span class="tr">NE ZAMAN</span></b><span class="en">Feb, before peak heat</span><span class="tr">Şubat, zirveden önce</span></div>
+      <div style="--c:var(--cyan)"><b><span class="en">WHAT</span><span class="tr">NE</span></b>Aromax® + Turbo Fluid</div>
+      <div style="--c:var(--lime)"><b><span class="en">HOW</span><span class="tr">NASIL</span></b><span class="en">Demo → distributor</span><span class="tr">Demo → distribütör</span></div>
+      <div style="--c:var(--violet)"><b><span class="en">WHY</span><span class="tr">NEDEN</span></b><span class="en">Proof, not novelty</span><span class="tr">Yenilik değil, kanıt</span></div>
+    </div>
+  </article>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">Why now</span><span class="tr">Neden şimdi</span></p>
+      <h3><span class="en">Three forces, one moment.</span><span class="tr">Üç kuvvet, tek an.</span></h3>
+    </div>
+    <div class="forces">
+      <div class="force" style="--c:var(--magenta)"><span class="num">01</span><h4><span class="en">Regulation</span><span class="tr">Mevzuat</span></h4><p><span class="en">Antibiotics out since 2026. Fines in force.</span><span class="tr">2026'dan beri antibiyotik yok. Cezalar yürürlükte.</span></p></div>
+      <div class="force" style="--c:var(--amber)"><span class="num">02</span><h4><span class="en">Climate</span><span class="tr">İklim</span></h4><p><span class="en">Heat stress all year in the South.</span><span class="tr">Güneyde tüm yıl ısı stresi.</span></p></div>
+      <div class="force" style="--c:var(--cyan)"><span class="num">03</span><h4><span class="en">Economics</span><span class="tr">Ekonomi</span></h4><p><span class="en">Thin margins. Buyers want payback.</span><span class="tr">İnce marjlar. Alıcı geri dönüş istiyor.</span></p></div>
+    </div>
+  </article>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">Timing</span><span class="tr">Zamanlama</span></p>
+      <h3><span class="en">Launch before the peak.</span><span class="tr">Zirveden önce başla.</span></h3>
+      <p><span class="en">Monthly hours above THI 28, Southeast Vietnam.</span><span class="tr">Güneydoğu Vietnam, aylık THI 28 üstü saat.</span></p>
+    </div>
+    <div class="calendar" id="calendar"></div>
+  </article>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">Route to market</span><span class="tr">Dağıtım yolu</span></p>
+      <h3><span class="en">From Hamburg to the farm.</span><span class="tr">Hamburg'dan çiftliğe.</span></h3>
+    </div>
+    <div class="route">
+      <div class="node n1"><b>XVET</b><span><span class="en">Dossier, training, demo kit</span><span class="tr">Dosya, eğitim, demo kiti</span></span></div>
+      <i class="arrow"></i>
+      <div class="node n2"><b><span class="en">Importer</span><span class="tr">İthalatçı</span></b><span><span class="en">Registers, stocks, gives credit</span><span class="tr">Tescil, stok, vade</span></span></div>
+      <i class="arrow"></i>
+      <div class="node n3"><b>Đại lý</b><span><span class="en">Local feed agents, last mile</span><span class="tr">Yerel bayiler, son kilometre</span></span></div>
+      <i class="arrow"></i>
+      <div class="node n4"><b><span class="en">Farms</span><span class="tr">Çiftlikler</span></b><span><span class="en">Anh Tuấn and his growers</span><span class="tr">Anh Tuấn ve yetiştiricileri</span></span></div>
+      <div class="avoid"><b><span class="en">Skip at first</span><span class="tr">İlk etapta değil</span></b><span><span class="en">Big integrators with their own feed mills</span><span class="tr">Kendi yem fabrikası olan büyük entegratörler</span></span></div>
+    </div>
+  </article>
+
+  <article class="g-row two reveal">
+    <div class="g-card">
+      <p class="kicker"><span class="en">Registration</span><span class="tr">Tescil</span></p>
+      <h3><span class="en">A notice, not a licence.</span><span class="tr">Ruhsat değil, bildirim.</span></h3>
+      <ol class="steps">
+        <li><b><span class="en">Trial-import permit</span><span class="tr">Deneme ithalat izni</span></b><span><span class="en">Covers the demo houses</span><span class="tr">Demo kümesleri kapsar</span></span></li>
+        <li><b><span class="en">Product announcement</span><span class="tr">Ürün bildirimi</span></b><span><span class="en">Filed by the importer, ~15 working days</span><span class="tr">İthalatçı yapar, ~15 iş günü</span></span></li>
+        <li><b><span class="en">Launch</span><span class="tr">Lansman</span></b><span><span class="en">Sell through đại lý</span><span class="tr">Đại lý üzerinden satış</span></span></li>
+      </ol>
+      <p class="note warn"><span class="en">To confirm with counsel: product category.</span><span class="tr">Hukukla teyit: ürün kategorisi.</span></p>
+    </div>
+    <div class="g-card">
+      <p class="kicker"><span class="en">Proof engine</span><span class="tr">Kanıt motoru</span></p>
+      <h3><span class="en">House A vs House B.</span><span class="tr">Kümes A, Kümes B'ye karşı.</span></h3>
+      <div class="pilot">
+        <div class="house a"><span>A</span><small><span class="en">As usual</span><span class="tr">Mevcut</span></small></div>
+        <div class="vs">vs</div>
+        <div class="house b"><span>B</span><small>+ Aromax®</small></div>
+      </div>
+      <ul class="ticks">
+        <li><span class="en">6 farms × 2 houses, Feb–Apr 2027</span><span class="tr">6 çiftlik × 2 kümes, Şubat–Nisan 2027</span></li>
+        <li><span class="en">Mortality, FCR, water, THI</span><span class="tr">Ölüm, FCR, su, THI</span></li>
+        <li><span class="en">One-page result on Zalo</span><span class="tr">Tek sayfa sonuç, Zalo'da</span></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">Economics</span><span class="tr">Ekonomi</span></p>
+      <h3><span class="en">Talk in € per 1,000 birds.</span><span class="tr">1.000 kuş başına € konuşun.</span></h3>
+    </div>
+    <div class="econ" id="econ"></div>
+  </article>
+
+  <article class="g-row two reveal">
+    <div class="g-card dark">
+      <p class="kicker"><span class="en">Competition</span><span class="tr">Rekabet</span></p>
+      <h3><span class="en">The shelf isn't empty.</span><span class="tr">Raf boş değil.</span></h3>
+      <ul class="comp">
+        <li><b>Olmix Asialand</b><span><span class="en">Bundles drugs, vaccines, additives</span><span class="tr">İlaç, aşı ve katkıyı paketliyor</span></span></li>
+        <li><b><span class="en">Importers</span><span class="tr">İthalatçılar</span></b><span><span class="en">Probiotics, phytogenics, acids</span><span class="tr">Probiyotik, fitojenik, asit</span></span></li>
+        <li><b><span class="en">Integrators</span><span class="tr">Entegratörler</span></b><span><span class="en">In-house programmes</span><span class="tr">Kendi programları</span></span></li>
+      </ul>
+    </div>
+    <div class="g-card">
+      <p class="kicker"><span class="en">Our edge</span><span class="tr">Farkımız</span></p>
+      <h3><span class="en">Proof. Timing. Service.</span><span class="tr">Kanıt. Zamanlama. Hizmet.</span></h3>
+      <ul class="diff">
+        <li style="--c:var(--lime)"><b><span class="en">Graded proof</span><span class="tr">Dereceli kanıt</span></b><span><span class="en">Limits stated openly</span><span class="tr">Sınırlar açıkça yazılı</span></span></li>
+        <li style="--c:var(--amber)"><b><span class="en">Heat calendar</span><span class="tr">Sıcak takvimi</span></b><span><span class="en">Switched on by measured heat</span><span class="tr">Ölçülen sıcağa göre devreye girer</span></span></li>
+        <li style="--c:var(--cyan)"><b><span class="en">On his houses</span><span class="tr">Kendi kümesinde</span></b><span><span class="en">Results he can show peers</span><span class="tr">Komşusuna gösterebileceği sonuç</span></span></li>
+      </ul>
+    </div>
+  </article>
+
+</section>
+
+<!-- 11 · PLAN (rendered from data/plan.json) -->
+<section id="plan" class="plan">
+  <div class="plan-pin">
+    <header class="plan-head">
+      <p class="kicker"><span class="en">11 · The plan, priced</span><span class="tr">11 · Fiyatlandırılmış plan</span></p>
+      <h2><span class="en">Ten decisions. One budget.</span><span class="tr">On karar. Tek bütçe.</span></h2>
+      <p class="plan-sub"><span class="en">Every number ties to the next. 16 of 16 consistency checks pass.</span><span class="tr">Her rakam bir sonrakine bağlı. 16 tutarlılık kontrolünün 16'sı geçti.</span><span class="swipe-hint"><span class="en">Swipe →</span><span class="tr">Kaydır →</span></span></p>
+    </header>
+    <div class="plan-track" id="plan-track"></div>
+  </div>
+</section>
+
+<!-- 12 · OPERATIONS -->
+<section id="ops" class="ops">
+  <div class="ops-hero reveal">
+    <p class="kicker"><span class="en">12 · Operating plan</span><span class="tr">12 · Operasyon planı</span></p>
+    <h2 class="mega small-mega"><span class="en">Who does what,<br><em>every month.</em></span><span class="tr">Kim, ne yapıyor,<br><em>her ay.</em></span></h2>
+    <p class="lede"><span class="en">Nine channels, €100k, twelve months. Each one has a reason, a budget, an owner and a kill switch.</span><span class="tr">Dokuz kanal, €100k, on iki ay. Her birinin bir nedeni, bütçesi, sahibi ve durdurma kuralı var.</span></p>
+  </div>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">12 months on one page</span><span class="tr">Tek sayfada 12 ay</span></p>
+      <h3><span class="en">Work follows the heat curve.</span><span class="tr">İş, sıcak eğrisini izler.</span></h3>
+    </div>
+    <div class="gantt" id="gantt"></div>
+  </article>
+
+  <div class="playbook" id="playbook"></div>
+
+  <article class="g-row two reveal">
+    <div class="g-card">
+      <p class="kicker"><span class="en">Operating rhythm</span><span class="tr">Çalışma ritmi</span></p>
+      <h3><span class="en">The cadence that keeps it honest.</span><span class="tr">Planı dürüst tutan tempo.</span></h3>
+      <ul class="cadence">
+        <li><b><span class="en">Daily</span><span class="tr">Günlük</span></b><span><span class="en">THI forecast check → heat alert on Zalo when 6 h+ above 28</span><span class="tr">THI tahmini kontrolü → 6 saat+ 28 üstündeyse Zalo'da sıcak alarmı</span></span></li>
+        <li><b><span class="en">Weekly</span><span class="tr">Haftalık</span></b><span><span class="en">Monday 30-min pipeline call with the importer; demo sheets reviewed</span><span class="tr">Pazartesi ithalatçıyla 30 dk satış hattı görüşmesi; demo formları incelenir</span></span></li>
+        <li><b><span class="en">Monthly</span><span class="tr">Aylık</span></b><span><span class="en">Sell-out report by đại lý; reorders; spend vs plan</span><span class="tr">Bayi bazında satış raporu; yeniden siparişler; harcama vs plan</span></span></li>
+        <li><b><span class="en">Quarterly</span><span class="tr">Çeyreklik</span></b><span><span class="en">CEO review: four objectives, four triggers, go / fix / stop</span><span class="tr">CEO incelemesi: dört hedef, dört tetikleyici, devam / düzelt / durdur</span></span></li>
+      </ul>
+    </div>
+    <div class="g-card dark">
+      <p class="kicker"><span class="en">Kill switches</span><span class="tr">Durdurma kuralları</span></p>
+      <h3><span class="en">When we stop or change course.</span><span class="tr">Ne zaman durur ya da yön değiştiririz?</span></h3>
+      <ul class="risks" id="triggers"></ul>
+    </div>
+  </article>
+
+  <article class="g-row reveal">
+    <div class="g-head">
+      <p class="kicker"><span class="en">Team</span><span class="tr">Ekip</span></p>
+      <h3><span class="en">Existing XVET roles, one local hire.</span><span class="tr">Mevcut XVET rolleri, tek yerel kişi.</span></h3>
+    </div>
+    <div class="team">
+      <div><b>M1</b><span><span class="en">Regulatory & BD executive</span><span class="tr">Regülasyon ve İG uzmanı</span></span><small><span class="en">Importer, dossier, permit</span><span class="tr">İthalatçı, dosya, izin</span></small></div>
+      <div><b>M2</b><span><span class="en">Technical sales vet</span><span class="tr">Teknik satış veterineri</span></span><small><span class="en">Demo houses, seminars</span><span class="tr">Demo kümesler, seminerler</span></small></div>
+      <div><b>M3</b><span><span class="en">Business development manager</span><span class="tr">İş geliştirme müdürü</span></span><small><span class="en">Đại lý, repeat accounts</span><span class="tr">Bayiler, tekrar alan hesaplar</span></small></div>
+      <div><b>M4</b><span><span class="en">Commercial & sales exec</span><span class="tr">Ticari ve satış uzmanı</span></span><small><span class="en">Price, terms, invoices</span><span class="tr">Fiyat, koşullar, faturalar</span></small></div>
+      <div><b>+1</b><span><span class="en">Vietnamese content editor</span><span class="tr">Vietnamca içerik editörü</span></span><small><span class="en">Part-time, in the €7k Zalo line</span><span class="tr">Yarı zamanlı, €7k Zalo kaleminde</span></small></div>
+    </div>
+  </article>
+</section>
+
+<!-- 11 · OUTRO -->
+<section id="outro" class="outro">
+  <p class="kicker"><span class="en">The thinking</span><span class="tr">Düşünce akışı</span></p>
+  <ol class="recap" id="recap">
+    <li><span class="en">Market under pressure</span><span class="tr">Baskıdaki pazar</span></li>
+    <li><span class="en">Hottest region</span><span class="tr">En sıcak bölge</span></li>
+    <li><span class="en">ICP owns the last week</span><span class="tr">ICP son haftanın sahibi</span></li>
+    <li><span class="en">Buying moments</span><span class="tr">Satın alma anları</span></li>
+    <li><span class="en">Problem in the gut</span><span class="tr">Problem bağırsakta</span></li>
+    <li><span class="en">Solution in the water</span><span class="tr">Çözüm suda</span></li>
+    <li><span class="en">Proof on his houses</span><span class="tr">Kanıt kendi kümesinde</span></li>
+    <li><span class="en">€100k → €180k → €1.1M</span><span class="tr">€100k → €180k → €1,1M</span></li>
+  </ol>
+  <h2 class="mega small-mega"><span class="en">Three decisions<br>to start.</span><span class="tr">Başlamak için<br>üç karar.</span></h2>
+  <div class="decisions">
+    <div><b>1</b><p><span class="en">Approve the <em>€100k</em> year-1 budget for Southeast Vietnam.</span><span class="tr">Güneydoğu Vietnam için <em>€100k</em> 1. yıl bütçesini onayla.</span></p></div>
+    <div><b>2</b><p><span class="en">Sign <em>one importer</em> by 31 Jan 2027.</span><span class="tr">31 Ocak 2027'ye kadar <em>tek ithalatçı</em> ile imzala.</span></p></div>
+    <div><b>3</b><p><span class="en">Fund <em>6 paired demo houses</em> (€28k) for Feb–Apr.</span><span class="tr">Şubat–Nisan için <em>6 eşli demo kümesi</em> (€28k) finanse et.</span></p></div>
+  </div>
+  <footer class="fine">
+    <p><span class="en">Concept case study for XVET GmbH. Clusters, persona and economics are modeled hypotheses. Climate data measured (NASA POWER 2021–23). Product claims limited to official XVET wording and graded trials. All offers subject to local registration. Not legal advice. Map: stylised relief on Natural Earth borders.</span><span class="tr">XVET GmbH için konsept vaka çalışması. Kümeler, persona ve ekonomi modellenmiş hipotezlerdir. İklim verisi ölçülmüştür (NASA POWER 2021–23). Ürün ifadeleri resmi XVET metinleri ve dereceli denemelerle sınırlıdır. Tüm teklifler yerel tescile tabidir. Hukuki görüş değildir. Harita: Natural Earth sınırları üzerine stilize rölyef.</span></p>
+  </footer>
+</section>
+
+</main>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
