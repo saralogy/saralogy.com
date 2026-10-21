@@ -92,4 +92,15 @@ Persona isimleri kurgusaldır; gerçek kişilerle ilgisi yoktur.
 | **D — Story & Reach** | Can, Zoe, Elif, Marcus, Aiko, Victoria | "Bu nasıl konuşulur, bulunur ve işe alıma döner?" |
 | **E — Build & Next** | Daniel, Arda, Nina, Tom, Rafael, Rhea, Felix | "Bunu nasıl inşa ederiz ve daha önce hiç yapılmamış hali ne?" |
 
-Selin (ECD) her pod'u gezer; Maestro sentezler; Orhan sunar.
+Selin (ECD) her pod'u gezer; Maestro sentezler; Orhan sunar. *(Tur 1 düzeni)*
+
+## Tur 2 pod'ları — disiplinler arası (D-007, D-008)
+
+Her pod'da en az bir kıdemli yazılımcı ve **Orhan (kapı bekçisi)** var. Orhan'ı ikna edemeyen fikir pod'dan çıkamaz.
+
+| Pod | Üyeler | Yazılımcı |
+|---|---|---|
+| **1** | Vin (casino: seans & süreklilik psikolojisi), Lena (biliş), Greta (ID/CMF), Zoe (kreatif pazarlama), Jonas (art direction), Ines (CDO), **Orhan** | Arda Kaya |
+| **2** | Kenji (oyun sistemleri, uzun döngüler), Ayşe (oyun teorisi), Victoria (CMO), Elif (içerik), Selin (ECD), Hannah (araştırma), **Orhan** | Nina Petrova |
+| **3** | Sasha (anlatı, epizodik hikaye), Omar (karar bilimi, etik), Kerem (ID), Felix (inovatör), Aiko (GEO), Marcus (SEO), Defne (tipografi), **Orhan** | Rafael Ortiz |
+| **4** | Bea (oyun hissi, ilk kullanım deneyimi), Rhea (inovatör, AI), Priya (UX), Leo (UI), Can (kreatif pazarlama), Mika (motion), Daniel (CTO), **Orhan** | Tom Fischer |

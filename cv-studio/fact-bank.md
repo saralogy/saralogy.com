@@ -1,6 +1,7 @@
 # Fact Bank — Tek Doğruluk Kaynağı
 
 Kaynak: *Berk_Saraloglu_CV_Senior_Marketing_Manager_for_recruiters* (2026). Sitede kullanılacak her rakam ve iddia buradan gelir.
+**Berk'in kararı (D-006):** Bu PDF en güncel ve en doğru kaynaktır. `PROJECT_BRIEF.md`'deki eski rakamlar (ör. "%117 / 53 gün", "Kristal Elma", "Almanca A2", "€2M", "+%400", "4 divizyon") `/cv` için **kullanılmaz**.
 Yeni bir rakam eklenecekse önce buraya, kaynağıyla birlikte girer. (Telefon ve ev adresi bilinçli olarak dışarıda bırakıldı.)
 
 ## Kimlik
