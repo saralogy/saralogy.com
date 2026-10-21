@@ -40,7 +40,9 @@ cv-studio/
 |---|---|
 | 0. Ortam & ekip kurulumu | ✅ Tamam |
 | 1. Kickoff konseyi → 5 konsept | ✅ Tamam ([oturum 001](sessions/001-kickoff-council.md), [5 konsept](ideas/round-1-five-concepts.md)) |
-| 2. Berk konsept seçer / birleştirir + fact çelişkilerini çözer | ⏳ Bekliyor |
+| 2. Berk Tur 1'i reddetti (Forward & Redline 5/10, gerisi [arşiv](ideas/ARCHIVE.md)); fact kaynağı = PDF | ✅ Tamam |
+| 2b. Tur 2: karma pod'lar + Orhan kapısı → 3 fikir | ✅ Tamam ([oturum 002](sessions/002-round-2-mixed-pods.md), [fikirler](ideas/round-2-concepts.md)) |
+| 2c. Berk Tur 2'yi puanlar | ⏳ Bekliyor |
 | 3. Deneyim senaryosu + wireframe + teknik spike | — |
 | 4. Prototip (`/cv` preview branch) | — |
 | 5. Prod yayını, ölçüm, ödül başvuru dosyası (case film) | — |
