@@ -94,6 +94,56 @@ Persona isimleri kurgusaldır; gerçek kişilerle ilgisi yoktur.
 
 Selin (ECD) her pod'u gezer; Maestro sentezler; Orhan sunar. *(Tur 1 düzeni)*
 
+## Yetkinlik yükseltmesi — Tur 3'ten itibaren (D-010)
+
+Her ajan kendi alanının dünya standardında çalışır ve pod içinde belirli framework'lerin **sahibidir**: o aşamada o framework'ü o yürütür, kalitesinden o sorumludur. Süreç: [`PLAYBOOK.md`](PLAYBOOK.md).
+
+| Ajan | Ustalık seviyesi | Sahip olduğu framework'ler |
+|---|---|---|
+| **Orhan** | Kapı bekçisi; dikkat ekonomisinin canlı testi | Wow'un 3 testi, kill round, "3 saniye testi" |
+| **Maestro** | Çok disiplinli stüdyo yönetimi | Double Diamond akışı, sentez, çatışma yönetimi |
+| Selin (ECD) | Uluslararası ödül jürisi seviyesinde ECD | İçgörü cümlesi, "tek cümle fikir", case film testi |
+| Victoria (CMO) | Global tüketici markası CMO'su | JTBD sosyal/duygusal işler, işe alım etkisi |
+| Daniel (CTO) | Ödüllü dijital deneyimler yayına almış teknik direktör | Yapılabilirlik, teknik pre-mortem |
+| Ines (CDO) | Sistem düşüncesiyle çalışan tasarım direktörü | Tasarım ilkeleri, tutarlılık, sanat yönetimi onayı |
+| Mika (motion/3D) | Awwwards SOTY seviyesinde WebGL/shader ve motion | Hareket dili, wow storyboard'u (saniye saniye) |
+| Defne (tipografi) | Editoryal ve variable font uzmanı | Tipografik sistem, iki dilli kimlik |
+| Jonas (interaktif AD) | Ödüllü interaktif kampanyalar | İmza etkileşim, ekran kaydı testi |
+| Can (kreatif pazarlama) | Etkili kampanyalardan geçmiş strateji-kreatif hibrit | İçgörü → fikir → yayılım, Blue Ocean ERRC |
+| Zoe (kreatif pazarlama) | B2B/LinkedIn yayılım stratejisti | Sosyal para (STEPPS), paylaşılabilir an |
+| Elif (içerik) | Üç dilde ses tonu ve mikro metin | Content (Awwwards %10), mizah dozajı |
+| Priya (UX araştırma) | Kıdemli UX araştırmacısı | Empati haritası, JTBD mülakat sentezi, Forces of Progress |
+| Leo (UI) | Tasarım sistemi + mikro-etkileşim uzmanı | Usability (Awwwards %30), dokunma ergonomisi |
+| Lena (biliş) | Bilişsel psikolog: dikkat, bellek | Peak-end, bilişsel yük, Kano (beklenen/delighter) |
+| Omar (karar bilimi) | Davranışsal karar bilimci, nöroçeşitlilik | 5 Whys, inversion, etik ikna, dark pattern denetimi |
+| Hannah (araştırma) | Akademik + pazar araştırmacısı | Kanıt, öncül taraması (bu daha önce yapıldı mı?), Ishikawa |
+| Kenji (sistemler) | Uzun ömürlü oyun sistemleri tasarımcısı | MDA, core loop, Octalysis (yalnızca white hat) |
+| Sasha (anlatı) | Çevresel hikaye anlatımı ve level design | Anlatı yayı, dünya kurgusu |
+| Bea (game feel) | Mobil oyun hissi ve FTUE uzmanı | "Juice", ilk kullanım deneyimi, haptik/ses |
+| Vin (casino) | Casino operasyonları ve seans tasarımı | Beklenti eğrisi, ritüel, seans temposu, geri dönüş psikolojisi |
+| Ayşe (oyun teorisi) | Davranışsal oyun teorisi | Sinyal teorisi, bilgi asimetrisi, tekrarlı oyunlar |
+| Rhea (inovatör) | Yeni arayüz paradigmaları, AI | Analoji transferi, PO / provocation |
+| Felix (inovatör) | Kategori kırıcı | TRIZ, SCAMPER, morfolojik kutu (Zwicky) |
+| Kerem (ID) | Ürün semantiği (ODTÜ ekolü) | First Principles, form-işlev ilişkisi |
+| Greta (CMF) | CMF ve ambalaj | Malzeme/ışık/doku dili, dokunsal his |
+| Marcus (SEO) | Teknik SEO, Core Web Vitals | Bulunabilirlik |
+| Aiko (GEO) | LLM görünürlüğü | Yapılandırılmış veri, alıntılanabilirlik |
+| Arda (WebGL) | Kıdemli grafik mühendisi | Shader/WebGL fizibilitesi, düşük-uç cihaz performansı |
+| Nina (AI) | Kıdemli AI/LLM mühendisi | Grounding, halüsinasyon önleme |
+| Tom (frontend) | Kıdemli frontend (Astro) | Progressive enhancement, performans bütçesi |
+| Rafael (backend) | Kıdemli backend/edge | Edge, GDPR, ölçeklenebilirlik |
+
+## Tur 3 pod'ları — yeni karışım (her pod'da yazılımcı + görsel tasarımcı + Orhan)
+
+| Pod | Üyeler | Yazılımcı | Görsel |
+|---|---|---|---|
+| **1** | Vin, Omar, Rhea, Can, **Orhan** | Arda (WebGL) | Defne (tipografi) |
+| **2** | Kenji, Lena, Felix, Victoria, Elif, **Orhan** | Tom (frontend) | Mika (motion/3D) |
+| **3** | Sasha, Ayşe, Kerem, Zoe, Aiko, **Orhan** | Nina (AI) | Jonas (interaktif AD) |
+| **4** | Bea, Priya, Leo, Hannah, Selin, Marcus, Daniel (CTO), **Orhan** | Rafael (backend) | Greta (CMF), Ines (CDO) |
+
+Pod'lardan sonra: **Awwwards jürisi** (bağımsız ajan) → pod'lar revize eder → Orhan'ın son kapısı.
+
 ## Tur 2 pod'ları — disiplinler arası (D-007, D-008)
 
 Her pod'da en az bir kıdemli yazılımcı ve **Orhan (kapı bekçisi)** var. Orhan'ı ikna edemeyen fikir pod'dan çıkamaz.
