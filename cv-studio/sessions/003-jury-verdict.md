@@ -31,3 +31,34 @@ Mekanikleri birleştirmeyin (ışık + su + esnetme = komite fikri). STREIFLICHT
 STREIFLICHT, PASST ve WAS BLEIBT pod'ları jüri notlarıyla **bir revizyon turu** yapıyor (D-011). BLINDTEST arşive gidiyor. Ardından Orhan'ın son kapısı.
 
 *Doğrulanmamış:* "Doğrudan öncül yok" iddiaları (siyanotip web efekti, gerçek zamanlı gölge tipografisi, reklam formatlarına esneyen portfolyolar) birkaç aramaya dayanıyor; kapsamlı bir tarama değil.
+
+---
+
+# Jüri yeniden puanlaması (v2, revizyon sonrası)
+
+| Konsept | Design | Usability | Creativity | Content | **Ağırlıklı** | İşe alım | Karar |
+|---|---|---|---|---|---|---|---|
+| **STREIFLICHT v2** | 8.5 | 7.2 | 8.3 | 7.8 | **8.00** (v1 build ≈7.7) | 8/10 | **RECOMMEND** |
+| PASST. v2 | 7.5 | 8.0 | 6.9 | 8.3 | 7.61 | 8.5/10 | VIABLE ALTERNATIVE |
+| ÜBERNOMMEN (Was Bleibt v2) | 7.8 | 7.3 | 6.9 | 7.0 | 7.38 (v1'den düşük) | 7/10 | **DROP** |
+
+Kalibrasyon: Bu turda pod öz-puanları ile jüri puanları arasındaki fark ~0.1–0.5 (v1'de 0.5–1.3'tü). SOTM çizgisinin üstünde yalnızca STREIFLICHT var; bu da 1. hafta öldürme kriterleri ucuz Android'de geçilirse geçerli.
+
+## STREIFLICHT v2 — jüri notları
+- 5 notun 5'i karşılandı. Çift delikli duvar gerçek bir optik ilke. Credit satırının Berk'in gerçekten modellemesine bağlanması doğru bir dürüstlük kararı.
+- Nokta matrisi, cihaz ekranlarının yazısı olduğu için tipografi artık anlam taşıyor; DIN'den daha iyi.
+- **Risk — fritöz:** Delikli bir dış kabuk kevgir gibi okunabilir. K2 kriteri doğru kapı. Geçmezse yalnızca sepet ve kapak menfezi delikli olacak.
+- **Risk — "5.5 / 2.5":** 360 px'te 9 karakter sınırda. Gölgede yalnızca "5.5" yer alacak, "/ 2.5 benchmark" HTML başlığa taşınacak.
+- **Kamera dönüşü:** 3.6 sn'den ~5.0 sn'ye alınacak, rakam okunduktan sonra gelecek.
+- **"ADOPTED IN 5 MARKETS" (19 karakter, 6 nesne):** Projenin en zor çözümü, yalnızca v2'de.
+- **Takvim:** 7–8 hafta, ancak Berk'in Blender kabukları 1–2. haftada gelirse inandırıcı. Kritik yol bu. Kabuklar için bir son tarih konacak; geçilirse işi 3D sanatçı devralır ve credit satırı sayfadan kalkar.
+- **SOTM için:** K1/K2 ucuz Android'de geçilecek, kabuklar 2. haftada hazır olacak ve Blender → çözücü → gölge hattını gösteren bir case film çekilecek. Jüriler süreç ifşasını ödüllendirir.
+
+## PASST. v2 — jüri notları
+- "Fiyat dışında her şey şekil değiştirir" orijinalinden çok daha keskin bir içgörü.
+- 6 sn testi zayıf geçiyor: iyi bir scrollytelling gibi görünüyor ve mekanik olarak `position: sticky`.
+- STREIFLICHT 1. hafta kriterlerini geçemezse doğru yedek bu.
+
+## ÜBERNOMMEN — jüri notları
+- Notların hepsi karşılandı, ama karşılanınca sorun açığa çıktı. Dürüstlük kuralı 4 projenin 2'sini "used in" (erişim) etiketine indirdi; 4 satırlık boş kâğıtta yıkamanın kaldıracak bir şeyi kalmadı.
+- Görünen kanıtlar arşivdekilerle aynı, yalnızca yeni bir kılıkta. En güçlü kanıtını ("Adopted in 5 markets") da STREIFLICHT finali zaten aldı. → **Arşiv.** Siyanotip sanat yönetimi ileride /music veya /projects için dosyada duruyor.

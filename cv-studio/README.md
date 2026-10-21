@@ -42,7 +42,9 @@ cv-studio/
 | 1. Kickoff konseyi → 5 konsept | ✅ Tamam ([oturum 001](sessions/001-kickoff-council.md), [5 konsept](ideas/round-1-five-concepts.md)) |
 | 2. Berk Tur 1'i reddetti (Forward & Redline 5/10, gerisi [arşiv](ideas/ARCHIVE.md)); fact kaynağı = PDF | ✅ Tamam |
 | 2b. Tur 2: karma pod'lar + Orhan kapısı → 3 fikir | ✅ Tamam ([oturum 002](sessions/002-round-2-mixed-pods.md), [fikirler](ideas/round-2-concepts.md)) |
-| 2c. Berk Tur 2'yi puanlar | ⏳ Bekliyor |
+| 2c. Berk Tur 2'yi reddetti; ekipler yükseltildi ([PLAYBOOK](team/PLAYBOOK.md)) | ✅ Tamam |
+| 2d. Tur 3: playbook pod'ları → jüri → revizyon → jüri → Orhan | ✅ Tamam ([v1](ideas/round-3-concepts.md), [jüri](sessions/003-jury-verdict.md), [v2](ideas/round-3-revised.md)) |
+| 2e. Berk STREIFLICHT'i değerlendirir | ⏳ Bekliyor |
 | 3. Deneyim senaryosu + wireframe + teknik spike | — |
 | 4. Prototip (`/cv` preview branch) | — |
 | 5. Prod yayını, ölçüm, ödül başvuru dosyası (case film) | — |
