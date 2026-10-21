@@ -27,7 +27,7 @@ cv-studio/
 ├── principles.md             ← pazarlık edilemez kurallar (8 sn testi, Boring Mode, a11y, perf, GEO)
 ├── fact-bank.md              ← tek doğruluk kaynağı: sitede kullanılacak her rakam buradan gelir
 ├── DECISIONS.md              ← karar kaydı (ADR)
-├── team/ROSTER.md            ← 32 ajan, görevleri, neyi savundukları, kırmızı çizgileri
+├── team/ROSTER.md            ← 32 ajan (Maestro + Orhan + 30 uzman), görevleri, neyi savundukları, kırmızı çizgileri
 ├── sessions/                 ← her konsey oturumunun tutanağı
 │   └── 001-kickoff-council.md
 └── ideas/
@@ -39,8 +39,8 @@ cv-studio/
 | Aşama | Durum |
 |---|---|
 | 0. Ortam & ekip kurulumu | ✅ Tamam |
-| 1. Kickoff konseyi → 5 konsept | ✅ Tamam ([oturum 001](sessions/001-kickoff-council.md)) |
-| 2. Berk konsept seçer / birleştirir | ⏳ Bekliyor |
+| 1. Kickoff konseyi → 5 konsept | ✅ Tamam ([oturum 001](sessions/001-kickoff-council.md), [5 konsept](ideas/round-1-five-concepts.md)) |
+| 2. Berk konsept seçer / birleştirir + fact çelişkilerini çözer | ⏳ Bekliyor |
 | 3. Deneyim senaryosu + wireframe + teknik spike | — |
 | 4. Prototip (`/cv` preview branch) | — |
 | 5. Prod yayını, ölçüm, ödül başvuru dosyası (case film) | — |
