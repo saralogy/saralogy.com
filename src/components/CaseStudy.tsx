@@ -24,7 +24,7 @@ export function CaseStudy() {
           {/* Left — image + brand */}
           <div className="relative overflow-hidden bg-neutral-900" style={{ minHeight: "380px" }}>
             <img
-              src="/images/bsh-siemens-case-study.png"
+              src="/images/bsh-siemens-case-study.webp"
               alt="BSH Siemens brand case study"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-40 grayscale"
               width={800}
